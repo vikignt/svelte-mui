@@ -2,7 +2,7 @@
 
 Simple Svelt 3 UI components
 
-[Demo](svelte-ui.ibbf.ru)
+[Demo](https://svelte-ui.ibbf.ru)
 
 ## Get started with example
 
