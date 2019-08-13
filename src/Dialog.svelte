@@ -24,24 +24,30 @@
 	export let visible = false;
 	export let width = 320;
 
-	import { tick, onDestroy } from 'svelte';
+	import { tick, onMount, onDestroy } from 'svelte';
 	import { fade, scale } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 
 	import { trapTabKey } from './lib/focusableElm';
 	import enableScroll from './lib/enableScroll';
 
+	let mounted = false;
 	let dlgElm;
 
 	$: if (visible) {
-		enableScroll(false);
+		mounted && enableScroll(false);
 		onVisible();
 	} else {
-		enableScroll(true);
+		mounted && enableScroll(true);
 	}
 
+	onMount(async () => {
+		await tick();
+		mounted = true;
+	});
+
 	onDestroy(() => {
-		enableScroll(true);
+		mounted && enableScroll(true);
 	});
 
 	async function onVisible() {

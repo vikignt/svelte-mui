@@ -37,7 +37,7 @@
 </button>
 
 <script>
-	import { afterUpdate } from 'svelte';
+	import { tick, onMount, afterUpdate } from 'svelte';
 	import { isLegacy, luminance } from './lib/colors';
 	import Icon from './Icon.svelte';
 	import Ripple from './Ripple.svelte';
@@ -67,14 +67,20 @@
 	$: scale = icon ? (fab ? 1 : dense ? 0.8333 : 1) : dense ? 0.6667 : 0.75;
 	$: computedStyle = `background: ${raised || unelevated ? color : 'transparent'};${style}`;
 	$: if (color === 'primary') {
-		color = isLegacy() ? '#1976d2' : 'var(--primary, #1976d2)';
+		color = legacy ? '#1976d2' : 'var(--primary, #1976d2)';
 	} else if (color == 'accent') {
-		color = isLegacy() ? '#f50057' : 'var(--accent, #f50057)';
+		color = legacy ? '#f50057' : 'var(--accent, #f50057)';
 	} else if (!color) {
-		color = isLegacy() ? '#333' : 'var(--color, #333)';
+		color = legacy ? '#333' : 'var(--color, #333)';
 	}
 
 	let el;
+	let legacy = false;
+
+	onMount(async () => {
+		await tick();
+		legacy = isLegacy();
+	});
 
 	afterUpdate(() => {
 		if (!el) return;
