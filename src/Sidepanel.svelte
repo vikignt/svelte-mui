@@ -17,6 +17,7 @@
 	export let visible = false;
 	export let disableScroll = false;
 
+	import { tick, onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { trapTabKey } from './lib/focusableElm';
 	import enableScroll from './lib/enableScroll';
@@ -24,15 +25,21 @@
 	const swipeArea = 20;
 	const swipeMin = 50;
 	let touchStart = { x: null, y: null };
+	let mounted = false;
 	let dom;
 
 	$: if (visible) {
 		oneVisible = true;
-		disableScroll && enableScroll(false);
+		mounted && disableScroll && enableScroll(false);
 	} else {
-		enableScroll(true);
+		mounted && enableScroll(true);
 		hide();
 	}
+
+	onMount(async () => {
+		await tick();
+		mounted = true;
+	});
 
 	function hide() {
 		visible = false;

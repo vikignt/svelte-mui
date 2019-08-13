@@ -31,6 +31,8 @@
 	export let right = false;
 	export let color = 'primary'; // primary, accent, currentColor, inherit
 
+	import { tick, onMount } from 'svelte';
+
 	import Icon from './Icon.svelte';
 	import Ripple from './Ripple.svelte';
 
@@ -38,12 +40,18 @@
 
 	let radioChecked = 'M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z';
 	let radioUnchecked = 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z';
+	let legacy = false;
 
 	$: if (color === 'primary' || !color) {
-		color = isLegacy() ? '#1976d2' : 'var(--primary, #1976d2)';
+		color = legacy ? '#1976d2' : 'var(--primary, #1976d2)';
 	} else if (color === 'accent') {
-		color = isLegacy() ? '#f50057' : 'var(--accent, #f50057)';
+		color = legacy ? '#f50057' : 'var(--accent, #f50057)';
 	}
+
+	onMount(async () => {
+		await tick();
+		legacy = isLegacy();
+	});
 </script>
 
 <style>

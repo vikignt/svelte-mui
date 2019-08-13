@@ -1,5 +1,5 @@
 <label class:right class:disabled class={classes} {title}>
-	<input type="checkbox" {id} {name} bind:this={inputEl} bind:checked bind:indeterminate {value} {tabindex} disabled={disabled ? 'true' : null} on:change />
+	<input type="checkbox" {id} {name} bind:this={inputEl} bind:checked bind:indeterminate {value} {tabindex} disabled={disabled ? 'true' : null} on:change={groupUpdate} on:change />
 	<div class="mark" style={`color: ${indeterminate || checked ? color : '#9a9a9a'}`}>
 		<Icon content={indeterminate ? checkboxIndeterminate : checked ? checkbox : checkboxOutline} />
 		{#if ripple}
@@ -35,11 +35,12 @@
 	export let right = false;
 	export let color = 'primary'; // primary, accent, currentColor, inherit
 
-	import { tick, onMount, onDestroy } from 'svelte';
+	import { tick, onMount } from 'svelte';
 	import Icon from './Icon.svelte';
 	import Ripple from './Ripple.svelte';
 
 	let inputEl;
+	let legacy = false;
 	let checkbox = 'M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z';
 	let checkboxOutline = 'M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z';
 	let checkboxIndeterminate = 'M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z';
@@ -49,9 +50,9 @@
 	}
 
 	$: if (color === 'primary' || !color) {
-		color = isLegacy() ? '#1976d2' : 'var(--primary, #1976d2)';
+		color = legacy ? '#1976d2' : 'var(--primary, #1976d2)';
 	} else if (color === 'accent') {
-		color = isLegacy() ? '#f50057' : 'var(--accent, #f50057)';
+		color = legacy ? '#f50057' : 'var(--accent, #f50057)';
 	}
 
 	function groupCheck() {
@@ -76,10 +77,7 @@
 
 	onMount(async () => {
 		await tick();
-		inputEl.addEventListener('change', groupUpdate);
-	});
-	onDestroy(() => {
-		inputEl.removeEventListener('change', groupUpdate);
+		legacy = isLegacy();
 	});
 </script>
 
