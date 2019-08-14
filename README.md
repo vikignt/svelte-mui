@@ -1,6 +1,6 @@
 # svelte-ui
 
-Simple Svelt 3 UI components
+Simple Svelte 3 UI components, SSR ready, `sapper` compatable
 
 [Demo](https://svelte-ui.ibbf.ru)
 
