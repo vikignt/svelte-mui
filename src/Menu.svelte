@@ -1,4 +1,4 @@
-<svelte:window on:keydown={onWindowKeydown} on:click={onWindowClick} />
+<svelte:window on:keydown={onWindowKeydown} on:touchstart={onWindowClick} on:click={onWindowClick} />
 
 <div class="menu" on:click={onActivatorClick} bind:this={menuEl}>
 	<slot name="activator">
