@@ -20,7 +20,7 @@
 
 		<div class="grow">Simple Components</div>
 
-		{#if !isLegacy()}
+		{#if !isLegacy}
 			<Button icon={invertColors} on:click={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
 		{/if}
 
@@ -30,7 +30,7 @@
 					<Button icon={moreVert} color="inherit" />
 				</span>
 
-				<Menuitem disabled={isLegacy()} on:click={(e) => setTheme(e.target.textContent)}>{theme === 'dark' ? 'Light' : 'Dark'}</Menuitem>
+				<Menuitem disabled={isLegacy} on:click={(e) => setTheme(e.target.textContent)}>{theme === 'dark' ? 'Light' : 'Dark'}</Menuitem>
 				<Menuitem on:click={() => (rspVisible = true)} ripple={false} title="Item Menu withowt Ripple">Help</Menuitem>
 				<hr />
 				<Menuitem
@@ -190,6 +190,7 @@
 	let lspVisible = false;
 	let rspVisible = false;
 	let loginDialogVisible = false;
+	let isLegacy = false;
 
 	let username = '';
 	let password = '';
@@ -214,6 +215,8 @@
 	onMount(async () => {
 		await tick();
 		try {
+			isLegacy = !(window.CSS && window.CSS.supports && window.CSS.supports('(--foo: red)'));
+
 			let mql = window.matchMedia('(prefers-color-scheme: dark)');
 			mql.matches && setTheme('dark');
 		} catch (err) {} // eslint-disable-line
@@ -238,10 +241,6 @@
 
 			offsetTop > 36 ? (appBar.style.boxShadow = '0 1px 6px rgba(0, 0, 0, .12), 0 1px 6px rgba(0, 0, 0, .18)') : (appBar.style.boxShadow = '');
 		}
-	}
-
-	function isLegacy() {
-		return !(window.CSS && window.CSS.supports && window.CSS.supports('(--foo: red)'));
 	}
 </script>
 
