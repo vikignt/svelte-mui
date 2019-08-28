@@ -1,4 +1,4 @@
-<svelte:window on:keydown={onWindowKeydown} on:touchstart={onWindowClick} on:click={onWindowClick} />
+<svelte:window on:keydown={onWindowKeydown} on:click={onWindowClick} />
 
 <div class="menu" on:click={onActivatorClick} bind:this={menuEl}>
 	<slot name="activator">
@@ -106,6 +106,9 @@
 </script>
 
 <style>
+	:global(html) {
+		cursor: pointer; /* for handle iOS click event on window */
+	}
 	.menu {
 		position: relative;
 		display: inline-block;
