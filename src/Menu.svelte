@@ -106,8 +106,11 @@
 </script>
 
 <style>
-	:global(html) {
-		cursor: pointer; /* for handle iOS click event on window */
+	@supports (-webkit-overflow-scrolling: touch) {
+		/* CSS specific to iOS devices */
+		:global(html) {
+			cursor: pointer; /* for handle iOS click event on window */
+		}
 	}
 	.menu {
 		position: relative;
