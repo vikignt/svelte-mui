@@ -12,7 +12,7 @@
 
 <script>
 	import DemoContainer from '../DemoContainer.svelte';
-	import { Button } from '../../../../src';
+	import { Button } from '/src';
 
 	export let visible = false;
 </script>

@@ -23,7 +23,7 @@
 		]
 	</p>
 
-	<div slot="props" class="layout alignment-top-space-around">
+	<div slot="play" class="layout alignment-top-space-around">
 		<div>
 			<Radio bind:group={origin} value={'bottom left'}>bottom left</Radio>
 			<Radio bind:group={origin} value={'bottom right'}>bottom right</Radio>
@@ -52,7 +52,7 @@
 
 <script>
 	import DemoContainer from '../DemoContainer.svelte';
-	import { Menu, Menuitem, Icon, Button, Radio } from '../../../../src';
+	import { Menu, Menuitem, Icon, Button, Radio } from '/src';
 	import { arrowDropDown } from '../icons';
 
 	let menu;

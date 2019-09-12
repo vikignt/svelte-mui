@@ -42,7 +42,7 @@
 		]
 	</p>
 
-	<div slot="props" class="layout alignment-top-space-around">
+	<div slot="play" class="layout alignment-top-space-around">
 		<div>
 			<Checkbox bind:checked={props.right}>right</Checkbox>
 			<Checkbox bind:checked={props.ripple}>
@@ -55,7 +55,7 @@
 
 <script>
 	import DemoContainer from '../DemoContainer.svelte';
-	import { Button, Checkbox } from '../../../../src';
+	import { Button, Checkbox } from '/src';
 
 	let checked = true;
 	let indeterminate = false;

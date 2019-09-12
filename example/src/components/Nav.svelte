@@ -18,7 +18,7 @@
 	export let routes = [];
 	export let level = 0;
 
-	import { Icon, Ripple } from '../../../src';
+	import { Icon, Ripple } from '/src';
 	import { expandMore } from './icons';
 
 	let open = true;

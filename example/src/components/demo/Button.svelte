@@ -10,7 +10,7 @@
 		]
 	</p>
 
-	<div slot="props" class="layout alignment-top-space-around">
+	<div slot="play" class="layout alignment-top-space-around">
 		<div>
 			<Radio bind:group={type} value={'baseline'}>
 				<span title="default">baseline *</span>
@@ -39,7 +39,7 @@
 
 	import DemoContainer from '../DemoContainer.svelte';
 	import { cartOutline, search, send } from '../icons';
-	import { Button, Checkbox, Radio } from '../../../../src';
+	import { Button, Checkbox, Radio } from '/src';
 
 	let counter = 0;
 

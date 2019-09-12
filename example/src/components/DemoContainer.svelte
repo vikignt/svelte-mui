@@ -11,7 +11,7 @@
 
 {#if labelProps}
 	<p>{labelProps}</p>
-	<slot name="props">
+	<slot name="play">
 		<p>
 			<i>No properties</i>
 		</p>

@@ -24,5 +24,5 @@
 	export let rpanel;
 
 	import DemoContainer from '../DemoContainer.svelte';
-	import { Button } from '../../../../src';
+	import { Button } from '/src';
 </script>

@@ -4,7 +4,7 @@
 		<Textfield bind:value {label} {required} {message} {error} {readonly} {disabled} {outlined} {filled} />
 	</div>
 
-	<div slot="props">
+	<div slot="play">
 		<div class="properties layout alignment-top-space-between">
 			<label style="width: 48%;">
 				label
@@ -41,7 +41,7 @@
 
 <script>
 	import DemoContainer from '../DemoContainer.svelte';
-	import { Checkbox, Textfield, Radio } from '../../../../src';
+	import { Checkbox, Textfield, Radio } from '/src';
 
 	let label = 'Label';
 	let required = true;

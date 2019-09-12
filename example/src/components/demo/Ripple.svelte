@@ -11,7 +11,7 @@
 
 <script>
 	import DemoContainer from '../DemoContainer.svelte';
-	import { Ripple } from '../../../../src';
+	import { Ripple } from '/src';
 </script>
 
 <style>

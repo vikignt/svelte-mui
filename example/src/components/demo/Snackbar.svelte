@@ -8,7 +8,7 @@
 <DemoContainer>
 	<Button color="primary" outlined on:click={() => (visible = true)}>Show snackbar</Button>
 
-	<div slot="props">
+	<div slot="play">
 		<div class="layout alignment-top-space-around">
 			<div>
 				<Radio bind:group={type} value={'0'}>default</Radio>
@@ -31,7 +31,7 @@
 
 <script>
 	import DemoContainer from '../DemoContainer.svelte';
-	import { Snackbar, Button, Checkbox, Radio, Textfield } from '../../../../src';
+	import { Snackbar, Button, Checkbox, Radio, Textfield } from '/src';
 
 	let visible = false;
 	let timeout = 5;

@@ -23,12 +23,12 @@
 		]
 	</p>
 
-	<div slot="props" class="row-flex" />
+	<div slot="play" class="row-flex" />
 </DemoContainer>
 
 <script>
 	import DemoContainer from '../DemoContainer.svelte';
-	import { Button, Checkbox } from '../../../../src';
+	import { Button, Checkbox } from '/src';
 
 	let colors = ['coral', 'goldenrod', 'limegreen'];
 	let favorite = ['coral', 'goldenrod'];

@@ -4,6 +4,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import autoPreprocess from 'svelte-preprocess'
+import root from 'rollup-plugin-root-import';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -16,6 +17,11 @@ export default {
 		file: 'public/bundle.js'
 	},
 	plugins: [
+		root({
+			root: `${__dirname}/../`,
+			useEntry: 'prepend',
+			extensions: ['.mjs', '/index.mjs', '.js', '/index.js']
+		}),
 		svelte({
 			preprocess: autoPreprocess({ postcss: true }),
 			// enable run-time checks when not in production

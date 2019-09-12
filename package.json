@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "Simple svelte ui components",
   "author": "viking <vikignt@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vikignt/svelte-ui.git"
+  },
   "license": "MIT",
   "svelte": "src/index.js",
   "module": "index.mjs",
@@ -15,7 +19,7 @@
     "rollup": "^1.19.4",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-svelte": "^5.0.0",
-    "svelte": "^3.7.1"
+    "svelte": "^3.12.1"
   },
   "keywords": [
     "svelte"

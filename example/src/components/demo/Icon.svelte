@@ -23,7 +23,7 @@
 
 <script>
 	import DemoContainer from '../DemoContainer.svelte';
-	import { Icon, Checkbox } from '../../../../src';
+	import { Icon, Checkbox } from '/src';
 
 	import { home, favorite, cartOutline, spinner } from '../icons';
 	import paint from '../icons/paint.svelte';
