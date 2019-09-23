@@ -99,6 +99,15 @@
 		top: 0;
 		transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
 	}
+	/* shake about one pixel on desktop safari (at least 12.1.2) with this transition */
+	/* Safari 11+ hack */
+	@media not all and (min-resolution:0.001dpcm) {
+		@supports (-webkit-appearance:none) and (stroke-color:transparent) {
+			.mark:before {
+				transition: none
+			}
+		}
+	}
 
 	.label-text {
 		margin-left: 4px;

@@ -126,6 +126,15 @@
 		top: 0;
 		transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
 	}
+	/* shake about one pixel on desktop safari (at least 12.1.2) with this transition */
+	/* Safari 11+ hack */
+	@media not all and (min-resolution:0.001dpcm) {
+		@supports (-webkit-appearance:none) and (stroke-color:transparent) {
+			.mark:before {
+				transition: none
+			}
+		}
+	}
 	.label-text {
 		margin-left: 4px;
 		white-space: nowrap;
@@ -137,7 +146,7 @@
 		order: -1;
 	}
 	@media (hover: hover) {
-		label:hover:not(.disabled):not(.disabled) .mark:before {
+		label:hover:not([disabled]):not(.disabled) .mark:before {
 			opacity: 0.15;
 		}
 		:global(.focus-visible):focus:not([disabled]):not(.disabled) ~ .mark:before {
