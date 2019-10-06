@@ -112,7 +112,7 @@
 
 <style>
 	.side-panel {
-		background: #fff;
+		background: #fbfbfb;
 		background: var(--bg-color);
 		position: fixed;
 		visibility: hidden;

@@ -77,7 +77,7 @@
 		<p>
 			<i style="padding: 12px;">Blank</i>
 		</p>
-		<div class="about">v0.0.1</div>
+		<div class="about">v0.0.2</div>
 	</Sidepanel>
 
 	<Dialog width="290" bind:visible={loginDialogVisible}>
@@ -261,8 +261,7 @@
 	.app-bar {
 		height: 48px;
 		color: #fff;
-		background: #999;
-		background: var(--bg-app-bar);
+		background: var(--bg-app-bar, #888);
 		font-size: 18px;
 		line-height: 1;
 		min-width: inherit;
@@ -298,8 +297,7 @@
 	}
 
 	.warning {
-		background: #eee;
-		background: var(--bg-panel);
+		background: var(--bg-panel, #eee);
 		border-left: 4px solid #fdd835;
 		margin: 16px 0;
 		padding: 8px;
@@ -328,14 +326,12 @@
 		display: flex;
 		align-items: center;
 		color: #fff;
-		background: #999;
-		background: var(--bg-app-bar);
+		background: var(--bg-app-bar, #888);
 	}
 	.about {
 		position: absolute;
 		bottom: 0;
-		color: rgba(0, 0, 0, 0.1);
-		color: var(--divider);
+		color: var(--divider, rgba(0, 0, 0, 0.1));
 		font-size: 8px;
 		padding: 2px;
 	}
@@ -347,8 +343,7 @@
 		border-left: 4px solid #78c0a8;
 		line-height: 1.6;
 		position: relative;
-		background: #eee;
-		background: var(--bg-panel);
+		background: var(--bg-panel, #eee);
 	}
 	blockquote::before {
 		content: '\201C';

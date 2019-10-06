@@ -83,7 +83,7 @@
 		min-height: 32px;
 		background: none;
 		text-align: left;
-		color: #000;
+		color: #333;
 		color: var(--color);
 		caret-color: #1976d2;
 		caret-color: var(--primary);
@@ -111,7 +111,7 @@
 		left: 0;
 		top: 28px;
 		padding-right: 0.2em;
-		color: rgba(0, 0, 0, 0.375);
+		color: rgba(0, 0, 0, 0.3755);
 		color: var(--label);
 		background-color: inherit;
 
@@ -173,7 +173,7 @@
 		font-size: 12px;
 		line-height: normal;
 		letter-spacing: 0.4px;
-		color: rgba(0, 0, 0, 0.375);
+		color: rgba(0, 0, 0, 0.3755);
 		color: var(--label);
 		opacity: 0;
 

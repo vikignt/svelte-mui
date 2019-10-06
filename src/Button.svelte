@@ -100,7 +100,8 @@
 	}
 	button {
 		cursor: pointer;
-		font-family: var(--button-font-family, 'Roboto', Helvetica, sans-serif);
+		font-family: Roboto, Helvetica, sans-serif;
+		font-family: var(--button-font-family);
 		font-size: 0.875rem;
 		font-weight: 500;
 		letter-spacing: 0.75px;

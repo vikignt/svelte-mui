@@ -1,3 +1,4 @@
+import './style/global.css';
 import App from './App.svelte';
 import routes from './router';
 // Required focus highlight when using components,

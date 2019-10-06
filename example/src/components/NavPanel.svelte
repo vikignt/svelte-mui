@@ -41,17 +41,14 @@
 		overscroll-behavior: none;
 		padding: 8px 0;
 		border-radius: 4px;
-		background: #fff;
-		background: var(--bg-panel);
-		border: 1px solid rgba(0, 0, 0, 0.1);
-		border: 1px solid var(--divider);
+		background: var(--bg-panel, #eee);
+		border: 1px solid var(--divider, rgba(0, 0, 0, 0.1));
 	}
 	nav::-webkit-scrollbar {
 		height: 4px;
 		width: 4px;
 	}
 	nav::-webkit-scrollbar-thumb {
-		background: rgba(0, 0, 0, 0.375);
-		background: var(--border);
+		background: var(--border, rgba(0, 0, 0, 0.375));
 	}
 </style>

@@ -24,8 +24,7 @@
 
 <style>
 	.demo {
-		background: #eee;
-		background: var(--bg-panel);
+		background: var(--bg-panel, #eee);
 		margin-bottom: 16px;
 	}
 	.demo :global(.result) {
@@ -35,10 +34,8 @@
 	.toolbar {
 		height: 48px;
 		padding: 0 8px 0 16px;
-		color: rgba(0, 0, 0, 0.375);
-		color: var(--label);
-		background: #eee;
-		background: var(--bg-panel);
+		color: var(--label, rgba(0, 0, 0, 0.3755));
+		background: var(--bg-panel, #eee);
 	}
 	.toolbar .title {
 		font-size: 18px;
@@ -46,8 +43,7 @@
 	}
 
 	.component {
-		background: #eee;
-		background: var(--bg-panel);
+		background: var(--bg-panel, #eee);
 		margin: 1rem 0;
 		padding: 8px;
 		min-height: 6.25rem;
@@ -60,15 +56,12 @@
 	:global(.properties) input {
 		font-family: inherit;
 		font-size: inherit;
-		color: #000;
-		color: var(--color);
-		background: #fbfbfb;
-		background: var(--bg-color);
+		color: var(--color, #333);
+		background: var(--bg-color, #fbfbfb);
 		padding: 6px;
 		margin: 4px 0 4px 0;
 		box-sizing: border-box;
-		border: 1px solid rgba(0, 0, 0, 0.1);
-		border: 1px solid var(--divider);
+		border: 1px solid var(--divider, rgba(0, 0, 0, 0.1));
 		border-radius: 2px;
 	}
 </style>

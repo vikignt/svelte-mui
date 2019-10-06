@@ -26,8 +26,7 @@
 
 <style>
 	div {
-		font-family: monospace;
-		font-family: var(--code-font-family);
+		font-family: var(--code-font-family, "Roboto Mono", Menlo, Consolas, monospace);
 		font-size: 14px;
 		margin: 0;
 		padding: 0;

@@ -6,6 +6,15 @@ import { terser } from 'rollup-plugin-terser';
 import autoPreprocess from 'svelte-preprocess'
 import root from 'rollup-plugin-root-import';
 
+import copy from 'rollup-plugin-copy'
+
+import css from 'rollup-plugin-css-only'
+import postcss from 'postcss'
+import autoprefixer from 'autoprefixer'
+import properties from 'postcss-custom-properties'
+import cssnano from 'cssnano'
+import fs from 'fs'
+
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
@@ -17,6 +26,18 @@ export default {
 		file: 'public/bundle.js'
 	},
 	plugins: [
+		css({ output: function (styles, styleNodes) {
+			postcss([autoprefixer, properties, cssnano])
+				.process(styles, { from: undefined, to: 'public/global.css' })
+				.then(result => {
+					fs.writeFile('public/global.css', result.css, () => true)
+				})
+		}}),
+		copy({
+			targets: [
+				{ src: 'src/static/*', dest: 'public/' }
+			]
+		}),
 		root({
 			root: `${__dirname}/../`,
 			useEntry: 'prepend',
@@ -29,7 +50,7 @@ export default {
 			// we'll extract any component CSS out into
 			// a separate file — better for performance
 			css: css => {
-				css.write('public/bundle.css');
+				css.write('public/bundle.css', false);
 			}
 		}),
 

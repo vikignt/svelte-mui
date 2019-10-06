@@ -63,8 +63,7 @@
 	label {
 		width: 100%;
 		font-size: 13px;
-		color: rgba(0, 0, 0, 0.375);
-		color: var(--label);
+		color: var(--label, rgba(0, 0, 0, 0.3755));
 	}
 	input {
 		width: 100%;

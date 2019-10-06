@@ -11,7 +11,7 @@
 	--bg-input-filled: rgba(0, 0, 0, 0.0555);
 	--bg-app-bar: #888;
 	--bg-panel: #eee;
-	--font-family: "Roboto", Helvetica, sans-serif;
+	--font-family: Roboto, Helvetica, sans-serif;
 	--heading-font-family: var(--font-family);
 	--button-font-family: var(--font-family);
 	--code-font-family: "Roboto Mono", Menlo, Consolas, monospace
@@ -23,16 +23,13 @@
 }
 
 html {
-	color: #333;
 	color: var(--color);
-	background: #fafafa;
 	background: var(--bg-color);
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased
 }
 
 body {
-	font-family: Roboto, Helvetica, sans-serif;
 	font-family: var(--font-family);
 	font-size: 16px;
 	font-weight: 400;
@@ -50,7 +47,6 @@ body * {
 }
 
 hr {
-	background-color: rgba(0, 0, 0, .1);
 	background-color: var(--divider);
 	border: none;
 	height: 1px;
@@ -59,7 +55,6 @@ hr {
 }
 
 a {
-	color: #1976d2;
 	color: var(--primary);
 	text-decoration: none
 }
@@ -69,7 +64,6 @@ a:hover {
 }
 
 a:visited {
-	color: #1976d2;
 	color: var(--primary)
 }
 
@@ -136,7 +130,6 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: Roboto, Helvetica, sans-serif;
 	font-family: var(--heading-font-family);
 	margin-bottom: 1rem
 }
@@ -191,7 +184,6 @@ h6 {
 code {
 	padding: 0 0 .1em;
 	margin: 0;
-	background: rgba(0, 0, 0, .025);
 	background: var(--bg-color);
 	border-radius: 3px
 }
@@ -202,7 +194,6 @@ pre code {
 
 code,
 pre {
-	font-family: monospace;
 	font-family: var(--code-font-family);
 	font-size: 13px
 }

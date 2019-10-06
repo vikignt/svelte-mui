@@ -20,8 +20,7 @@
 		user-select: none;
 		box-sizing: border-box;
 		border-radius: 4px;
-		border: 1px solid #3590db;
-		border: 1px solid var(--primary);
+		border: 1px solid var(--primary, #1976d2);
 		display: inline-block;
 		margin: 0 1rem 1rem 0;
 		padding: 0.75rem;
@@ -30,13 +29,10 @@
 		border-radius: 0 !important;
 	}
 	.filled {
-		color: #fff;
-		color: var(--alternate);
-		background: #1976d2;
-		background: var(--primary);
+		color: var(--alternate, #fff);
+		background: var(--primary, #1976d2);
 	}
 	.bordered {
-		color: #3590db;
-		color: var(--primary);
+		color: var(--primary, #1976d2);
 	}
 </style>
