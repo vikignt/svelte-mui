@@ -48,7 +48,7 @@
 	.snackbar {
 		display: flex;
 		align-items: center;
-		border-radius: 0 0 4px 4px;
+		border-radius: 0 0 2px 2px;
 		padding: 6px 16px;
 		min-height: 48px;
 		min-width: 288px;
@@ -80,6 +80,7 @@
 	.bottom {
 		bottom: 0;
 		left: 50%;
+		border-radius: 2px 2px 0 0;
 		transform: translate3d(-50%, 0, 0);
 	}
 
