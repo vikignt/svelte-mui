@@ -1,4 +1,4 @@
-<!-- TODO: можно сделать haverable для приостановки таймера -->
+<!-- NOTE: можно сделать haverable для приостановки таймера -->
 {#if visible}
 	<div transition:fly={{ y: position === 'top' ? -48 : 48, duration: 350 }} class={`snackbar ${position}`} on:click bind:this={snackElm} style={`color: ${color};background: ${bgcolor};${style}`}>
 		<div class="message">

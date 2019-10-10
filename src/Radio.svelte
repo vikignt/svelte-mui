@@ -101,10 +101,10 @@
 	}
 	/* shake about one pixel on desktop safari (at least 12.1.2) with this transition */
 	/* Safari 11+ hack */
-	@media not all and (min-resolution:0.001dpcm) {
-		@supports (-webkit-appearance:none) and (stroke-color:transparent) {
+	@media not all and (min-resolution: 0.001dpcm) {
+		@supports (-webkit-appearance: none) and (stroke-color: transparent) {
 			.mark:before {
-				transition: none
+				transition: none;
 			}
 		}
 	}

@@ -84,9 +84,9 @@
 		background: none;
 		text-align: left;
 		color: #333;
-		color: var(--color);
+		color: var(--color, #333);
 		caret-color: #1976d2;
-		caret-color: var(--primary);
+		caret-color: var(--primary, #1976d2);
 		border: none;
 		margin: 0;
 		padding: 2px 0 0;
@@ -102,7 +102,7 @@
 	}
 	.input:hover ~ .input-line {
 		background: #333;
-		background: var(--color);
+		background: var(--color, #333);
 	}
 	.label {
 		font: inherit;
@@ -112,7 +112,7 @@
 		top: 28px;
 		padding-right: 0.2em;
 		color: rgba(0, 0, 0, 0.3755);
-		color: var(--label);
+		color: var(--label, rgba(0, 0, 0, 0.3755));
 		background-color: inherit;
 
 		pointer-events: none;
@@ -146,7 +146,7 @@
 		margin: 0;
 		height: 1px;
 		background: rgba(0, 0, 0, 0.375);
-		background: var(--border);
+		background: var(--border, rgba(0, 0, 0, 0.375));
 	}
 	.focus-line {
 		position: absolute;
@@ -161,7 +161,7 @@
 		z-index: 2;
 
 		background: #1976d2;
-		background: var(--primary);
+		background: var(--primary, #1976d2);
 	}
 	.help {
 		position: absolute;
@@ -174,7 +174,7 @@
 		line-height: normal;
 		letter-spacing: 0.4px;
 		color: rgba(0, 0, 0, 0.3755);
-		color: var(--label);
+		color: var(--label, rgba(0, 0, 0, 0.3755));
 		opacity: 0;
 
 		overflow: hidden;
@@ -198,7 +198,7 @@
 		bottom: unset;
 		font-size: 13px;
 		color: #1976d2;
-		color: var(--primary);
+		color: var(--primary, #1976d2);
 	}
 	.baseline .input:focus ~ .focus-line {
 		transform: scaleX(1);
@@ -215,7 +215,7 @@
 
 	.baseline.filled {
 		background: rgba(0, 0, 0, 0.0555);
-		background: var(--bg-input-filled);
+		background: var(--bg-input-filled, rgba(0, 0, 0, 0.0555));
 		border-radius: 4px 4px 0 0;
 	}
 	.baseline.filled .label {
@@ -235,7 +235,7 @@
 	.filled .input:hover,
 	.filled .input:focus {
 		background: rgba(0, 0, 0, 0.0555);
-		background: var(--bg-input-filled);
+		background: var(--bg-input-filled, rgba(0, 0, 0, 0.0555));
 	}
 
 	.outlined .help {
@@ -245,7 +245,7 @@
 		padding: 11px 16px 9px;
 		border-radius: 4px;
 		border: 1px solid rgba(0, 0, 0, 0.375);
-		border: 1px solid var(--border);
+		border: 1px solid var(--border, rgba(0, 0, 0, 0.375));
 	}
 	.outlined .label {
 		top: 12px;
@@ -262,7 +262,7 @@
 	}
 	.outlined .input:hover {
 		border-color: #333;
-		border-color: var(--color);
+		border-color: var(--color, #333);
 	}
 	.outlined .input:focus ~ .label {
 		top: -6px;
@@ -272,12 +272,12 @@
 		padding: 0 4px;
 		left: 13px;
 		color: #1976d2;
-		color: var(--primary);
+		color: var(--primary, #1976d2);
 	}
 	.outlined .input:focus ~ .focus-ring,
 	.outlined .input.focus-visible ~ .focus-ring {
 		border-color: #1976d2;
-		border-color: var(--primary);
+		border-color: var(--primary, #1976d2);
 	}
 	.outlined .input:focus ~ .help {
 		opacity: 1;
