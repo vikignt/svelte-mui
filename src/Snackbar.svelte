@@ -1,6 +1,12 @@
-<!-- NOTE: можно сделать haverable для приостановки таймера -->
 {#if visible}
-	<div transition:fly={{ y: position === 'top' ? -48 : 48, duration: 350 }} class={`snackbar ${position}`} on:click bind:this={snackElm} style={`color: ${color};background: ${bgcolor};${style}`}>
+	<div
+		transition:fly={{ y: bottom ? 48 : -48, duration: 350 }}
+		class={'snackbar ' + className}
+		class:top={!bottom}
+		class:bottom
+		style={`color: ${color};background: ${bg};${style}`}
+		use:events
+	>
 		<div class="message">
 			<slot />
 		</div>
@@ -13,24 +19,29 @@
 {/if}
 
 <script>
-	export let visible = false;
-	export let position = 'top';
-	export let bgcolor = 'rgba(0,0,0,.87)';
-	export let color = '#fff';
-	export let timeout = 5;
-	export let style = '';
-
 	import { onDestroy } from 'svelte';
 	import { fly } from 'svelte/transition';
+	import { current_component } from 'svelte/internal';
+	import { getEventsAction } from './lib/events';
 	import Button from './Button.svelte';
 
+	const events = getEventsAction(current_component);
+
+	export let visible = false;
+	export { className as class };
+	let className = '';
+	export let style = '';
+	export let bottom = false;
+	export let bg = 'rgba(0,0,0,.87)';
+	export let color = '#fff';
+	export let timeout = 5;
+
 	let timerId;
-	let snackElm;
 
 	$: if (visible === true) {
+		clearTimeout(timerId);
+		timerId = undefined;
 		if (timeout > 0) {
-			clearTimeout(timerId);
-
 			timerId = setTimeout(() => {
 				visible = false;
 				timerId = undefined;
@@ -56,7 +67,8 @@
 		position: fixed;
 		flex-wrap: nowrap;
 		z-index: 50;
-		box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+		box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+			0 1px 18px 0 rgba(0, 0, 0, 0.12);
 	}
 
 	.action {

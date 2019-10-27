@@ -10,4 +10,16 @@ import Sidepanel from './Sidepanel.svelte';
 import Snackbar from './Snackbar.svelte';
 import Textfield from './Textfield.svelte';
 
-export { Button, Checkbox, Dialog, Icon, Menu, Menuitem, Radio, Ripple, Sidepanel, Snackbar, Textfield };
+export {
+	Button,
+	Checkbox,
+	Dialog,
+	Icon,
+	Menu,
+	Menuitem,
+	Radio,
+	Ripple,
+	Sidepanel,
+	Snackbar,
+	Textfield,
+};

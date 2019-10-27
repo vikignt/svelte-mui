@@ -1,0 +1,17 @@
+{
+	"arrowParens": "always",
+	"bracketSpacing": true,
+	"endOfLine": "lf",
+	"htmlWhitespaceSensitivity": "css",
+	"insertPragma": false,
+	"printWidth": 96,
+	"proseWrap": "preserve",
+	"requirePragma": false,
+	"semi": true,
+	"singleQuote": true,
+	"tabWidth": 2,
+	"trailingComma": "es5",
+	"useTabs": true,
+	"svelteSortOrder": "markup-scripts-styles",
+	"svelteBracketNewLine": true
+}

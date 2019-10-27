@@ -1,58 +1,96 @@
-<label class:right class:disabled class={classes} {title}>
-	<input type="checkbox" {id} {name} bind:this={inputEl} bind:checked bind:indeterminate {value} {tabindex} disabled={disabled ? 'true' : null} on:change={groupUpdate} on:change />
+<label class:right class:disabled class={className} {style} {title} use:events>
+	<input
+		type="checkbox"
+		bind:checked
+		bind:indeterminate
+		{value}
+		on:change={groupUpdate}
+		{...attrs}
+	/>
 	<div class="mark" style={`color: ${indeterminate || checked ? color : '#9a9a9a'}`}>
-		<Icon content={indeterminate ? checkboxIndeterminate : checked ? checkbox : checkboxOutline} />
+		<Icon path={indeterminate ? checkboxIndeterminate : checked ? checkbox : checkboxOutline} />
 		{#if ripple}
 			<Ripple center circle />
 		{/if}
 	</div>
 
 	<div class="label-text">
-		{#if label}
-			{label}
-		{:else}
-			<slot />
-		{/if}
+		<slot />
 	</div>
 </label>
 
 <script>
-	import { isLegacy } from './lib/colors';
-
-	export let id = null;
-	export let name = null;
-	export let classes = '';
-	export let tabindex = 0;
-	export let disabled = false;
-	export let title = null;
-
-	export let checked = false;
-	export let value = 'on';
-	export let group = null;
-	export let indeterminate = false;
-	export let ripple = true;
-	export let label = '';
-	export let right = false;
-	export let color = 'primary'; // primary, accent, currentColor, inherit
-
-	import { tick, onMount } from 'svelte';
+	import { current_component } from 'svelte/internal';
+	import { getEventsAction } from './lib/events';
+	import { islegacy } from './lib/colors';
 	import Icon from './Icon.svelte';
 	import Ripple from './Ripple.svelte';
 
-	let inputEl;
-	let legacy = false;
-	let checkbox = 'M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z';
-	let checkboxOutline = 'M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z';
-	let checkboxIndeterminate = 'M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z';
+	const events = getEventsAction(current_component);
+
+	export {
+		checked,
+		className as class,
+		style,
+		color,
+		disabled,
+		group,
+		indeterminate,
+		right,
+		ripple,
+		title,
+		value,
+	};
+
+	/* eslint-disable no-unused-vars */
+	let checked = false;
+	let className = '';
+	let style = null;
+	let color = 'primary'; // primary, accent, currentColor, inherit
+	let disabled = false;
+	let group = null;
+	let indeterminate = false;
+	let right = false;
+	let ripple = true;
+	let title = null;
+	let value = 'on';
+
+	let attrs = {};
+
+	$: {
+		const {
+			checked,
+			style,
+			color,
+			group,
+			indeterminate,
+			right,
+			ripple,
+			title,
+			value,
+			...other
+		} = $$props;
+
+		!other.disabled && delete other.disabled;
+		delete other.class;
+		attrs = other;
+	}
+
+	let checkbox =
+		'M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z';
+	let checkboxOutline =
+		'M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z';
+	let checkboxIndeterminate =
+		'M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z';
 
 	$: if (group !== null) {
 		groupCheck();
 	}
 
 	$: if (color === 'primary' || !color) {
-		color = legacy ? '#1976d2' : 'var(--primary, #1976d2)';
+		color = islegacy() ? '#1976d2' : 'var(--primary, #1976d2)';
 	} else if (color === 'accent') {
-		color = legacy ? '#f50057' : 'var(--accent, #f50057)';
+		color = islegacy() ? '#f50057' : 'var(--accent, #f50057)';
 	}
 
 	function groupCheck() {
@@ -74,11 +112,6 @@
 			group = group;
 		}
 	}
-
-	onMount(async () => {
-		await tick();
-		legacy = isLegacy();
-	});
 </script>
 
 <style>
@@ -90,6 +123,7 @@
 		position: relative;
 		cursor: pointer;
 		line-height: 40px;
+		user-select: none;
 	}
 	input {
 		cursor: inherit;

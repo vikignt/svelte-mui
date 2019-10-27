@@ -1,6 +1,12 @@
-<div class={`text-field ${outlined && !filled ? 'outlined' : 'baseline'} ${classes}`} class:filled class:dirty disabled={disabled ? 'true' : null} {style} {title} on:focus on:blur on:input>
-
-	<input type="text" {id} {name} {autocomplete} class="input" bind:value {min} {max} readonly={readonly ? 'true' : null} disabled={disabled ? 'true' : null} bind:this={inputEl} on:focus on:blur />
+<div
+	class={`text-field ${outlined && !filled ? 'outlined' : 'baseline'} ${className}`}
+	class:filled
+	class:dirty
+	class:disabled
+	{style}
+	{title}
+>
+	<input class="input" bind:value use:events {...attrs} />
 
 	<div class="focus-ring" />
 	<div class="label">
@@ -22,35 +28,71 @@
 </div>
 
 <script>
-	export let id = null;
-	export let name = null;
-	export let type = 'text';
-	export let classes = '';
-	export let style = null;
-	export let title = null;
-	export let outlined = false;
-	export let filled = false;
+	import { current_component } from 'svelte/internal';
+	import { getEventsAction } from './lib/events';
 
-	export let readonly = false;
-	export let disabled = false;
-	export let required = false;
-	export let autocomplete = null;
-	export let label = '';
-	export let value = '';
-	export let min = null;
-	export let max = null;
-	export let message = '';
-	export let error = false;
+	const events = getEventsAction(current_component);
 
-	import { tick, onMount } from 'svelte';
+	export {
+		value,
+		disabled,
+		required,
+		className as class,
+		style,
+		title,
+		label,
+		outlined,
+		filled,
+		message,
+		error,
+	};
 
-	let inputEl;
-	$: dirty = (typeof value === 'string' && value.length > 0) || typeof value === 'number';
+	/* eslint-disable no-unused-vars */
+	let value = '';
+	let disabled = false;
+	let required = false;
+	let className = '';
+	let style = null;
+	let title = null;
+	let label = '';
+	let outlined = false;
+	let filled = false;
+	let message = '';
+	let error = false;
 
-	onMount(async () => {
-		await tick();
-		inputEl.type = type;
-	});
+	let attrs = {};
+
+	$: {
+		const { value, style, title, label, outlined, filled, message, error, ...other } = $$props;
+
+		!other.readonly && delete other.readonly;
+		!other.disabled && delete other.disabled;
+		delete other.class;
+		other.type = allowedTypes.indexOf(other.type) < 0 ? 'text' : other.type;
+		attrs = other;
+	}
+
+	$: dirty =
+		(typeof value === 'string' && value.length > 0) ||
+		typeof value === 'number' ||
+		dirtyTypes.indexOf(attrs.type) >= 0;
+
+	const allowedTypes = [
+		'date',
+		'datetime-local',
+		'email',
+		'month',
+		'number',
+		'password',
+		'search',
+		'tel',
+		'text',
+		'time',
+		'url',
+		'week',
+	];
+
+	const dirtyTypes = ['date', 'datetime-local', 'month', 'time', 'week'];
 </script>
 
 <style>
@@ -72,7 +114,7 @@
 	}
 	.required {
 		position: relative;
-		top: 0.125em;
+		top: 0.25em;
 		left: 0.125em;
 		color: #ff5252;
 	}
@@ -145,8 +187,8 @@
 		bottom: 0;
 		margin: 0;
 		height: 1px;
-		background: rgba(0, 0, 0, 0.375);
-		background: var(--border, rgba(0, 0, 0, 0.375));
+		background: rgba(0, 0, 0, 0.3755);
+		background: var(--label, rgba(0, 0, 0, 0.3755));
 	}
 	.focus-line {
 		position: absolute;
@@ -155,8 +197,11 @@
 		right: 0;
 		height: 2px;
 		transform: scaleX(0);
-		transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.18s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.18s cubic-bezier(0.4, 0, 0.2, 1);
-		transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+		transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1),
+			opacity 0.18s cubic-bezier(0.4, 0, 0.2, 1),
+			-webkit-transform 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+		transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1),
+			opacity 0.18s cubic-bezier(0.4, 0, 0.2, 1);
 		opacity: 0;
 		z-index: 2;
 
@@ -244,8 +289,8 @@
 	.outlined .input {
 		padding: 11px 16px 9px;
 		border-radius: 4px;
-		border: 1px solid rgba(0, 0, 0, 0.375);
-		border: 1px solid var(--border, rgba(0, 0, 0, 0.375));
+		border: 1px solid rgba(0, 0, 0, 0.3755);
+		border: 1px solid var(--label, rgba(0, 0, 0, 0.3755));
 	}
 	.outlined .label {
 		top: 12px;

@@ -6,7 +6,16 @@
 	</slot>
 
 	{#if visible}
-		<div class="popover" tabindex="-1" transition:popover={{ opacity: 0, start: 0.75, origin }} on:introstart={transitionStart} on:introend={transitionEnd} on:click={onPopoverClick} bind:this={popoverEl}>
+		<div
+			class="popover"
+			tabindex="-1"
+			bind:this={popoverEl}
+			transition:popover={{ opacity: 0, start: 0.75, origin }}
+			on:introstart={transitionStart}
+			on:introend={transitionEnd}
+			on:click={onPopoverClick}
+			use:events
+		>
 			<ul>
 				<slot />
 			</ul>
@@ -15,13 +24,17 @@
 </div>
 
 <script>
-	export let dx = 0;
-	export let dy = 0;
-	export let origin = 'top right'; // 'bottom left', 'bottom right', 'top left', 'top right'
-	export let width = 2 * 56;
-
+	import { current_component } from 'svelte/internal';
+	import { getEventsAction } from './lib/events';
 	import { popover } from './lib/transition';
 	import { trapTabKey } from './lib/focusableElm';
+
+	const events = getEventsAction(current_component);
+
+	export let dx = 0;
+	export let dy = 0;
+	export let origin = 'top left'; // 'bottom left', 'bottom right', 'top left', 'top right'
+	export let width = 2 * 56;
 
 	let visible = false;
 	let menuEl;
@@ -38,7 +51,7 @@
 		} else {
 			popoverEl.style.right = dx + 'px';
 		}
-		popoverEl.style['width'] = Math.max(width, popoverEl.clientWidth) + 'px';
+		popoverEl.style['width'] = Math.max(+width, popoverEl.clientWidth) + 'px';
 	}
 
 	function onActivatorClick(e) {
@@ -81,9 +94,6 @@
 
 	function onPopoverClick(e) {
 		if (e.target.classList.contains('menu-item')) {
-			e.stopPropagation();
-			e.preventDefault();
-
 			hide();
 		}
 	}
@@ -127,7 +137,8 @@
 		background: var(--bg-popover, #fff);
 		border-radius: 4px;
 		margin: 0;
-		box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
+		box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14),
+			0 3px 1px -2px rgba(0, 0, 0, 0.12);
 		user-select: none;
 	}
 	.popover:focus {

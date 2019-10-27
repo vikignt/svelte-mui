@@ -1,23 +1,60 @@
-<i class={'icon ' + classes} class:flip={flip && typeof flip === 'boolean'} class:flip-h={flip === 'h'} class:flip-v={flip === 'v'} class:spin class:pulse={pulse && !spin} {style}>
-	<svg xmlns="http://www.w3.org/2000/svg" width={24 * scale} height={24 * scale} viewBox={box} fill={color}>
-		{#if typeof content === 'string'}
-			<path d={content} />
-		{:else}
-			<svelte:component this={content} />
-		{/if}
-	</svg>
+<i
+	class={'icon ' + className}
+	class:flip={flip && typeof flip === 'boolean'}
+	class:flip-h={flip === 'h'}
+	class:flip-v={flip === 'v'}
+	class:spin
+	class:pulse={pulse && !spin}
+	bind:this={elm}
+	use:events
+	{...attrs}
+>
+	{#if typeof path === 'string'}
+		<svg xmlns="http://www.w3.org/2000/svg" {viewBox}>
+			<path d={path} />
+		</svg>
+	{:else}
+		<slot />
+	{/if}
 </i>
 
 <script>
-	export let classes = '';
-	export let style = null;
-	export let content = null;
-	export let scale = 1;
-	export let box = '0 0 24 24';
-	export let color = 'currentColor';
-	export let flip = false;
-	export let spin = false;
-	export let pulse = false;
+	import { beforeUpdate } from 'svelte';
+	import { current_component } from 'svelte/internal';
+	import { getEventsAction } from './lib/events';
+
+	const events = getEventsAction(current_component);
+
+	export { className as class, path, size, viewBox, color, flip, spin, pulse };
+
+	/* eslint-disable no-unused-vars */
+	let className = '';
+	let path = null;
+	let size = 24;
+	let viewBox = '0 0 24 24';
+	let color = 'currentColor';
+	let flip = false;
+	let spin = false;
+	let pulse = false;
+
+	let elm;
+	let attrs = {};
+
+	$: {
+		const { path, size, viewBox, color, flip, spin, pulse, ...other } = $$props;
+
+		delete other.class;
+		attrs = other;
+	}
+
+	beforeUpdate(() => {
+		if (elm) {
+			elm.firstChild.setAttribute('width', size);
+			elm.firstChild.setAttribute('height', size);
+
+			color && elm.firstChild.setAttribute('fill', color);
+		}
+	});
 </script>
 
 <style>
@@ -26,6 +63,9 @@
 		position: relative;
 		vertical-align: middle;
 		line-height: 0.5;
+	}
+	.icon > svg {
+		display: inline-block;
 	}
 	.flip {
 		transform: scale(-1, -1);

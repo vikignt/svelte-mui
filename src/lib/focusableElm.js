@@ -1,9 +1,22 @@
 export function getFocusable(context = document) {
-	const focusable = Array.prototype.slice.call(context.querySelectorAll('button, [href], select, textarea, input:not([type="hidden"]), [tabindex]:not([tabindex="-1"])')).filter(function(item /*, index */) {
-		const style = window.getComputedStyle(item);
+	const focusable = Array.prototype.slice
+		.call(
+			context.querySelectorAll(
+				'button, [href], select, textarea, input:not([type="hidden"]), [tabindex]:not([tabindex="-1"])'
+			)
+		)
+		.filter(function(item /*, index */) {
+			const style = window.getComputedStyle(item);
 
-		return !item.disabled && !item.getAttribute('disabled') && !item.classList.contains('disabled') && style.display !== 'none' && style.visibility !== 'hidden' && style.opacity > 0;
-	});
+			return (
+				!item.disabled &&
+				!item.getAttribute('disabled') &&
+				!item.classList.contains('disabled') &&
+				style.display !== 'none' &&
+				style.visibility !== 'hidden' &&
+				style.opacity > 0
+			);
+		});
 
 	return focusable;
 }

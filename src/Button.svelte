@@ -1,7 +1,5 @@
 <button
-	{id}
-	class={'btn ' + classes}
-	class:baseline={!(raised || unelevated || outlined)}
+	class={className}
 	class:raised
 	class:outlined={outlined && !(raised || unelevated)}
 	class:shaped={shaped && !icon}
@@ -9,27 +7,11 @@
 	class:fab={fab && icon}
 	class:icon-button={icon}
 	style={computedStyle}
-	{tabindex}
-	disabled={disabled ? 'true' : null}
-	{title}
-	bind:this={el}
-	on:click
+	use:events
+	{...attrs}
+	bind:this={elm}
 >
-	{#if icon && typeof icon === 'boolean'}
-		<slot />
-	{:else if icon}
-		<Icon {scale} content={icon} />
-	{:else}
-		{#if left}
-			<Icon {scale} content={left} style="margin: 0 8px 0 -4px;" />
-		{/if}
-
-		<slot />
-
-		{#if right}
-			<Icon {scale} content={right} style="margin: 0 -4px 0 8px;" />
-		{/if}
-	{/if}
+	<slot />
 
 	{#if ripple}
 		<Ripple center={icon} circle={icon} />
@@ -37,59 +19,98 @@
 </button>
 
 <script>
-	import { tick, onMount, afterUpdate } from 'svelte';
-	import { isLegacy, luminance } from './lib/colors';
-	import Icon from './Icon.svelte';
+	import { beforeUpdate, afterUpdate } from 'svelte';
+	import { current_component } from 'svelte/internal';
+	import { getEventsAction } from './lib/events';
+
+	import { islegacy, luminance } from './lib/colors';
 	import Ripple from './Ripple.svelte';
 
-	export let id = null;
-	export let classes = '';
-	export let style = null;
-	export let tabindex = 0;
-	export let disabled = false;
-	export let title = null;
+	const events = getEventsAction(current_component);
 
-	export let icon = false;
-	export let fab = false;
+	export {
+		className as class,
+		style,
+		icon,
+		fab,
+		dense,
+		raised,
+		unelevated,
+		outlined,
+		shaped,
+		color,
+		ripple,
+	};
 
-	export let dense = false;
-	export let raised = false;
-	export let unelevated = false;
-	export let outlined = false;
+	/* eslint-disable no-unused-vars */
+	let className = '';
+	let style = null;
 
-	export let shaped = false;
-	export let left = null;
-	export let right = null;
+	let icon = false;
+	let fab = false;
 
-	export let color = null;
-	export let ripple = true;
+	let dense = false;
+	let raised = false;
+	let unelevated = false;
+	let outlined = false;
 
-	$: scale = icon ? (fab ? 1 : dense ? 0.8333 : 1) : dense ? 0.6667 : 0.75;
-	$: computedStyle = `background: ${raised || unelevated ? color : 'transparent'};${style}`;
-	$: if (color === 'primary') {
-		color = legacy ? '#1976d2' : 'var(--primary, #1976d2)';
-	} else if (color == 'accent') {
-		color = legacy ? '#f50057' : 'var(--accent, #f50057)';
-	} else if (!color) {
-		color = legacy ? '#333' : 'var(--color, #333)';
+	let shaped = false;
+
+	let color = null;
+	let ripple = true;
+
+	let elm;
+	let attrs = {};
+
+	$: {
+		const {
+			style,
+			icon,
+			fab,
+			dense,
+			raised,
+			unelevated,
+			outlined,
+			shaped,
+			color,
+			ripple,
+			...other
+		} = $$props;
+
+		!other.disabled && delete other.disabled;
+		delete other.class;
+		attrs = other;
 	}
 
-	let el;
-	let legacy = false;
+	$: iconSize = icon ? (fab ? 24 : dense ? 20 : 24) : dense ? 16 : 18;
 
-	onMount(async () => {
-		await tick();
-		legacy = isLegacy();
+	$: computedStyle = `background: ${raised || unelevated ? color : 'transparent'};${style}`;
+	$: if (color === 'primary') {
+		color = islegacy() ? '#1976d2' : 'var(--primary, #1976d2)';
+	} else if (color == 'accent') {
+		color = islegacy() ? '#f50057' : 'var(--accent, #f50057)';
+	} else if (!color) {
+		color = islegacy() ? '#333' : 'var(--color, #333)';
+	}
+
+	beforeUpdate(() => {
+		if (!elm) return;
+		let svgs = elm.getElementsByTagName('svg');
+		let len = svgs.length;
+
+		for (let i = 0; i < len; i++) {
+			svgs[i].setAttribute('width', iconSize);
+			svgs[i].setAttribute('height', iconSize);
+		}
 	});
-
 	afterUpdate(() => {
-		if (!el) return;
+		if (!elm) return;
 		if (raised || unelevated) {
-			let bg = window.getComputedStyle(el).getPropertyValue('background-color');
+			let bg = window.getComputedStyle(elm).getPropertyValue('background-color');
 			let lum = luminance(bg);
-			el.style.color = lum > 0.5 ? '#000' : '#fff';
+			elm.style.color = lum > 0.5 ? '#000' : '#fff';
 		} else {
-			el.style.color = color;
+			elm.style.color = color;
 		}
 	});
 </script>
@@ -142,11 +163,13 @@
 		position: absolute;
 		right: 0;
 		top: 0;
+		/* Bug on Chromium 79 */
 		transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
 	}
 
 	.raised {
-		box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+		box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+			0 1px 5px 0 rgba(0, 0, 0, 0.12);
 	}
 	.outlined {
 		padding: 0 14px;
@@ -160,23 +183,12 @@
 		height: 32px;
 	}
 
-	.icon,
 	.icon-button {
 		line-height: 0.5;
-	}
-
-	.icon.left {
-		margin: 0 8px 0 -4px;
-	}
-	.icon.right {
-		margin: 0 -4px 0 8px;
-	}
-
-	.icon-button {
 		border-radius: 50%;
 		padding: 8px;
-		width: auto;
-		height: auto;
+		width: 40px;
+		height: 40px;
 		vertical-align: middle;
 	}
 	.icon-button.outlined {
@@ -186,8 +198,14 @@
 		border: none;
 		width: 56px;
 		height: 56px;
-		box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+		box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+			0 1px 18px 0 rgba(0, 0, 0, 0.12);
 	}
+	.icon-button.dense {
+		width: 36px;
+		height: 36px;
+	}
+
 	.icon-button.fab.dense {
 		width: 40px;
 		height: 40px;
@@ -201,7 +219,7 @@
 		button:hover:not([disabled]):not(.disabled):before {
 			opacity: 0.15;
 		}
-		:global(.focus-visible).btn:focus:not([disabled]):not(.disabled):before {
+		button.focus-visible:focus:not([disabled]):not(.disabled):before {
 			opacity: 0.3;
 		}
 	}

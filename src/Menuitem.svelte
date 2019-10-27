@@ -1,21 +1,71 @@
-<li class="menu-item" tabindex={disabled ? '-1' : '0'} class:disabled {title} bind:this={itemEl} on:keydown={onKeydown} on:click>
-	<slot />
-	{#if ripple}
-		<Ripple />
-	{/if}
-</li>
+{#if url}
+	<li>
+		<a
+			class={'menu-item ' + className}
+			href={url}
+			tabindex={disabled ? '-1' : '0'}
+			bind:this={elm}
+			on:keydown={onKeydown}
+			use:events
+			{...attrs}
+		>
+			<slot />
+			{#if ripple}
+				<Ripple />
+			{/if}
+		</a>
+	</li>
+{:else}
+	<li
+		class={'menu-item ' + className}
+		tabindex={disabled ? '-1' : '0'}
+		bind:this={elm}
+		on:keydown={onKeydown}
+		use:events
+		{...attrs}
+	>
+		<slot />
+		{#if ripple}
+			<Ripple />
+		{/if}
+	</li>
+{/if}
 
 <script>
-	export let ripple = true;
-	export let disabled = false;
-	export let title = '';
-
+	import { current_component } from 'svelte/internal';
+	import { getEventsAction } from './lib/events';
 	import Ripple from './Ripple.svelte';
 
-	let itemEl;
+	const events = getEventsAction(current_component);
+
+	export { className as class, ripple };
+
+	/* eslint-disable no-unused-vars */
+	let className = '';
+	let ripple = true;
+
+	let disabled = false;
+	let url = null;
+	let attrs = {};
+
+	$: {
+		const { href, ripple, ...other } = $$props;
+
+		delete other.class;
+		if (other.disabled === false) {
+			delete other.disabled;
+		}
+
+		disabled = !!other.disabled;
+		url = href && !disabled ? href : null;
+
+		attrs = other;
+	}
+
+	let elm;
 
 	function onKeydown(e) {
-		// simulate click
+		// click simulate
 		if (e.keyCode === 13 || e.keyCode === 32) {
 			e.stopPropagation();
 			e.preventDefault();
@@ -24,8 +74,8 @@
 				bubbles: true,
 				cancelable: true,
 			});
-			itemEl.dispatchEvent(clickEvent);
-			itemEl.blur();
+			elm.dispatchEvent(clickEvent);
+			elm.blur();
 		}
 	}
 </script>
@@ -33,6 +83,10 @@
 <style>
 	li {
 		display: block;
+	}
+	a,
+	a:hover {
+		text-decoration: none;
 	}
 	.menu-item {
 		position: relative;

@@ -26,7 +26,9 @@
 		if (circle) {
 			scale = 0.15;
 			radius = el.clientWidth / 2;
-			radius = center ? radius : radius + Math.sqrt((localX - radius) ** 2 + (localY - radius) ** 2) / 4;
+			radius = center
+				? radius
+				: radius + Math.sqrt((localX - radius) ** 2 + (localY - radius) ** 2) / 4;
 		} else {
 			radius = Math.sqrt(el.clientWidth ** 2 + el.clientHeight ** 2) / 2;
 		}
@@ -62,7 +64,6 @@
 
 		// Create the ripple
 		const wave = document.createElement('span');
-		// let max
 		const { radius, scale, x, y, centerX, centerY } = calculate(event, container);
 
 		const color = container.dataset.color;
@@ -212,7 +213,8 @@
 	}
 	.ripple :global(.animation--in) {
 		transition: opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1);
-		transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+		transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+			opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1);
 	}
 	.ripple :global(.animation--out) {
 		transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);

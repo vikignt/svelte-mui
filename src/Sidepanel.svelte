@@ -4,7 +4,16 @@
 {#if visible}
 	<div class="overlay" transition:fade={{ duration: 300 }} on:click={hide} />
 {/if}
-<aside class="side-panel" class:left={!right} class:right class:visible bind:this={dom} on:transitionend={transitionEnd} tabindex="-1">
+<aside
+	class="side-panel"
+	class:left={!right}
+	class:right
+	class:visible
+	tabindex="-1"
+	bind:this={elm}
+	on:transitionend={transitionEnd}
+	use:events
+>
 	<slot />
 </aside>
 
@@ -13,20 +22,24 @@
 </script>
 
 <script>
+	import { tick, onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
+	import { current_component } from 'svelte/internal';
+	import { getEventsAction } from './lib/events';
+	import { trapTabKey } from './lib/focusableElm';
+	import enableScroll from './lib/enableScroll';
+
+	const events = getEventsAction(current_component);
+
 	export let right = false;
 	export let visible = false;
 	export let disableScroll = false;
-
-	import { tick, onMount } from 'svelte';
-	import { fade } from 'svelte/transition';
-	import { trapTabKey } from './lib/focusableElm';
-	import enableScroll from './lib/enableScroll';
 
 	const swipeArea = 20;
 	const swipeMin = 50;
 	let touchStart = { x: null, y: null };
 	let mounted = false;
-	let dom;
+	let elm;
 
 	$: if (visible) {
 		oneVisible = true;
@@ -55,7 +68,7 @@
 
 	function transitionEnd(e) {
 		if (visible && e.propertyName === 'visibility') {
-			dom.focus();
+			elm.focus();
 		}
 	}
 
@@ -105,7 +118,7 @@
 			hide();
 		}
 		if (visible) {
-			trapTabKey(e, dom);
+			trapTabKey(e, elm);
 		}
 	}
 </script>

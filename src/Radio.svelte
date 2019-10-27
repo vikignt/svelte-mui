@@ -1,56 +1,70 @@
-<label class:right class:disabled class={classes} {title}>
-	<input type="radio" {id} {name} {tabindex} {value} bind:group disabled={disabled ? 'true' : null} on:change />
+<label class:right class:disabled class={className} {style} {title} use:events>
+	<!-- {...attrs} don't work with bind:group, svelte bug? -->
+	<input type="radio" {disabled} {value} bind:group bind:this={elm} />
 	<div class="mark" style={`color: ${value === group ? color : '#9a9a9a'}`}>
-		<Icon content={group === value ? radioChecked : radioUnchecked} />
+		<Icon path={group === value ? radioChecked : radioUnchecked} />
 		{#if ripple}
 			<Ripple center circle />
 		{/if}
 	</div>
 
 	<div class="label-text">
-		{#if label}
-			{label}
-		{:else}
-			<slot />
-		{/if}
+		<slot />
 	</div>
 </label>
 
 <script>
-	export let id = null;
-	export let name = null;
-	export let classes = '';
-	export let tabindex = 0;
-	export let disabled = false;
-	export let title = null;
-
-	export let value;
-	export let group;
-	export let ripple = true;
-	export let label = '';
-	export let right = false;
-	export let color = 'primary'; // primary, accent, currentColor, inherit
-
 	import { tick, onMount } from 'svelte';
-
+	import { current_component } from 'svelte/internal';
+	import { getEventsAction } from './lib/events';
+	import { islegacy } from './lib/colors';
 	import Icon from './Icon.svelte';
 	import Ripple from './Ripple.svelte';
 
-	import { isLegacy } from './lib/colors';
+	const events = getEventsAction(current_component);
 
-	let radioChecked = 'M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z';
-	let radioUnchecked = 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z';
-	let legacy = false;
+	export { group, value, className as class, style, color, disabled, right, ripple, title };
 
-	$: if (color === 'primary' || !color) {
-		color = legacy ? '#1976d2' : 'var(--primary, #1976d2)';
-	} else if (color === 'accent') {
-		color = legacy ? '#f50057' : 'var(--accent, #f50057)';
+	/* eslint-disable no-unused-vars */
+	let group = null;
+	let value = 'on';
+	let className = '';
+	let style = null;
+	let color = 'primary'; // primary, accent, currentColor, inherit
+	let disabled = false;
+	let right = false;
+	let ripple = true;
+	let title = null;
+
+	let elm;
+	let attrs = {};
+
+	$: {
+		const { group, value, style, color, disabled, right, ripple, title, ...other } = $$props;
+
+		delete other.class;
+		attrs = other;
 	}
 
+	let radioChecked =
+		'M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z';
+	let radioUnchecked =
+		'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z';
+
+	$: if (color === 'primary' || !color) {
+		color = islegacy() ? '#1976d2' : 'var(--primary, #1976d2)';
+	} else if (color === 'accent') {
+		color = islegacy() ? '#f50057' : 'var(--accent, #f50057)';
+	}
+
+	// NOTE: not reactive
 	onMount(async () => {
 		await tick();
-		legacy = isLegacy();
+		if (elm) {
+			for (let name in attrs) {
+				elm.setAttribute(name, attrs[name]);
+			}
+		}
 	});
 </script>
 
@@ -63,6 +77,7 @@
 		margin: 0;
 		position: relative;
 		line-height: 40px;
+		user-select: none;
 	}
 	input {
 		cursor: inherit;

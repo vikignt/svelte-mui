@@ -1,0 +1,10 @@
+.*
+example/assets
+example/public
+temp
+*.json
+*.md
+*.tgz
+*.svg
+rollup.config.js
+LICENSE

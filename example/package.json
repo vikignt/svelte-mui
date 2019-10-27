@@ -1,40 +1,49 @@
 {
-  "name": "svelte-app",
-  "version": "0.0.2",
-  "description": "Simple svelte ui components example",
-  "author": "viking <vikignt@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/vikignt/svelte-ui.git"
-  },
-  "license": "MIT",
-  "devDependencies": {
-    "autoprefixer": "^9.6.4",
-    "cssnano": "^4.1.10",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^7.0.18",
-    "postcss-custom-properties": "^9.0.2",
-    "postcss-load-config": "^2.1.0",
-    "rollup": "^1.23.1",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-copy": "^3.1.0",
-    "rollup-plugin-css-only": "^1.0.0",
-    "rollup-plugin-livereload": "^1.0.4",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-root-import": "^0.2.4",
-    "rollup-plugin-svelte": "^5.1.0",
-    "rollup-plugin-terser": "^5.1.1",
-    "svelte": "^3.12.1",
-    "svelte-preprocess": "^3.0.2"
-  },
-  "dependencies": {
-    "sirv-cli": "^0.4.4"
-  },
-  "scripts": {
-    "build": "rollup -c",
-    "autobuild": "rollup -c -w",
-    "dev": "run-p start:dev autobuild",
-    "start": "sirv public --single",
-    "start:dev": "sirv public --single --dev"
-  }
+    "name": "svelte-app",
+    "version": "0.1.0",
+    "description": "Example of using @vikignt/svelte-ui components",
+    "author": "viking <vikignt@gmail.com>",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/vikignt/svelte-ui.git"
+    },
+    "license": "MIT",
+    "scripts": {
+        "build": "rimraf public/* && rollup -c && npm run zip",
+        "build:legacy": "rimraf public/* && rollup -c --environment BUILD_LEGACY && npm run zip",
+        "zip": "gzip -9k public/bundle.*",
+        "autobuild": "rollup -c -w",
+        "dev": "run-p start:dev autobuild",
+        "start": "sirv public --single --host 0.0.0.0",
+        "start:dev": "sirv public --single --host 0.0.0.0 --dev"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.6.3",
+        "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+        "@babel/plugin-transform-runtime": "^7.6.2",
+        "@babel/preset-env": "^7.6.3",
+        "@babel/runtime": "^7.6.3",
+        "@vikignt/svelte-ui": "^0.1.0",
+        "autoprefixer": "^9.6.1",
+        "focus-visible": "^5.0.2",
+        "highlight.js": "^9.15.10",
+        "marked": "^0.7.0",
+        "npm-run-all": "^4.1.5",
+        "page": "^1.11.5",
+        "postcss-custom-properties": "^9.0.2",
+        "rimraf": "^3.0.0",
+        "rollup": "^1.23.1",
+        "rollup-plugin-babel": "^4.3.3",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-copy": "^3.1.0",
+        "rollup-plugin-livereload": "^1.0.1",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-postcss": "^2.0.3",
+        "rollup-plugin-root-import": "^0.2.4",
+        "rollup-plugin-svelte": "^5.1.0",
+        "rollup-plugin-terser": "^5.1.2",
+        "rollup-pluginutils": "^2.8.2",
+        "sirv-cli": "^0.4.4",
+        "svelte": "^3.0.0"
+    }
 }
