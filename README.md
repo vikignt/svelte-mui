@@ -1,14 +1,37 @@
 # svelte-ui
 
-**`svelte-ui`** is a set of light in weight _(~19K full set minified gzip)_ UI components for [Svelte](https://svelte.dev) application, inspired by Google's [Material Design](https://material.io/design/)
+Set of the UI components for [Svelte](https://svelte.dev) (~19 KB minzipped)
 
-[Docs and Demo](https://svelte-ui.ibbf.ru)
+[View the demo](https://svelte-ui.ibbf.ru)
 
-## Quick start
+## Installation
 
 _Note that you will need to have [Node.js](https://nodejs.org) installed_
 
-1. Create a new project based on [sveltejs/template](https://github.com/sveltejs/template)
+```bash
+npm install --save-dev @vikignt/svelte-ui
+```
+
+## Usage
+
+```html
+<Textfield bind:value filled label="Name" message="Enter your name" />
+
+<h1>Hello {value}!</h1>
+
+<script>
+    // import any components you want
+    import { Textfield } from '@vikignt/svelte-ui';
+
+    let value = 'world';
+</script>
+```
+
+This code on the [Svelte REPL](https://svelte.dev/repl/5cae739a3a2f4208a48fd2822061b164?version=3.12.1)
+
+## Quick start with new project
+
+Create a new project based on [sveltejs/template](https://github.com/sveltejs/template)
 
 ```bash
 npx degit sveltejs/template svelte-app
@@ -16,7 +39,7 @@ cd svelte-app
 npm install
 ```
 
-2. Add components
+Add components
 
 ```bash
 npm install --save-dev @vikignt/svelte-ui
@@ -28,14 +51,21 @@ npm install --save-dev @vikignt/svelte-ui
 npm install --save-dev focus-visible
 ```
 
-3. Modify file `src/App.svelte` in the following way
+Modify file `src/App.svelte` in the following way
 
 ```html
-<h1>Hello {name}!</h1>
+<script>
+    // optional import focus-visible polyfill only once
+    import 'focus-visible';
+    // import any components
+    import { Button, Checkbox } from '@vikignt/svelte-ui';
+
+    let checked = true;
+</script>
 
 <Checkbox bind:checked>Checkbox</Checkbox>
 
-<p>Checkbox is <strong>{checked ? 'checked' : 'unchecked'}</strong></p>
+<p>Checkbox is {checked ? 'checked' : 'unchecked'}</p>
 
 <Button
     outlined
@@ -45,22 +75,6 @@ npm install --save-dev focus-visible
 >
     Inverse
 </Button>
-
-<script>
-    export let name;
-    // optional import focus-visible polyfill
-    import 'focus-visible';
-    // import any components
-    import { Button, Checkbox } from '@vikignt/svelte-ui';
-
-    let checked = true;
-</script>
-
-<style>
-    h1 {
-        color: purple;
-    }
-</style>
 ```
 
 ...then start [Rollup](https://rollupjs.org/)
@@ -71,21 +85,21 @@ npm run dev
 
 Navigate to [localhost:5000](http://localhost:5000)
 
-_NOTE: In real applications, you have to add global styles to `disabled` states_
+For real applications, you have to add global styles to `disabled` state
 
 ```css
-.disabled,
-[disabled] {
-	opacity: 0.5;
-	pointer-events: none;
-}
+    .disabled,
+    [disabled] {
+        opacity: 0.5;
+        pointer-events: none;
+    }
 
-.disabled .disabled,
-.disabled [disabled],
-[disabled] .disabled,
-[disabled] [disabled] {
-	opacity: 1;
-}
+    .disabled .disabled,
+    .disabled [disabled],
+    [disabled] .disabled,
+    [disabled] [disabled] {
+        opacity: 1;
+    }
 ```
 
 ## Get started with an example
@@ -105,7 +119,3 @@ npm run dev
 ```
 
 Navigate to [localhost:5000](http://localhost:5000)
-
-## License
-
-Code released under [MIT](https://github.com/vikignt/svelte-ui/blob/master/LICENSE) license

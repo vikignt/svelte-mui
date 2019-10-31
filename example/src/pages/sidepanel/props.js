@@ -3,7 +3,7 @@ export default [
 		name: 'disableScroll',
 		def: 'false',
 		type: 'boolean',
-		desc: 'Disables scrolling of the main application window when panel is open',
+		desc: 'Disables scrolling of the main application window when panel is visible',
 	},
 	{
 		name: 'right',

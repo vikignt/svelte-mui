@@ -60,6 +60,8 @@
 	let message = '';
 	let error = false;
 
+	let placeholder;
+
 	let attrs = {};
 
 	$: {
@@ -69,12 +71,14 @@
 		!other.disabled && delete other.disabled;
 		delete other.class;
 		other.type = allowedTypes.indexOf(other.type) < 0 ? 'text' : other.type;
+		placeholder = other.placeholder;
 		attrs = other;
 	}
 
 	$: dirty =
 		(typeof value === 'string' && value.length > 0) ||
 		typeof value === 'number' ||
+		placeholder ||
 		dirtyTypes.indexOf(attrs.type) >= 0;
 
 	const allowedTypes = [
@@ -114,7 +118,7 @@
 	}
 	.required {
 		position: relative;
-		top: 0.25em;
+		top: 0.175em;
 		left: 0.125em;
 		color: #ff5252;
 	}
@@ -135,9 +139,22 @@
 
 		outline: none;
 	}
+	.input::placeholder {
+		color: var(--label, rgba(0, 0, 0, 0.3755));
+		font-weight: 100;
+	}
 	.input::-moz-focus-inner {
 		padding: 0;
 		border: 0;
+	}
+	.input:-moz-focusring {
+		outline: none;
+	}
+	.input:required {
+		box-shadow: none;
+	}
+	.input:invalid {
+		box-shadow: none;
 	}
 	.input:active {
 		outline: none;

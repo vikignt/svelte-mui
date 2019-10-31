@@ -1,8 +1,8 @@
-### Quick start
+### Quick start with new project
 
 *Note that you will need to have [Node.js](https://nodejs.org) installed*
 
-1. Create a new project based on [sveltejs/template](https://github.com/sveltejs/template)
+Create a new project based on [sveltejs/template](https://github.com/sveltejs/template)
 
 ```bash
 npx degit sveltejs/template svelte-app
@@ -10,7 +10,7 @@ cd svelte-app
 npm install
 ```
 
-2. Add components
+Add components
 
 ```bash
 npm install --save-dev @vikignt/svelte-ui
@@ -22,7 +22,7 @@ npm install --save-dev @vikignt/svelte-ui
 npm install --save-dev focus-visible
 ```
 
-3. Modify file `src/App.svelte` in the following way
+Modify file `src/App.svelte` in the following way
 
 ```html
 <h1>Hello {name}!</h1>
@@ -42,7 +42,7 @@ npm install --save-dev focus-visible
 
 <script>
     export let name;
-    // optional import focus-visible polyfill
+    // optional import focus-visible polyfill only once
     import 'focus-visible';
     // import any components
     import { Button, Checkbox } from '@vikignt/svelte-ui';
@@ -68,16 +68,16 @@ Navigate to [localhost:5000](http://localhost:5000)
 _NOTE: In real applications, you have to add global styles to `disabled` states_
 
 ```css
-.disabled,
-[disabled] {
-	opacity: 0.5;
-	pointer-events: none;
-}
+    .disabled,
+    [disabled] {
+        opacity: 0.5;
+        pointer-events: none;
+    }
 
-.disabled .disabled,
-.disabled [disabled],
-[disabled] .disabled,
-[disabled] [disabled] {
-	opacity: 1;
-}
+    .disabled .disabled,
+    .disabled [disabled],
+    [disabled] .disabled,
+    [disabled] [disabled] {
+        opacity: 1;
+    }
 ```
