@@ -153,7 +153,8 @@
 		outline: none;
 	}
 	button:before {
-		background-color: currentColor;
+		box-sizing: inherit;
+		border-radius: inherit;
 		color: inherit;
 		bottom: 0;
 		content: '';
@@ -163,8 +164,8 @@
 		position: absolute;
 		right: 0;
 		top: 0;
-		/* Bug on Chromium 79 */
-		transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+		transition: 0.4s cubic-bezier(0.25, 0.8, 0.5, 1);
+		will-change: background-color,opacity;
 	}
 
 	.raised {
@@ -217,9 +218,11 @@
 
 	@media (hover: hover) {
 		button:hover:not([disabled]):not(.disabled):before {
+			background-color: currentColor;
 			opacity: 0.15;
 		}
 		button.focus-visible:focus:not([disabled]):not(.disabled):before {
+			background-color: currentColor;
 			opacity: 0.3;
 		}
 	}
