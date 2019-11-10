@@ -1,9 +1,11 @@
 # svelte-ui changelog
 
-## Unpublished
+## 0.1.2
 
 - Button
 	- fix focus ring in Chrome
+- Icon
+	- fix svelte v3.13 Icon tag error
 
 ## 0.1.1
 

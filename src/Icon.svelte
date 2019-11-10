@@ -1,4 +1,4 @@
-<i
+<em
 	class={'icon ' + className}
 	class:flip={flip && typeof flip === 'boolean'}
 	class:flip-h={flip === 'h'}
@@ -16,7 +16,7 @@
 	{:else}
 		<slot />
 	{/if}
-</i>
+</em>
 
 <script>
 	import { beforeUpdate } from 'svelte';

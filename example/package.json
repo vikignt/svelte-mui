@@ -1,6 +1,6 @@
 {
     "name": "svelte-app",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Example of using @vikignt/svelte-ui components",
     "author": "viking <vikignt@gmail.com>",
     "repository": {
@@ -23,7 +23,7 @@
         "@babel/plugin-transform-runtime": "^7.6.2",
         "@babel/preset-env": "^7.6.3",
         "@babel/runtime": "^7.6.3",
-        "@vikignt/svelte-ui": "^0.1.1",
+        "@vikignt/svelte-ui": "^0.1.2",
         "autoprefixer": "^9.6.1",
         "focus-visible": "^5.0.2",
         "highlight.js": "^9.15.10",

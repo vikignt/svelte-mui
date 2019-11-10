@@ -165,7 +165,7 @@
 		right: 0;
 		top: 0;
 		transition: 0.4s cubic-bezier(0.25, 0.8, 0.5, 1);
-		will-change: background-color,opacity;
+		will-change: background-color, opacity;
 	}
 
 	.raised {
