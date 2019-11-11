@@ -1,4 +1,4 @@
-<label class:right class:disabled class={className} {style} {title} use:events>
+<div class:right class:disabled class="label {className}" {style} {title} use:events on:click={ select }>
 	<!-- {...attrs} don't work with bind:group, svelte bug? -->
 	<input type="radio" {disabled} {value} bind:group bind:this={elm} />
 	<div class="mark" style={`color: ${value === group ? color : '#9a9a9a'}`}>
@@ -11,7 +11,7 @@
 	<div class="label-text">
 		<slot />
 	</div>
-</label>
+</div>
 
 <script>
 	import { tick, onMount } from 'svelte';
@@ -56,6 +56,10 @@
 	} else if (color === 'accent') {
 		color = islegacy() ? '#f50057' : 'var(--accent, #f50057)';
 	}
+	
+	function select(e) {
+		group = value;
+	}
 
 	// NOTE: not reactive
 	onMount(async () => {
@@ -69,7 +73,7 @@
 </script>
 
 <style>
-	label {
+	div.label {
 		cursor: pointer;
 		width: 100%;
 		align-items: center;
@@ -136,7 +140,7 @@
 	}
 
 	@media (hover: hover) {
-		label:hover:not([disabled]):not(.disabled) .mark:before {
+		div.label:hover:not([disabled]):not(.disabled) .mark:before {
 			opacity: 0.15;
 		}
 		:global(.focus-visible):focus:not([disabled]):not(.disabled) ~ .mark:before {
