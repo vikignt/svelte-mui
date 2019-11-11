@@ -1,5 +1,10 @@
 # svelte-ui changelog
 
+## 0.1.3
+
+- Checkbox, Radio
+	- fix events, thanks to @sourcegr
+
 ## 0.1.2
 
 - Button

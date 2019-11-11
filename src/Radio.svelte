@@ -1,6 +1,6 @@
-<label class:right class:disabled class={className} {style} {title} use:events>
+<label class:right class:disabled class={className} {style} {title}>
 	<!-- {...attrs} don't work with bind:group, svelte bug? -->
-	<input type="radio" {disabled} {value} bind:group bind:this={elm} />
+	<input type="radio" {disabled} {value} bind:group bind:this={elm} use:events />
 	<div class="mark" style={`color: ${value === group ? color : '#9a9a9a'}`}>
 		<Icon path={group === value ? radioChecked : radioUnchecked} />
 		{#if ripple}

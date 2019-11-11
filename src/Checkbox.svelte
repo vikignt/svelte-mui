@@ -1,10 +1,11 @@
-<label class:right class:disabled class={className} {style} {title} use:events>
+<label class:right class:disabled class={className} {style} {title}>
 	<input
 		type="checkbox"
 		bind:checked
 		bind:indeterminate
 		{value}
 		on:change={groupUpdate}
+		use:events
 		{...attrs}
 	/>
 	<div class="mark" style={`color: ${indeterminate || checked ? color : '#9a9a9a'}`}>
