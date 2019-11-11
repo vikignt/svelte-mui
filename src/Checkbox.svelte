@@ -1,4 +1,4 @@
-<label class:right class:disabled class={className} {style} {title} use:events>
+<div class:right class:disabled class="label {className}" {style} {title} use:events on:click={toggle}>
 	<input
 		type="checkbox"
 		bind:checked
@@ -17,7 +17,7 @@
 	<div class="label-text">
 		<slot />
 	</div>
-</label>
+</div>
 
 <script>
 	import { current_component } from 'svelte/internal';
@@ -112,10 +112,13 @@
 			group = group;
 		}
 	}
+	function toggle(e) {
+		checked = !checked;
+	}
 </script>
 
 <style>
-	label {
+	div.label {
 		width: 100%;
 		align-items: center;
 		display: flex;
@@ -180,7 +183,7 @@
 		order: -1;
 	}
 	@media (hover: hover) {
-		label:hover:not([disabled]):not(.disabled) .mark:before {
+		div.label:hover:not([disabled]):not(.disabled) .mark:before {
 			opacity: 0.15;
 		}
 		:global(.focus-visible):focus:not([disabled]):not(.disabled) ~ .mark:before {
