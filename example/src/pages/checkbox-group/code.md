@@ -1,6 +1,6 @@
 ```xml
 <div class="wrapper">
-    <Checkbox on:change={onAll} bind:checked {indeterminate}>All</Checkbox>
+    <Checkbox on:change={onAll} {checked} {indeterminate}>All</Checkbox>
     <hr style="margin-bottom: 8px;" />
 
     {#each colors as item}
