@@ -1,5 +1,10 @@
 # svelte-ui changelog
 
+## Unpublished
+
+- focusableElm
+	- fix focusedItemIndex
+
 ## 0.1.3
 
 - Checkbox, Radio

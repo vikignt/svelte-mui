@@ -5,7 +5,7 @@ export function getFocusable(context = document) {
 				'button, [href], select, textarea, input:not([type="hidden"]), [tabindex]:not([tabindex="-1"])'
 			)
 		)
-		.filter(function(item /*, index */) {
+		.filter(function(item) {
 			const style = window.getComputedStyle(item);
 
 			return (
@@ -38,12 +38,12 @@ export function trapTabKey(e, context) {
 	let focusedItemIndex = focusableItems.indexOf(focusedItem);
 
 	if (e.shiftKey) {
-		if (focusedItemIndex === 0) {
+		if (focusedItemIndex <= 0) {
 			focusableItems[focusableItems.length - 1].focus();
 			e.preventDefault();
 		}
 	} else {
-		if (focusedItemIndex === focusableItems.length - 1) {
+		if (focusedItemIndex >= focusableItems.length - 1) {
 			focusableItems[0].focus();
 			e.preventDefault();
 		}
