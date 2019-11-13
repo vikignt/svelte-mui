@@ -1,7 +1,9 @@
 # svelte-ui changelog
 
-## Unpublished
+## 0.1.4
 
+- Checkbox, Radio
+	- forward events from input element
 - focusableElm
 	- fix focusedItemIndex
 
