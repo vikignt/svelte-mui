@@ -42,7 +42,6 @@
 		ripple,
 	};
 
-	/* eslint-disable no-unused-vars */
 	let className = '';
 	let style = null;
 
@@ -63,6 +62,7 @@
 	let attrs = {};
 
 	$: {
+		/* eslint-disable no-unused-vars */
 		const {
 			style,
 			icon,

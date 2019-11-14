@@ -40,7 +40,6 @@
 
 	export { className as class, ripple };
 
-	/* eslint-disable no-unused-vars */
 	let className = '';
 	let ripple = true;
 
@@ -49,6 +48,7 @@
 	let attrs = {};
 
 	$: {
+		/* eslint-disable no-unused-vars */
 		const { href, ripple, ...other } = $$props;
 
 		delete other.class;

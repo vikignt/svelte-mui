@@ -40,7 +40,6 @@
 
 	export { className as class, style, visible, width };
 
-	/* eslint-disable no-unused-vars */
 	let className = '';
 	let style = '';
 	let visible = false;
@@ -49,6 +48,7 @@
 	let attrs = {};
 
 	$: {
+		/* eslint-disable no-unused-vars */
 		const { style, visible, width, ...other } = $$props;
 
 		attrs = other;

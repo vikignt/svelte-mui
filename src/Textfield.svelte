@@ -47,7 +47,6 @@
 		error,
 	};
 
-	/* eslint-disable no-unused-vars */
 	let value = '';
 	let disabled = false;
 	let required = false;
@@ -65,6 +64,7 @@
 	let attrs = {};
 
 	$: {
+		/* eslint-disable no-unused-vars */
 		const { value, style, title, label, outlined, filled, message, error, ...other } = $$props;
 
 		!other.readonly && delete other.readonly;
