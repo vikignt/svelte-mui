@@ -7,7 +7,6 @@ import { terser } from 'rollup-plugin-terser';
 import babel from 'rollup-plugin-babel';
 import root from 'rollup-plugin-root-import';
 import copy from 'rollup-plugin-copy';
-import preprocess from 'svelte-preprocess';
 import postcss from 'rollup-plugin-postcss';
 import autoprefixer from 'autoprefixer';
 import properties from 'postcss-custom-properties';
@@ -44,21 +43,18 @@ export default {
 
 			// enable run-time checks when not in production
 			dev: !production,
-			preprocess: preprocess({
-				postcss: {
-					plugins: [
-						autoprefixer(),
-						properties({
-							importFrom: 'assets/global.css',
-						}),
-					],
-				},
-			}),
 			emitCss: true,
 		}),
 		postcss({
 			extract: true,
 			minimize: production,
+			sourceMap: false,
+			plugins: [
+				autoprefixer(),
+				properties({
+					importFrom: 'assets/global.css',
+				}),
+			],
 		}),
 		md({
 			marked: {
