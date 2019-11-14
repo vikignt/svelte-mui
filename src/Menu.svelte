@@ -132,8 +132,10 @@
 		z-index: 1;
 		min-width: 112px;
 		color: #333;
+		/* postcss-custom-properties: ignore next */
 		color: var(--color, #333);
 		background: #fff;
+		/* postcss-custom-properties: ignore next */
 		background: var(--bg-popover, #fff);
 		border-radius: 4px;
 		margin: 0;

@@ -126,6 +126,7 @@
 <style>
 	.side-panel {
 		background: #fbfbfb;
+		/* postcss-custom-properties: ignore next */
 		background: var(--bg-color, #fbfbfb);
 		position: fixed;
 		visibility: hidden;
