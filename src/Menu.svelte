@@ -7,7 +7,8 @@
 
 	{#if visible}
 		<div
-			class="popover"
+			class={'popover ' + className}
+			{style}
 			tabindex="-1"
 			bind:this={popoverEl}
 			transition:popover={{ opacity: 0, start: 0.75, origin }}
@@ -31,6 +32,9 @@
 
 	const events = getEventsAction(current_component);
 
+	export { className as class };
+	let className = '';
+	export let style = '';
 	export let dx = 0;
 	export let dy = 0;
 	export let origin = 'top left'; // 'bottom left', 'bottom right', 'top left', 'top right'

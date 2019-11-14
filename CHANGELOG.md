@@ -1,5 +1,10 @@
 # svelte-ui changelog
 
+## Unpablished
+
+- Menu
+	- add class, style props
+
 ## 0.1.4
 
 - Checkbox, Radio
