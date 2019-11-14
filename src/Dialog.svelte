@@ -122,6 +122,7 @@
 		position: relative;
 		font-size: 1rem;
 		background: #eee;
+		/* postcss-custom-properties: ignore next */
 		background: var(--bg-panel, #eee);
 		border-radius: 4px;
 		cursor: auto;
@@ -162,6 +163,7 @@
 		font-size: 24px;
 		line-height: 36px;
 		background: rgba(0, 0, 0, 0.1);
+		/* postcss-custom-properties: ignore next */
 		background: var(--divider, rgba(0, 0, 0, 0.1));
 	}
 	.content {
