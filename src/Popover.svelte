@@ -43,7 +43,6 @@
 	let triggerEl;
 
 	const MARGIN = 8;
-	let transition;
 
 	function popoverIn(target) {
 		target.style.transformOrigin = origin;
