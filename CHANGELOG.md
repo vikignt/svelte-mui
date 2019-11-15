@@ -1,6 +1,6 @@
 # svelte-ui changelog
 
-## Unpablished
+## 0.1.5
 
 - Menu
 	- use popover component
