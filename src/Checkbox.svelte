@@ -43,7 +43,6 @@
 		value,
 	};
 
-	/* eslint-disable no-unused-vars */
 	let checked = false;
 	let className = '';
 	let style = null;
@@ -59,6 +58,7 @@
 	let attrs = {};
 
 	$: {
+		/* eslint-disable no-unused-vars */
 		const {
 			checked,
 			style,

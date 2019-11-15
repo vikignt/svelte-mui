@@ -42,7 +42,6 @@
 		ripple,
 	};
 
-	/* eslint-disable no-unused-vars */
 	let className = '';
 	let style = null;
 
@@ -63,6 +62,7 @@
 	let attrs = {};
 
 	$: {
+		/* eslint-disable no-unused-vars */
 		const {
 			style,
 			icon,
@@ -122,6 +122,7 @@
 	button {
 		cursor: pointer;
 		font-family: Roboto, Helvetica, sans-serif;
+		/* postcss-custom-properties: ignore next */
 		font-family: var(--button-font-family, Roboto, Helvetica, sans-serif);
 		font-size: 0.875rem;
 		font-weight: 500;
@@ -141,7 +142,6 @@
 		outline: none;
 		line-height: inherit;
 		user-select: none;
-		-webkit-appearance: none;
 		overflow: hidden;
 		vertical-align: middle;
 		border-radius: 4px;

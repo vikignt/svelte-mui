@@ -34,7 +34,7 @@
 			12.297c0-6.627-5.373-12-12-12"
 		/>
 	</a>
-	<Menu origin="top right" dx="4" dy="4">
+	<Menu style="border-radius: 4px;" origin="top right" dx="4" dy="4">
 		<span slot="activator" style="margin-right: 6px;display:block;">
 			<Button icon color="inherit">
 				<Icon path={moreVert} />

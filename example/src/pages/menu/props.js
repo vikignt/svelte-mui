@@ -1,5 +1,11 @@
 export default [
 	{
+		name: 'class',
+		def: "''",
+		type: 'string',
+		desc: 'Custom global CSS class name',
+	},
+	{
 		name: 'dx',
 		def: '0',
 		type: 'number',

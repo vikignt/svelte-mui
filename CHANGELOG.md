@@ -1,5 +1,11 @@
 # svelte-ui changelog
 
+## Unpablished
+
+- Menu
+	- use popover component
+	- add class, style props
+
 ## 0.1.4
 
 - Checkbox, Radio

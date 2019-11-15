@@ -1,6 +1,7 @@
 {#if visible}
 	<div
-		transition:fly={{ y: bottom ? 48 : -48, duration: 350 }}
+		in:fly={{ y: bottom ? 48 : -48, duration: 350 }}
+		out:fly={{ y: bottom ? 48 : -48, duration: 350 }}
 		class={'snackbar ' + className}
 		class:top={!bottom}
 		class:bottom

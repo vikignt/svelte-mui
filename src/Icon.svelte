@@ -27,7 +27,6 @@
 
 	export { className as class, path, size, viewBox, color, flip, spin, pulse };
 
-	/* eslint-disable no-unused-vars */
 	let className = '';
 	let path = null;
 	let size = 24;
@@ -41,6 +40,7 @@
 	let attrs = {};
 
 	$: {
+		/* eslint-disable no-unused-vars */
 		const { path, size, viewBox, color, flip, spin, pulse, ...other } = $$props;
 
 		delete other.class;

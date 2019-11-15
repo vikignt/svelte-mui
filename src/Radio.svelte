@@ -25,7 +25,6 @@
 
 	export { group, value, className as class, style, color, disabled, right, ripple, title };
 
-	/* eslint-disable no-unused-vars */
 	let group = null;
 	let value = 'on';
 	let className = '';
@@ -40,6 +39,7 @@
 	let attrs = {};
 
 	$: {
+		/* eslint-disable no-unused-vars */
 		const { group, value, style, color, disabled, right, ripple, title, ...other } = $$props;
 
 		delete other.class;

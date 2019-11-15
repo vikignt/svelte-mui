@@ -47,7 +47,6 @@
 		error,
 	};
 
-	/* eslint-disable no-unused-vars */
 	let value = '';
 	let disabled = false;
 	let required = false;
@@ -65,6 +64,7 @@
 	let attrs = {};
 
 	$: {
+		/* eslint-disable no-unused-vars */
 		const { value, style, title, label, outlined, filled, message, error, ...other } = $$props;
 
 		!other.readonly && delete other.readonly;
@@ -130,8 +130,10 @@
 		background: none;
 		text-align: left;
 		color: #333;
+		/* postcss-custom-properties: ignore next */
 		color: var(--color, #333);
 		caret-color: #1976d2;
+		/* postcss-custom-properties: ignore next */
 		caret-color: var(--primary, #1976d2);
 		border: none;
 		margin: 0;
@@ -140,6 +142,8 @@
 		outline: none;
 	}
 	.input::placeholder {
+		color: rgba(0, 0, 0, 0.3755);
+		/* postcss-custom-properties: ignore next */
 		color: var(--label, rgba(0, 0, 0, 0.3755));
 		font-weight: 100;
 	}
@@ -161,6 +165,7 @@
 	}
 	.input:hover ~ .input-line {
 		background: #333;
+		/* postcss-custom-properties: ignore next */
 		background: var(--color, #333);
 	}
 	.label {
@@ -171,6 +176,7 @@
 		top: 28px;
 		padding-right: 0.2em;
 		color: rgba(0, 0, 0, 0.3755);
+		/* postcss-custom-properties: ignore next */
 		color: var(--label, rgba(0, 0, 0, 0.3755));
 		background-color: inherit;
 
@@ -205,6 +211,7 @@
 		margin: 0;
 		height: 1px;
 		background: rgba(0, 0, 0, 0.3755);
+		/* postcss-custom-properties: ignore next */
 		background: var(--label, rgba(0, 0, 0, 0.3755));
 	}
 	.focus-line {
@@ -213,16 +220,21 @@
 		left: 0;
 		right: 0;
 		height: 2px;
+		-webkit-transform: scaleX(0);
+		/* autoprefixer: ignore next */
 		transform: scaleX(0);
+		/* autoprefixer: ignore next */
 		transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1),
 			opacity 0.18s cubic-bezier(0.4, 0, 0.2, 1),
 			-webkit-transform 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+		/* autoprefixer: ignore next */
 		transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1),
 			opacity 0.18s cubic-bezier(0.4, 0, 0.2, 1);
 		opacity: 0;
 		z-index: 2;
 
 		background: #1976d2;
+		/* postcss-custom-properties: ignore next */
 		background: var(--primary, #1976d2);
 	}
 	.help {
@@ -236,6 +248,7 @@
 		line-height: normal;
 		letter-spacing: 0.4px;
 		color: rgba(0, 0, 0, 0.3755);
+		/* postcss-custom-properties: ignore next */
 		color: var(--label, rgba(0, 0, 0, 0.3755));
 		opacity: 0;
 
@@ -260,6 +273,7 @@
 		bottom: unset;
 		font-size: 13px;
 		color: #1976d2;
+		/* postcss-custom-properties: ignore next */
 		color: var(--primary, #1976d2);
 	}
 	.baseline .input:focus ~ .focus-line {
@@ -277,6 +291,7 @@
 
 	.baseline.filled {
 		background: rgba(0, 0, 0, 0.0555);
+		/* postcss-custom-properties: ignore next */
 		background: var(--bg-input-filled, rgba(0, 0, 0, 0.0555));
 		border-radius: 4px 4px 0 0;
 	}
@@ -297,6 +312,7 @@
 	.filled .input:hover,
 	.filled .input:focus {
 		background: rgba(0, 0, 0, 0.0555);
+		/* postcss-custom-properties: ignore next */
 		background: var(--bg-input-filled, rgba(0, 0, 0, 0.0555));
 	}
 
@@ -306,8 +322,10 @@
 	.outlined .input {
 		padding: 11px 16px 9px;
 		border-radius: 4px;
-		border: 1px solid rgba(0, 0, 0, 0.3755);
-		border: 1px solid var(--label, rgba(0, 0, 0, 0.3755));
+		border: 1px solid;
+		border-color: rgba(0, 0, 0, 0.3755);
+		/* postcss-custom-properties: ignore next */
+		border-color: var(--label, rgba(0, 0, 0, 0.3755));
 	}
 	.outlined .label {
 		top: 12px;
@@ -324,6 +342,7 @@
 	}
 	.outlined .input:hover {
 		border-color: #333;
+		/* postcss-custom-properties: ignore next */
 		border-color: var(--color, #333);
 	}
 	.outlined .input:focus ~ .label {
@@ -334,11 +353,13 @@
 		padding: 0 4px;
 		left: 13px;
 		color: #1976d2;
+		/* postcss-custom-properties: ignore next */
 		color: var(--primary, #1976d2);
 	}
 	.outlined .input:focus ~ .focus-ring,
 	.outlined .input.focus-visible ~ .focus-ring {
 		border-color: #1976d2;
+		/* postcss-custom-properties: ignore next */
 		border-color: var(--primary, #1976d2);
 	}
 	.outlined .input:focus ~ .help {
