@@ -2,6 +2,7 @@
 
 ## Unpublished
 
+- ToggleButton new component
 - ButtonGroup new component
 
 ## 0.1.5
