@@ -6,6 +6,8 @@
 	class:dense
 	class:fab={fab && icon}
 	class:icon-button={icon}
+	class:toggle
+	class:active={toggle && active}
 	style={computedStyle}
 	use:events
 	{...attrs}
@@ -40,6 +42,8 @@
 		shaped,
 		color,
 		ripple,
+		toggle,
+		active,
 	};
 
 	let className = '';
@@ -57,6 +61,8 @@
 
 	let color = null;
 	let ripple = true;
+	let toggle = false;
+	let active = false;
 
 	let elm;
 	let attrs = {};
@@ -74,6 +80,8 @@
 			shaped,
 			color,
 			ripple,
+			toggle,
+			active,
 			...other
 		} = $$props;
 
@@ -130,6 +138,7 @@
 		text-decoration: none;
 		text-transform: uppercase;
 		will-change: transform, opacity;
+		margin: 0;
 		padding: 0 16px;
 		display: -ms-inline-flexbox;
 		display: inline-flex;
@@ -166,6 +175,13 @@
 		top: 0;
 		transition: 0.4s cubic-bezier(0.25, 0.8, 0.5, 1);
 		will-change: background-color, opacity;
+	}
+	.toggle:before {
+		box-sizing: content-box;
+	}
+	.active:before {
+		background-color: currentColor;
+		opacity: 0.3 !important;
 	}
 
 	.raised {
