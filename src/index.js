@@ -1,4 +1,5 @@
 import Button from './Button.svelte';
+import ButtonGroup from './ButtonGroup.svelte';
 import Checkbox from './Checkbox.svelte';
 import Dialog from './Dialog.svelte';
 import Icon from './Icon.svelte';
@@ -12,6 +13,7 @@ import Textfield from './Textfield.svelte';
 
 export {
 	Button,
+	ButtonGroup,
 	Checkbox,
 	Dialog,
 	Icon,

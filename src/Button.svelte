@@ -130,6 +130,7 @@
 		text-decoration: none;
 		text-transform: uppercase;
 		will-change: transform, opacity;
+		margin: 0;
 		padding: 0 16px;
 		display: -ms-inline-flexbox;
 		display: inline-flex;

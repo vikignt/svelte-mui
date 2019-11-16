@@ -1,6 +1,6 @@
 # svelte-ui
 
-Set of the UI components for [Svelte](https://svelte.dev) (~19 KB minzipped)
+Set of the UI components for [Svelte](https://svelte.dev) (~20 KB minzipped)
 
 [View the demo](https://svelte-ui.ibbf.ru)
 

@@ -1,5 +1,9 @@
 # svelte-ui changelog
 
+## Unpublished
+
+- ButtonGroup new component
+
 ## 0.1.5
 
 - Menu
