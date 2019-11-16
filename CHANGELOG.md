@@ -1,6 +1,6 @@
 # svelte-ui changelog
 
-## Unpublished
+## 0.1.7
 
 - ToggleButton new component
 - ButtonGroup new component
