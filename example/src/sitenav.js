@@ -1,5 +1,6 @@
 import Home from './pages/home';
 import Button from './pages/button';
+import ButtonGroup from './pages/button-group';
 import Checkbox from './pages/checkbox';
 import CheckboxGroup from './pages/checkbox-group';
 import Dialog from './pages/dialog';
@@ -21,6 +22,11 @@ let routes = [
 		path: '/button',
 		component: Button,
 		name: 'Button',
+	},
+	{
+		path: '/button/button-group',
+		component: ButtonGroup,
+		name: 'Button Group',
 	},
 	{
 		path: '/checkbox',
