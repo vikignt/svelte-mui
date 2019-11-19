@@ -8,7 +8,7 @@
 			mouseDownOutside = true;
 		}}
 		on:mouseup={() => {
-			mouseDownOutside && (visible = false);
+			mouseDownOutside && (visible = modal);
 		}}
 	>
 		<div
@@ -50,12 +50,13 @@
 
 	const events = getEventsAction(current_component);
 
-	export { className as class, style, visible, width };
+	export { className as class, style, visible, width, modal };
 
 	let className = '';
 	let style = '';
 	let visible = false;
 	let width = 320;
+	let modal = false;
 
 	let mouseDownOutside = false;
 
@@ -63,7 +64,7 @@
 
 	$: {
 		/* eslint-disable no-unused-vars */
-		const { style, visible, width, ...other } = $$props;
+		const { style, visible, width, modal, ...other } = $$props;
 
 		attrs = other;
 	}
@@ -106,7 +107,7 @@
 		const esc = 'Escape';
 
 		if (e.keyCode === 27 || e.key === esc || e.code === esc) {
-			visible = false;
+			visible = modal;
 		}
 		if (visible) {
 			trapTabKey(e, elm);

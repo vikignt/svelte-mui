@@ -17,4 +17,10 @@ export default [
 		type: 'number',
 		desc: 'Width of the component, px',
 	},
+	{
+		name: 'modal',
+		def: 'false',
+		type: 'boolean',
+		desc: 'To disabled close element by clicking outside or \'ESC\' key set this prop as true',
+	},
 ];
