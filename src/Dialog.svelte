@@ -1,16 +1,28 @@
 <svelte:window on:keydown={onKey} on:popstate={onPopstate} />
 
 {#if visible}
-	<div transition:fade={{ duration: 180 }} class="overlay" on:click={() => (visible = false)}>
+	<div
+		transition:fade={{ duration: 180 }}
+		class="overlay"
+		on:mousedown={() => {
+			mouseDownOutside = true;
+		}}
+		on:mouseup={() => {
+			mouseDownOutside && (visible = false);
+		}}
+	>
 		<div
 			in:scale={{ duration: 180, opacity: 0.5, start: 0.75, easing: quintOut }}
 			class={'dialog ' + className}
 			style={`width: ${width}px;${style}`}
 			tabindex="-1"
 			bind:this={elm}
-			on:click|stopPropagation
-			use:events
 			{...attrs}
+			use:events
+			on:mousedown|stopPropagation
+			on:mouseenter={() => {
+				mouseDownOutside = false;
+			}}
 		>
 			<div class="title">
 				<slot name="title" />
@@ -45,6 +57,8 @@
 	let visible = false;
 	let width = 320;
 
+	let mouseDownOutside = false;
+
 	let attrs = {};
 
 	$: {
@@ -61,6 +75,7 @@
 		mounted && enableScroll(false);
 		onVisible();
 	} else {
+		mouseDownOutside = false;
 		mounted && enableScroll(true);
 	}
 
