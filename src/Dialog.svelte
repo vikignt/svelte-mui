@@ -8,7 +8,7 @@
 			mouseDownOutside = true;
 		}}
 		on:mouseup={() => {
-			mouseDownOutside && (visible = modal);
+			mouseDownOutside && !modal && close('clickOutside');
 		}}
 	>
 		<div
@@ -40,7 +40,7 @@
 {/if}
 
 <script>
-	import { tick, onMount, onDestroy } from 'svelte';
+	import { tick, onMount, onDestroy, createEventDispatcher } from 'svelte';
 	import { fade, scale } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 	import { current_component } from 'svelte/internal';
@@ -48,15 +48,18 @@
 	import { trapTabKey } from './lib/focusableElm';
 	import enableScroll from './lib/enableScroll';
 
+	const dispatch = createEventDispatcher();
 	const events = getEventsAction(current_component);
 
-	export { className as class, style, visible, width, modal };
+	export { className as class, style, visible, width, modal, closeByEsc, beforeClose };
 
 	let className = '';
 	let style = '';
 	let visible = false;
 	let width = 320;
 	let modal = false;
+	let closeByEsc = true;
+	let beforeClose = () => true;
 
 	let mouseDownOutside = false;
 
@@ -64,7 +67,7 @@
 
 	$: {
 		/* eslint-disable no-unused-vars */
-		const { style, visible, width, modal, ...other } = $$props;
+		const { style, visible, width, modal, closeByEsc, beforeClose, ...other } = $$props;
 
 		attrs = other;
 	}
@@ -89,6 +92,13 @@
 		mounted && enableScroll(true);
 	});
 
+	function close(params) {
+		if (beforeClose()) {
+			dispatch('close', params);
+			visible = false;
+		}
+	}
+
 	async function onVisible() {
 		await tick();
 		let inputs = elm.querySelectorAll('input:not([type="hidden"])');
@@ -101,13 +111,14 @@
 			}
 		}
 		i < length ? inputs[i].focus() : length > 0 ? inputs[0].focus() : elm.focus();
+		dispatch('open');
 	}
 
 	function onKey(e) {
 		const esc = 'Escape';
 
 		if (e.keyCode === 27 || e.key === esc || e.code === esc) {
-			visible = modal;
+			closeByEsc && close(esc);
 		}
 		if (visible) {
 			trapTabKey(e, elm);

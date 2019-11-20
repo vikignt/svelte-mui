@@ -21,6 +21,18 @@ export default [
 		name: 'modal',
 		def: 'false',
 		type: 'boolean',
-		desc: 'To disabled close element by clicking outside or \'ESC\' key set this prop as true',
+		desc: 'To prevent the dialog from closing by clicking outside, set it to <code>true</code>',
+	},
+	{
+		name: 'closeByEsc',
+		def: 'true',
+		type: 'boolean',
+		desc: 'To prevent the dialog from closing by <kbd>ESC</kbd> key, set it to <code>false</code>',
+	},
+	{
+		name: 'beforeClose',
+		def: '() => true',
+		type: 'function',
+		desc: 'Callback function starts before closing the dialog, returns <code>false</code> to prevent the dialog from closing',
 	},
 ];
