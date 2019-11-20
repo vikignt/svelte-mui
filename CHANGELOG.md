@@ -2,6 +2,9 @@
 
 ## Unpublished
 
+-Textfield
+	- error prop is string
+	- messagePersist prop
 - Dialog
 	- open/close custom events
 	- beforeClose callback prop
