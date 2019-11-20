@@ -1,5 +1,14 @@
 # svelte-ui changelog
 
+## Unpublished
+
+- Dialog
+	- open/close custom events
+	- beforeClose callback prop
+	- clseByEsc prop
+	- modal prop
+	- fix click outside
+
 ## 0.1.7
 
 - ToggleButton new component

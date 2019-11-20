@@ -8,7 +8,9 @@ You can use any HTMLElement attributes, like
 
 #### Events
 
-Any events
+`open`, `close` custom events
+
+Any HTMLElement events
 
 #### Slots
 
