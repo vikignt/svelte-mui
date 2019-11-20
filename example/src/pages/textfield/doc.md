@@ -8,4 +8,4 @@ You can use any HTMLElement attributes, like
 
 #### Events
 
-Any events
+Any HTMLElement events

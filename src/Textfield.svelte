@@ -20,9 +20,9 @@
 		<div class="focus-line" />
 	{/if}
 
-	{#if message.length > 0}
-		<div class="help" class:error>
-			<div class="message">{message}</div>
+	{#if !!message || !!error}
+		<div class="help" class:persist={messagePersist} class:error>
+			<div class="message">{error || message}</div>
 		</div>
 	{/if}
 </div>
@@ -43,6 +43,7 @@
 		label,
 		outlined,
 		filled,
+		messagePersist,
 		message,
 		error,
 	};
@@ -56,8 +57,9 @@
 	let label = '';
 	let outlined = false;
 	let filled = false;
+	let messagePersist = false;
 	let message = '';
-	let error = false;
+	let error = '';
 
 	let placeholder;
 
@@ -65,7 +67,18 @@
 
 	$: {
 		/* eslint-disable no-unused-vars */
-		const { value, style, title, label, outlined, filled, message, error, ...other } = $$props;
+		const {
+			value,
+			style,
+			title,
+			label,
+			outlined,
+			filled,
+			messagePersist,
+			message,
+			error,
+			...other
+		} = $$props;
 
 		!other.readonly && delete other.readonly;
 		!other.disabled && delete other.disabled;
@@ -256,8 +269,12 @@
 		max-width: 90%;
 		white-space: nowrap;
 	}
-	.error {
+	.persist,
+	.error,
+	.input:focus ~ .help {
 		opacity: 1;
+	}
+	.error {
 		color: #ff5252;
 	}
 
@@ -278,9 +295,6 @@
 	}
 	.baseline .input:focus ~ .focus-line {
 		transform: scaleX(1);
-		opacity: 1;
-	}
-	.baseline .input:focus ~ .help {
 		opacity: 1;
 	}
 
@@ -361,8 +375,5 @@
 		border-color: #1976d2;
 		/* postcss-custom-properties: ignore next */
 		border-color: var(--primary, #1976d2);
-	}
-	.outlined .input:focus ~ .help {
-		opacity: 1;
 	}
 </style>
