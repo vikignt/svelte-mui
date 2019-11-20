@@ -5,6 +5,7 @@
 			bind:value
 			{label}
 			{required}
+			{messagePersist}
 			{message}
 			{error}
 			{readonly}
@@ -23,17 +24,21 @@
 
 <Play>
 	<div class="properties between">
-		<label style="width: 48%;">
+		<label>
+			value
+			<input type="text" bind:value />
+		</label>
+		<label>
 			label
 			<input type="text" bind:value={label} />
 		</label>
-		<label style="width: 48%;">
+		<label>
 			message
 			<input type="text" bind:value={message} />
 		</label>
 		<label>
-			value
-			<input type="text" bind:value />
+			error
+			<input type="text" bind:value={error} />
 		</label>
 	</div>
 
@@ -45,7 +50,7 @@
 
 		</div>
 		<div>
-			<Checkbox bind:checked={error}>error</Checkbox>
+			<Checkbox bind:checked={messagePersist}>persistant message</Checkbox>
 			<Checkbox bind:checked={required}>required</Checkbox>
 			<Checkbox bind:checked={readonly}>readonly</Checkbox>
 			<Checkbox bind:checked={disabled}>disabled</Checkbox>
@@ -70,10 +75,11 @@
 	let label = 'Label';
 	let required = true;
 	let value = '';
-	let message = 'message text';
+	let error = '';
+	let message = 'help message';
+	let messagePersist = false;
 	let outlined = false;
 	let filled = false;
-	let error = false;
 	let readonly = false;
 	let disabled = false;
 
@@ -109,5 +115,8 @@
 	}
 	.between {
 		justify-content: space-between;
+	}
+	.properties label {
+		width: 48%;
 	}
 </style>

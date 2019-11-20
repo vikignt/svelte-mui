@@ -7,9 +7,9 @@ export default [
 	},
 	{
 		name: 'error',
-		def: 'false',
-		type: 'boolean',
-		desc: 'Indicates that the <code>message</code> property contains an error',
+		def: "''",
+		type: 'string',
+		desc: 'Error message',
 	},
 	{
 		name: 'filled',
@@ -27,9 +27,14 @@ export default [
 		name: 'message',
 		def: "''",
 		type: 'string',
-		desc: 'Help string or error message',
+		desc: 'Help string',
 	},
-
+	{
+		name: 'messagePersist',
+		def: 'false',
+		type: 'boolean',
+		desc: 'Keeps the message visible when the text field is not focused',
+	},
 	{
 		name: 'outlined',
 		def: 'false',
