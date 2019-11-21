@@ -70,6 +70,7 @@
 			<span title="default">ripple *</span>
 		</Checkbox>
 		<Checkbox bind:checked={props.disabled}>disabled</Checkbox>
+		<Checkbox bind:checked={props.fullWidth}>full width</Checkbox>
 	</div>
 </Play>
 
@@ -102,6 +103,7 @@
 		dense: false,
 		ripple: true,
 		disabled: false,
+		fullWidth: false,
 	};
 
 	$: props.raised = type === 'raised';

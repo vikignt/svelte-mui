@@ -2,6 +2,8 @@
 
 ## Unpublished
 
+- Button
+	- fullWidth prop
 -Textfield
 	- error prop is string
 	- messagePersist prop
