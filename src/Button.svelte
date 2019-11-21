@@ -107,8 +107,8 @@
 		let len = svgs.length;
 
 		for (let i = 0; i < len; i++) {
-			svgs[i].setAttribute('width', iconSize);
-			svgs[i].setAttribute('height', iconSize);
+			svgs[i].setAttribute('width', iconSize + (toggle ? 2 : 0));
+			svgs[i].setAttribute('height', iconSize + (toggle ? 2 : 0));
 		}
 	});
 	afterUpdate(() => {
