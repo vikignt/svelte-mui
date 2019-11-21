@@ -8,6 +8,7 @@
 	class:icon-button={icon}
 	class:toggle
 	class:active={toggle && active}
+	class:full-width={fullWidth && !icon}
 	style={computedStyle}
 	use:events
 	{...attrs}
@@ -44,6 +45,7 @@
 		ripple,
 		toggle,
 		active,
+		fullWidth,
 	};
 
 	let className = '';
@@ -63,6 +65,7 @@
 	let ripple = true;
 	let toggle = false;
 	let active = false;
+	let fullWidth = false;
 
 	let elm;
 	let attrs = {};
@@ -82,6 +85,7 @@
 			ripple,
 			toggle,
 			active,
+			fullWidth,
 			...other
 		} = $$props;
 
@@ -107,8 +111,8 @@
 		let len = svgs.length;
 
 		for (let i = 0; i < len; i++) {
-			svgs[i].setAttribute('width', iconSize);
-			svgs[i].setAttribute('height', iconSize);
+			svgs[i].setAttribute('width', iconSize + (toggle ? 2 : 0));
+			svgs[i].setAttribute('height', iconSize + (toggle ? 2 : 0));
 		}
 	});
 	afterUpdate(() => {
@@ -230,6 +234,10 @@
 
 	.outlined:not(.shaped) :global(.ripple) {
 		border-radius: 0 !important;
+	}
+
+	.full-width {
+		width: 100%;
 	}
 
 	@media (hover: hover) {

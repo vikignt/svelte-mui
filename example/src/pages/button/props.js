@@ -25,6 +25,12 @@ export default [
 			'Sort of icon button with enlarged size and raised shade, <code>icon</code> property must be set',
 	},
 	{
+		name: 'fullWidth',
+		def: 'false',
+		type: 'boolean',
+		desc: 'Makes the width of the button the full width of the parent container',
+	},
+	{
 		name: 'icon',
 		def: 'false',
 		type: 'boolean',
