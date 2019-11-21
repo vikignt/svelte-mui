@@ -10,7 +10,7 @@
 - Dialog
 	- open/close custom events
 	- beforeClose callback prop
-	- clseByEsc prop
+	- closeByEsc prop
 	- modal prop
 	- fix click outside
 
