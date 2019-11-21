@@ -1,10 +1,10 @@
 # svelte-ui changelog
 
-## Unpublished
+## 0.1.8
 
 - Button
 	- fullWidth prop
--Textfield
+- Textfield
 	- error prop is string
 	- messagePersist prop
 - Dialog
