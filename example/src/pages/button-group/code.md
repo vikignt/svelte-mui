@@ -5,53 +5,60 @@
 	<Button color="primary" on:click={increment}>Here</Button>
 </ButtonGroup>
 
+<p>Button with<code>'toggle'</code>property set</p>
+
 <ButtonGroup>
-	<ToggleButton
+	<Button
 		active={justify.left}
+		toggle
 		color="accent"
 		on:change={(e) => {
 			onjustify('left', e.detail);
 		}}
 	>
 		<Icon path={alignLeft} />
-	</ToggleButton>
-	<ToggleButton
+	</Button>
+	<Button
 		active={justify.center}
+		toggle
 		color="accent"
 		on:change={(e) => {
 			onjustify('center', e.detail);
 		}}
 	>
 		<Icon path={alignCenter} />
-	</ToggleButton>
-	<ToggleButton
+	</Button>
+	<Button
 		active={justify.right}
+		toggle
 		color="accent"
 		on:change={(e) => {
 			onjustify('right', e.detail);
 		}}
 	>
 		<Icon path={alignRight} />
-	</ToggleButton>
-	<ToggleButton
+	</Button>
+	<Button
 		active={justify.justify}
+		toggle
 		color="accent"
 		on:change={(e) => {
 			onjustify('justify', e.detail);
 		}}
 	>
 		<Icon path={alignJustify} />
-	</ToggleButton>
+	</Button>
 
-	<ToggleButton bind:active={isbold} color="accent">
+	<Button bind:active={isbold} toggle color="accent">
 		<Icon path={bold} />
-	</ToggleButton>
-	<ToggleButton bind:active={isitalic} color="accent">
+	</Button>
+	<Button bind:active={isitalic} toggle color="accent">
 		<Icon path={italic} />
-	</ToggleButton>
+	</Button>
 </ButtonGroup>
+
 <script>
-	import { ButtonGroup, Button, ToggleButton, Icon } from '@vikignt/svelte-ui';
+	import { ButtonGroup, Button, Icon } from '@vikignt/svelte-ui';
 	import {
 		alignCenter,
 		alignJustify,
@@ -78,12 +85,8 @@
 	}
 
 	function onjustify(param, value) {
-		if (!value) {
-			justify[param] = value;
-			return;
-		}
 		Object.keys(justify).map((key) => {
-			justify[key] = key === param ? true : false;
+			justify[key] = key === param ? value : false;
 		});
 	}
 </script>

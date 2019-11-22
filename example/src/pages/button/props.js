@@ -1,5 +1,11 @@
 export default [
 	{
+		name: 'active',
+		def: 'false',
+		type: 'boolean',
+		desc: 'Active state of the toggle button, effective only if the <code>toggle</code> property is set',
+	},
+	{
 		name: 'class',
 		def: "''",
 		type: 'string',
@@ -62,6 +68,12 @@ export default [
 		type: 'boolean',
 		desc:
 			'Button with rounded edges (for the default button, it has an effect only on the state of :hover and :focus, the <code>icon</code> button has no effect)',
+	},
+	{
+		name: 'toggle',
+		def: 'false',
+		type: 'boolean',
+		desc: 'Set button as toggle',
 	},
 	{
 		name: 'unelevated',
