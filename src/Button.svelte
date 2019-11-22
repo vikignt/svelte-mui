@@ -10,6 +10,7 @@
 	class:active={toggle && active}
 	class:full-width={fullWidth && !icon}
 	style={computedStyle}
+	on:click={onclick}
 	use:events
 	{...attrs}
 	bind:this={elm}
@@ -22,13 +23,14 @@
 </button>
 
 <script>
-	import { beforeUpdate, afterUpdate } from 'svelte';
+	import { beforeUpdate, afterUpdate, createEventDispatcher } from 'svelte';
 	import { current_component } from 'svelte/internal';
 	import { getEventsAction } from './lib/events';
 
 	import { islegacy, luminance } from './lib/colors';
 	import Ripple from './Ripple.svelte';
 
+	const dispatch = createEventDispatcher();
 	const events = getEventsAction(current_component);
 
 	export {
@@ -111,8 +113,8 @@
 		let len = svgs.length;
 
 		for (let i = 0; i < len; i++) {
-			svgs[i].setAttribute('width', iconSize + (toggle ? 2 : 0));
-			svgs[i].setAttribute('height', iconSize + (toggle ? 2 : 0));
+			svgs[i].setAttribute('width', iconSize + (toggle && !icon ? 2 : 0));
+			svgs[i].setAttribute('height', iconSize + (toggle && !icon ? 2 : 0));
 		}
 	});
 	afterUpdate(() => {
@@ -125,6 +127,13 @@
 			elm.style.color = color;
 		}
 	});
+
+	function onclick(e) {
+		if (toggle) {
+			active = !active;
+			dispatch('change', active);
+		}
+	}
 </script>
 
 <style>
@@ -185,7 +194,7 @@
 	}
 	.active:before {
 		background-color: currentColor;
-		opacity: 0.3 !important;
+		opacity: 0.3;
 	}
 
 	.raised {
