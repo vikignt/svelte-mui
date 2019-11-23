@@ -19,7 +19,7 @@
 
 <style>
 	.button-group {
-		display: inline-table;
+		display: inline-flex;
 	}
 	.button-group :global(button) {
 		padding: 0 8px;
