@@ -1,5 +1,12 @@
 # svelte-ui changelog
 
+## Unpublished
+
+- ButtonGroup
+	- color prop
+	- update padding button
+- ToggleButton deprecated
+
 ## 0.1.8
 
 - Button

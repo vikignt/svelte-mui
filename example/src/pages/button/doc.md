@@ -1,4 +1,4 @@
-Button component contains two major types of buttons, namely, **regular** (default) and **icon button** (when setting `icon` property). **Icon button** can be configured as **FAB** (Floating Action Button) by setting `fab` property
+Button component contains two major types of buttons, namely, **regular** (default) and **icon button** (when setting `icon` property). **Icon button** can be configured as **FAB** (Floating Action Button) by setting `fab` property. The button can become a toggle by setting the `toggle` property
 
 All properties of Button's are **optional**
 
@@ -38,4 +38,6 @@ You can use any HTMLElement attributes, like
 
 #### Events
 
-Any events
+`change` toggle button dispatch custom event
+
+Any HTMLElement events

@@ -1,61 +1,66 @@
 <DemoPanel>
 	<div class="demo-content">
-		<ButtonGroup>
-			<Button {...props} color="primary" on:click={increment}>This one</Button>
-			<Button {...props} color="primary" on:click={increment}>Click</Button>
-			<Button {...props} color="primary" on:click={increment}>Here</Button>
+		<ButtonGroup color="primary">
+			<Button {...props} on:click={increment}>This one</Button>
+			<Button {...props} on:click={increment}>Click</Button>
+			<Button {...props} on:click={increment}>Here</Button>
 		</ButtonGroup>
 	</div>
 
 	<div class="demo-content">
-		<ButtonGroup>
-			<ToggleButton
+		<p>
+			Button with
+			<code>'toggle'</code>
+			property set
+		</p>
+		<ButtonGroup color="accent">
+			<Button
 				active={justify.left}
+				toggle
 				{...props}
-				color="accent"
 				on:change={(e) => {
 					onjustify('left', e.detail);
 				}}
 			>
 				<Icon path={alignLeft} />
-			</ToggleButton>
-			<ToggleButton
+			</Button>
+			<Button
 				active={justify.center}
+				toggle
 				{...props}
-				color="accent"
 				on:change={(e) => {
 					onjustify('center', e.detail);
 				}}
 			>
 				<Icon path={alignCenter} />
-			</ToggleButton>
-			<ToggleButton
+			</Button>
+			<Button
 				active={justify.right}
+				toggle
 				{...props}
-				color="accent"
 				on:change={(e) => {
 					onjustify('right', e.detail);
 				}}
 			>
 				<Icon path={alignRight} />
-			</ToggleButton>
-			<ToggleButton
+			</Button>
+			<Button
 				active={justify.justify}
+				toggle
 				{...props}
-				color="accent"
 				on:change={(e) => {
 					onjustify('justify', e.detail);
 				}}
 			>
 				<Icon path={alignJustify} />
-			</ToggleButton>
+			</Button>
 
-			<ToggleButton bind:active={isbold} {...props} color="accent">
+			<Button bind:active={isbold} toggle {...props}>
 				<Icon path={bold} />
-			</ToggleButton>
-			<ToggleButton bind:active={isitalic} {...props} color="accent">
+			</Button>
+			<Button bind:active={isitalic} toggle {...props}>
 				<Icon path={italic} />
-			</ToggleButton>
+			</Button>
 		</ButtonGroup>
 	</div>
 
@@ -97,7 +102,7 @@
 </Description>
 
 <script>
-	import { ButtonGroup, Button, ToggleButton, Checkbox, Icon, Radio } from '@vikignt/svelte-ui';
+	import { ButtonGroup, Button, Checkbox, Icon, Radio } from '@vikignt/svelte-ui';
 	import {
 		alignCenter,
 		alignJustify,
@@ -114,13 +119,13 @@
 	let counter = 0;
 
 	let justify = {
-		left: false,
+		left: true,
 		center: false,
 		right: false,
 		justify: false,
 	};
 
-	let isbold = false;
+	let isbold = true;
 	let isitalic = false;
 
 	let type = 'outlined';
@@ -143,12 +148,8 @@
 	}
 
 	function onjustify(param, value) {
-		if (!value) {
-			justify[param] = value;
-			return;
-		}
 		Object.keys(justify).map((key) => {
-			justify[key] = key === param ? true : false;
+			justify[key] = key === param ? value : false;
 		});
 	}
 </script>

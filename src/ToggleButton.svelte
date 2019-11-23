@@ -3,7 +3,7 @@
 </Button>
 
 <script>
-	import { createEventDispatcher } from 'svelte';
+	import { onMount, createEventDispatcher } from 'svelte';
 	import Button from './Button.svelte';
 
 	const dispatch = createEventDispatcher();
@@ -17,6 +17,10 @@
 
 		props = other;
 	}
+
+	onMount(() => {
+		console.warn('ToggleButton deprecated, use Button with toggle prop');
+	});
 
 	function onClick() {
 		active = !active;
