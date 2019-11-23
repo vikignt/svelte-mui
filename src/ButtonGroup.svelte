@@ -1,6 +1,21 @@
-<div class="button-group">
+<div class="button-group" style={color ? `color: ${color};` : '' + style}>
 	<slot />
 </div>
+
+<script>
+	import { islegacy } from './lib/colors';
+
+	export let color = '';
+	export let style = '';
+
+	$: if (color === 'primary') {
+		color = islegacy() ? '#1976d2' : 'var(--primary, #1976d2)';
+	} else if (color == 'accent') {
+		color = islegacy() ? '#f50057' : 'var(--accent, #f50057)';
+		// } else if (!color) {
+		// 	color = islegacy() ? '#333' : 'var(--color, #333)';
+	}
+</script>
 
 <style>
 	.button-group {

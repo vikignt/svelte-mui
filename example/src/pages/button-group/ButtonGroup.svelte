@@ -1,9 +1,9 @@
 <DemoPanel>
 	<div class="demo-content">
-		<ButtonGroup>
-			<Button {...props} color="primary" on:click={increment}>This one</Button>
-			<Button {...props} color="primary" on:click={increment}>Click</Button>
-			<Button {...props} color="primary" on:click={increment}>Here</Button>
+		<ButtonGroup color="primary">
+			<Button {...props} on:click={increment}>This one</Button>
+			<Button {...props} on:click={increment}>Click</Button>
+			<Button {...props} on:click={increment}>Here</Button>
 		</ButtonGroup>
 	</div>
 
@@ -13,12 +13,11 @@
 			<code>'toggle'</code>
 			property set
 		</p>
-		<ButtonGroup>
+		<ButtonGroup color="accent">
 			<Button
 				active={justify.left}
 				toggle
 				{...props}
-				color="accent"
 				on:change={(e) => {
 					onjustify('left', e.detail);
 				}}
@@ -29,7 +28,6 @@
 				active={justify.center}
 				toggle
 				{...props}
-				color="accent"
 				on:change={(e) => {
 					onjustify('center', e.detail);
 				}}
@@ -40,7 +38,6 @@
 				active={justify.right}
 				toggle
 				{...props}
-				color="accent"
 				on:change={(e) => {
 					onjustify('right', e.detail);
 				}}
@@ -51,7 +48,6 @@
 				active={justify.justify}
 				toggle
 				{...props}
-				color="accent"
 				on:change={(e) => {
 					onjustify('justify', e.detail);
 				}}
@@ -59,10 +55,10 @@
 				<Icon path={alignJustify} />
 			</Button>
 
-			<Button bind:active={isbold} toggle {...props} color="accent">
+			<Button bind:active={isbold} toggle {...props}>
 				<Icon path={bold} />
 			</Button>
-			<Button bind:active={isitalic} toggle {...props} color="accent">
+			<Button bind:active={isitalic} toggle {...props}>
 				<Icon path={italic} />
 			</Button>
 		</ButtonGroup>
@@ -123,13 +119,13 @@
 	let counter = 0;
 
 	let justify = {
-		left: false,
+		left: true,
 		center: false,
 		right: false,
 		justify: false,
 	};
 
-	let isbold = false;
+	let isbold = true;
 	let isitalic = false;
 
 	let type = 'outlined';

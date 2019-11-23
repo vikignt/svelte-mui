@@ -3,6 +3,7 @@
 ## Unpublished
 
 - ButtonGroup
+	- color prop
 	- update padding button
 - ToggleButton deprecated
 

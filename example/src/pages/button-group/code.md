@@ -1,17 +1,16 @@
 ```xml
-<ButtonGroup>
-	<Button color="primary" on:click={increment}>This one</Button>
-	<Button color="primary" on:click={increment}>Click</Button>
-	<Button color="primary" on:click={increment}>Here</Button>
+<ButtonGroup  color="primary">
+	<Button on:click={increment}>This one</Button>
+	<Button on:click={increment}>Click</Button>
+	<Button on:click={increment}>Here</Button>
 </ButtonGroup>
 
 <p>Button with<code>'toggle'</code>property set</p>
 
-<ButtonGroup>
+<ButtonGroup color="accent">
 	<Button
 		active={justify.left}
 		toggle
-		color="accent"
 		on:change={(e) => {
 			onjustify('left', e.detail);
 		}}
@@ -21,7 +20,6 @@
 	<Button
 		active={justify.center}
 		toggle
-		color="accent"
 		on:change={(e) => {
 			onjustify('center', e.detail);
 		}}
@@ -31,7 +29,6 @@
 	<Button
 		active={justify.right}
 		toggle
-		color="accent"
 		on:change={(e) => {
 			onjustify('right', e.detail);
 		}}
@@ -41,7 +38,6 @@
 	<Button
 		active={justify.justify}
 		toggle
-		color="accent"
 		on:change={(e) => {
 			onjustify('justify', e.detail);
 		}}
@@ -49,10 +45,10 @@
 		<Icon path={alignJustify} />
 	</Button>
 
-	<Button bind:active={isbold} toggle color="accent">
+	<Button bind:active={isbold} toggle>
 		<Icon path={bold} />
 	</Button>
-	<Button bind:active={isitalic} toggle color="accent">
+	<Button bind:active={isitalic} toggle>
 		<Icon path={italic} />
 	</Button>
 </ButtonGroup>
@@ -71,13 +67,13 @@
 	let counter = 0;
 
 	let justify = {
-		left: false,
+		left: true,
 		center: false,
 		right: false,
 		justify: false,
 	};
 
-	let isbold = false;
+	let isbold = true;
 	let isitalic = false;
 
 	function increment() {
