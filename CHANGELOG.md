@@ -1,6 +1,6 @@
 # svelte-ui changelog
 
-## Unpublished
+## 0.1.9
 
 - ButtonGroup
 	- color prop
