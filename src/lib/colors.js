@@ -18,6 +18,7 @@ export function cssVar(name, value) {
 }
 
 export function normalize(color) {
+	color = color.replace(/\s/, '');
 	// var()
 	if (color.charAt(0) === 'v') {
 		color = cssVar(color);
