@@ -1,5 +1,10 @@
 # svelte-ui changelog
 
+## 0.1.11
+
+- ButtonGroup
+	- firefox fix empty text node
+
 ## 0.1.9
 
 - ButtonGroup

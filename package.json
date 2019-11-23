@@ -1,6 +1,6 @@
 {
   "name": "@vikignt/svelte-ui",
-  "version": "0.1.9",
+  "version": "0.1.11",
   "description": "Simple svelte 3 ui components",
   "author": "viking <vikignt@gmail.com>",
   "repository": {
