@@ -9,7 +9,7 @@
 	class:toggle
 	class:active={toggle && active}
 	class:full-width={fullWidth && !icon}
-	style={computedStyle}
+	{style}
 	on:click={onclick}
 	use:events
 	{...attrs}
@@ -23,7 +23,7 @@
 </button>
 
 <script>
-	import { beforeUpdate, afterUpdate, createEventDispatcher } from 'svelte';
+	import { beforeUpdate, createEventDispatcher } from 'svelte';
 	import { current_component } from 'svelte/internal';
 	import { getEventsAction } from './lib/events';
 
@@ -98,13 +98,15 @@
 
 	$: iconSize = icon ? (fab ? 24 : dense ? 20 : 24) : dense ? 16 : 18;
 
-	$: computedStyle = `background: ${raised || unelevated ? color : 'transparent'};${style}`;
 	$: if (color === 'primary') {
 		color = islegacy() ? '#1976d2' : 'var(--primary, #1976d2)';
 	} else if (color == 'accent') {
 		color = islegacy() ? '#f50057' : 'var(--accent, #f50057)';
-	} else if (!color) {
-		color = islegacy() ? '#333' : 'var(--color, #333)';
+	} else if (!color && elm) {
+		color =
+			elm.style.color ||
+			elm.parentElement.style.color ||
+			(islegacy() ? '#333' : 'var(--color, #333)');
 	}
 
 	beforeUpdate(() => {
@@ -116,16 +118,9 @@
 			svgs[i].setAttribute('width', iconSize + (toggle && !icon ? 2 : 0));
 			svgs[i].setAttribute('height', iconSize + (toggle && !icon ? 2 : 0));
 		}
-	});
-	afterUpdate(() => {
-		if (!elm) return;
-		if (raised || unelevated) {
-			let bg = window.getComputedStyle(elm).getPropertyValue('background-color');
-			let lum = luminance(bg);
-			elm.style.color = lum > 0.5 ? '#000' : '#fff';
-		} else {
-			elm.style.color = color;
-		}
+
+		elm.style.color = raised || unelevated ? (luminance(color) > 0.5 ? '#000' : '#fff') : color;
+		elm.style.backgroundColor = raised || unelevated ? color : 'transparent';
 	});
 
 	function onclick(e) {
