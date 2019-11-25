@@ -2,7 +2,7 @@
 	on:scroll|passive={onScroll}
 	on:resize|passive={onResize}
 	on:keydown={onKeydown}
-	on:click={onClickOutside}
+	on:click={onclickOutside}
 />
 
 {#if visible}
@@ -23,11 +23,12 @@
 
 <script>
 	import { current_component } from 'svelte/internal';
-	import { beforeUpdate } from 'svelte';
+	import { beforeUpdate, createEventDispatcher } from 'svelte';
 	import { getEventsAction } from './lib/events';
 	import { trapTabKey } from './lib/focusableElm';
 
 	const events = getEventsAction(current_component);
+	const dispatch = createEventDispatcher();
 
 	export { className as class, style, origin, dx, dy, visible, duration };
 
@@ -114,7 +115,7 @@
 		if (!visible || !popoverEl || !triggerEl) return;
 		const rect = triggerEl.getBoundingClientRect();
 		if (rect.top < -rect.height || rect.top > window.innerHeight) {
-			visible = false;
+			close('overflow');
 			return;
 		}
 		popoverEl.style.top = getTopPosition(popoverEl.offsetHeight, rect) + 'px';
@@ -126,6 +127,10 @@
 		triggerEl && setStyle();
 	});
 
+	function close(params) {
+		dispatch('close', params);
+		visible = false;
+	}
 	// window event handlers
 	function onScroll() {
 		setStyle();
@@ -136,14 +141,14 @@
 	function onKeydown(e) {
 		if (visible) {
 			if (e.keyCode === 27) {
-				visible = false;
+				close('escape');
 			}
 			trapTabKey(e, popoverEl);
 		}
 	}
-	function onClickOutside(e) {
+	function onclickOutside(e) {
 		if (visible && triggerEl && !triggerEl.contains(e.target)) {
-			visible = false;
+			close('clickOutside');
 		}
 	}
 </script>
