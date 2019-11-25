@@ -136,4 +136,17 @@
 	.body {
 		overflow: hidden;
 	}
+
+	@media only screen and (max-height: 400px) and (min-width: 420px) {
+		.datepicker {
+			display: flex;
+		}
+		.header {
+			height: auto;
+			width: 148px;
+		}
+		.wrap .date {
+			white-space: unset;
+		}
+	}
 </style>
