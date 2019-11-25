@@ -21,11 +21,10 @@
 		{...attrs}
 		message={attrs.message}
 		{error}
-		on:input={oninput}
 		on:keydown={onkeydown}
 		on:focus={onfocus}
 		on:blur={onblur}
-		style="padding-right: 21px;"
+		style={`padding-right: ${icon ? 0 : 21}px;`}
 	/>
 
 	{#if !icon}
@@ -38,7 +37,7 @@
 		/>
 	{/if}
 
-	<Popover dx={icon ? 36 : 0} dy="24" bind:visible on:close={onclosePicker}>
+	<Popover dx={icon ? 36 : 0} dy="24" bind:visible on:close={focusInputElm}>
 		<Datepicker {locale} {isAllowed} value={pickerVal} on:select={onselect} />
 	</Popover>
 </div>
@@ -83,6 +82,8 @@
 	// the format must exist
 	$: format = format || FORMAT_DEFAULT;
 
+	$: format, validate(text);
+
 	let inputActive = false;
 
 	function open() {
@@ -91,7 +92,7 @@
 		visible = true;
 	}
 
-	function oninput() {
+	function validate() {
 		error = '';
 		if (text.length >= format.length) {
 			let d = parse(text, format);
@@ -103,16 +104,17 @@
 			error = format;
 		}
 	}
+
 	function onselect({ detail }) {
 		text = tostring(detail, format);
 		visible = false;
-		setval(detail);
+		focusInputElm();
 	}
+
 	function onfocus() {
 		inputActive = true;
-		// parse current text
-		oninput();
 	}
+
 	function onblur(e) {
 		inputActive = false;
 		setTimeout(() => {
@@ -123,6 +125,7 @@
 			setval(text);
 		}, 0);
 	}
+
 	function onkeydown(e) {
 		if (/*e.keyCode === 13 || */ e.keyCode === 32) {
 			e.stopPropagation();
@@ -130,13 +133,10 @@
 			open();
 		}
 	}
-	function onclosePicker({ detail }) {
-		if (detail === 'escape') {
-			let inputs = elm.querySelectorAll('input');
-			inputs[0] && inputs[0].focus();
-		} else {
-			setval(text);
-		}
+
+	function focusInputElm() {
+		let inputs = elm.querySelectorAll('input');
+		inputs[0] && inputs[0].focus();
 	}
 
 	function setval(val) {
@@ -151,12 +151,14 @@
 			dispatch('date-change', value);
 		}
 	}
+
 	function clone(val) {
 		if (isDate(val)) {
 			return isNaN(val) ? new Date(NaN) : new Date(val.getTime());
 		}
 		return val;
 	}
+
 	function isEqual(v1, v2) {
 		if (isDate(v1) && isDate(v2)) {
 			return isSameDay(v1, v2);
