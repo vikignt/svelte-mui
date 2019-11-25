@@ -3,6 +3,7 @@ import Button from './pages/button';
 import ButtonGroup from './pages/button-group';
 import Checkbox from './pages/checkbox';
 import CheckboxGroup from './pages/checkbox-group';
+import Datefield from './pages/datefield';
 import Datepicker from './pages/datepicker';
 import Dialog from './pages/dialog';
 import Icon from './pages/icon';
@@ -43,6 +44,11 @@ let routes = [
 		path: '/datepicker',
 		component: Datepicker,
 		name: 'Datepicker *',
+	},
+	{
+		path: '/datepicker/datefield',
+		component: Datefield,
+		name: 'Datefield *',
 	},
 	{
 		path: '/dialog',
