@@ -1,5 +1,9 @@
 # svelte-ui changelog
 
+## Unreleased
+
+- Datepicker
+
 ## 0.1.11
 
 - ButtonGroup
