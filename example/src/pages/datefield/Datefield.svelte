@@ -2,6 +2,8 @@
 	<Datefield
 		value={date}
 		label="A Special Day"
+		{readonly}
+		{disabled}
 		{locale}
 		{icon}
 		{format}
@@ -38,6 +40,8 @@
 	</div>
 	<div style="align-self: center;">
 		<Checkbox bind:checked={icon}>Icon</Checkbox>
+		<Checkbox bind:checked={readonly}>Readonly</Checkbox>
+		<Checkbox bind:checked={disabled}>Disabled</Checkbox>
 	</div>
 </Play>
 
@@ -59,6 +63,8 @@
 	// let date = new Date(NaN);
 
 	let icon = false;
+	let readonly = false;
+	let disabled = false;
 	let format = 'D.MM.YYYY';
 	let browserLanguage =
 		navigator.languages && navigator.languages.length
