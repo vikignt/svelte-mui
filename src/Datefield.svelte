@@ -83,15 +83,10 @@
 	// the format must exist
 	$: format = format || FORMAT_DEFAULT;
 
-	$: format, validate(text);
+	$: validate(text);
+	$: reformat(format);
 
 	let inputActive = false;
-
-	function open() {
-		if (visible) return;
-		pickerVal = parse(text, format);
-		visible = true;
-	}
 
 	function validate() {
 		error = '';
@@ -106,8 +101,24 @@
 		}
 	}
 
+	function reformat() {
+		if (isDate(value) && !isNaN(value)) {
+			text = tostring(value, format);
+			return;
+		} else {
+			validate();
+		}
+	}
+
+	function open() {
+		if (visible) return;
+		pickerVal = parse(text, format);
+		visible = true;
+	}
+
 	function onselect({ detail }) {
 		text = tostring(detail, format);
+		value = typeof value === 'string' ? text : clone(detail);
 		visible = false;
 		readonly ? setval(text) : focusInputElm();
 	}
