@@ -58,6 +58,7 @@
 	export let icon = false;
 	export let value = ''; // [Date, String]
 	export let locale;
+	export let readonly;
 	export let disabled = null;
 	export let format = FORMAT_DEFAULT;
 	export let isAllowed = () => true;
@@ -108,11 +109,12 @@
 	function onselect({ detail }) {
 		text = tostring(detail, format);
 		visible = false;
-		focusInputElm();
+		readonly ? setval(text) : focusInputElm();
 	}
 
 	function onfocus() {
 		inputActive = true;
+		readonly && open();
 	}
 
 	function onblur(e) {
@@ -135,6 +137,7 @@
 	}
 
 	function focusInputElm() {
+		if (readonly) return;
 		let inputs = elm.querySelectorAll('input');
 		inputs[0] && inputs[0].focus();
 	}
