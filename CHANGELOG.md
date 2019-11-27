@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- color
+	- fix ssr
 - Datefield
 - Popover
 	- dispatch 'close' custom event
