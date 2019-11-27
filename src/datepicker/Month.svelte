@@ -59,7 +59,7 @@
 </div>
 
 <script>
-	import { createEventDispatcher } from 'svelte';
+	import { onMount, createEventDispatcher } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
 	import Icon from '../Icon.svelte';
 	import Button from '../Button.svelte';
@@ -68,10 +68,14 @@
 	export let year;
 	export let value; // Date
 
-	let legacy = typeof document.createElement('div').style.grid !== 'string';
+	let legacy = false;
 	let direction = 0;
 
 	const dispatch = createEventDispatcher();
+
+	onMount(() => {
+		legacy = typeof document.createElement('div').style.grid !== 'string';
+	});
 
 	function onYear() {
 		direction = 0;
