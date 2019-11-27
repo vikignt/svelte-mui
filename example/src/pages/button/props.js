@@ -3,7 +3,8 @@ export default [
 		name: 'active',
 		def: 'false',
 		type: 'boolean',
-		desc: 'Active state of the toggle button, effective only if the <code>toggle</code> property is set',
+		desc:
+			'Active state of the toggle button, effective only if the <code>toggle</code> property is set',
 	},
 	{
 		name: 'class',

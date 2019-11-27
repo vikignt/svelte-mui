@@ -1,9 +1,13 @@
 # svelte-ui changelog
 
-## Unpublished
+## Unreleased
 
 - color
 	- fix ssr
+- Datefield
+- Popover
+	- dispatch 'close' custom event
+- Datepicker
 
 ## 0.1.11
 

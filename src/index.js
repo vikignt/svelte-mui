@@ -2,6 +2,8 @@ import Button from './Button.svelte';
 import ToggleButton from './ToggleButton.svelte';
 import ButtonGroup from './ButtonGroup.svelte';
 import Checkbox from './Checkbox.svelte';
+import Datefield from './Datefield.svelte';
+import Datepicker from './Datepicker.svelte';
 import Dialog from './Dialog.svelte';
 import Icon from './Icon.svelte';
 import Menu from './Menu.svelte';
@@ -16,6 +18,8 @@ export {
 	Button,
 	ButtonGroup,
 	Checkbox,
+	Datefield,
+	Datepicker,
 	Dialog,
 	Icon,
 	Menu,
