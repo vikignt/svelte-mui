@@ -1,21 +1,21 @@
 ```xml
 <div class="wrapper">
-    <Checkbox on:change={onAll} {checked} {indeterminate}>All</Checkbox>
-    <hr style="margin-bottom: 8px;" />
+	<Checkbox on:change={onAll} {checked} {indeterminate}>All</Checkbox>
+	<hr style="margin-bottom: 8px;" />
 
-    {#each colors as item}
-        <Checkbox class="thin" bind:group={favorite} value={item} color={item}>
-            <span style={`color: ${item}`}>{item}</span>
-        </Checkbox>
-    {/each}
+	{#each colors as item}
+		<Checkbox class="thin" bind:group={favorite} value={item} color={item}>
+			<span style={`color: ${item}`}>{item}</span>
+		</Checkbox>
+	{/each}
 </div>
 
 <p class="result">
-    Value: [
-    {#if favorite.length > 0}
-        <code>{favorite.join(', ')}</code>
-    {/if}
-    ]
+	Value: [
+	{#if favorite.length > 0}
+		<code>{favorite.join(', ')}</code>
+	{/if}
+	]
 </p>
 
 <script>

@@ -46,7 +46,7 @@
 <Properties data={properties} />
 
 <script>
-	import { Button, Sidepanel } from '@vikignt/svelte-ui';
+	import { Button, Sidepanel } from '/../../src';
 	import { DemoPanel, Description, Properties } from '/components/demo';
 
 	import code from './code.md';

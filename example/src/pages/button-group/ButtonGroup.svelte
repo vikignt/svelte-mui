@@ -102,7 +102,7 @@
 </Description>
 
 <script>
-	import { ButtonGroup, Button, Checkbox, Icon, Radio } from '@vikignt/svelte-ui';
+	import { ButtonGroup, Button, Checkbox, Icon, Radio } from '/../../src';
 	import {
 		alignCenter,
 		alignJustify,

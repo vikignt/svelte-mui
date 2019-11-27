@@ -37,7 +37,7 @@
 <Properties data={properties} />
 
 <script>
-	import { Button, Checkbox, Radio } from '@vikignt/svelte-ui';
+	import { Button, Checkbox, Radio } from '/../../src';
 	import { DemoPanel, Play, Description, Properties } from '/components/demo';
 
 	import code from './code.md';

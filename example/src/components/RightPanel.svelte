@@ -8,7 +8,7 @@
 <script>
 	export let visible = false;
 
-	import { Sidepanel } from '@vikignt/svelte-ui';
+	import { Sidepanel } from '/../../src';
 </script>
 
 <style>

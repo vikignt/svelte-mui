@@ -16,14 +16,14 @@ export default [
 		def: '() => true',
 		type: 'function',
 		desc:
-			'Forwarding to the <a href=\'/datepicker\'>Datepicker</a> callback function provides disabling of some dates to be selected',
+			"Forwarding to the <a href='/datepicker'>Datepicker</a> callback function provides disabling of some dates to be selected",
 	},
 	{
 		name: 'locale',
 		def: 'navigator language',
 		type: 'string',
 		desc:
-			'Forwarding to the <a href=\'/datepicker\'>Datepicker</a> locale is used to set the first day of the week and to format language sensitive date',
+			"Forwarding to the <a href='/datepicker'>Datepicker</a> locale is used to set the first day of the week and to format language sensitive date",
 	},
 	{
 		name: 'readonly',

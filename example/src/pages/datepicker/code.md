@@ -1,11 +1,11 @@
 ```xml
 <div class="card">
-		<Datepicker
-			bind:value={date}
-			isAllowed={(date) => {
-				return date.getDay() > 0 && date.getDay() < 6;
-			}}
-		/>
+	<Datepicker
+		bind:value={date}
+		isAllowed={(date) => {
+			return date.getDay() > 0 && date.getDay() < 6;
+		}}
+	/>
 </div>
 
 <script>

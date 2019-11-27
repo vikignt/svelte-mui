@@ -1,9 +1,9 @@
 ```xml
 <Sidepanel right bind:visible={rightVisible}>
-    <div class="logo" style="padding-left: 1rem;">Help</div>
-    <p>
-        <i style="padding: 12px;">Blank</i>
-    </p>
+	<div class="logo" style="padding-left: 1rem;">Help</div>
+	<p>
+		<i style="padding: 12px;">Blank</i>
+	</p>
 </Sidepanel>
 
 <script>

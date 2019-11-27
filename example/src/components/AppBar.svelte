@@ -69,10 +69,10 @@
 
 	import { onMount } from 'svelte';
 
-	import { Button, Icon, Menu, Menuitem } from '@vikignt/svelte-ui';
-	import { home, menu, invertColors, moreVert } from './icons';
+	import { Button, Icon, Menu, Menuitem } from '/../../src';
+	import { home, menu, invertColors, moreVert } from '/components/icons';
 
-	import { theme } from '../store';
+	import { theme } from '/store';
 
 	let el;
 	let legacy = true;

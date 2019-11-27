@@ -28,10 +28,10 @@
 	export let currentPath = '';
 	export let sitenav = [];
 
-	import { Button, Icon, Sidepanel } from '@vikignt/svelte-ui';
+	import { Button, Icon, Sidepanel } from '/../../src';
 
-	import { arrowBack } from './icons';
-	import Nav from './nav';
+	import { arrowBack } from '/components/icons';
+	import Nav from '/components/nav';
 </script>
 
 <style>
