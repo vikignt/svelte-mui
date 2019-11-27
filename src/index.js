@@ -1,5 +1,4 @@
 import Button from './Button.svelte';
-import ToggleButton from './ToggleButton.svelte';
 import ButtonGroup from './ButtonGroup.svelte';
 import Checkbox from './Checkbox.svelte';
 import Datefield from './Datefield.svelte';
@@ -29,5 +28,4 @@ export {
 	Sidepanel,
 	Snackbar,
 	Textfield,
-	ToggleButton,
 };

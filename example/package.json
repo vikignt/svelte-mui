@@ -1,6 +1,6 @@
 {
     "name": "svelte-app",
-    "version": "0.1.11",
+    "version": "0.2.0",
     "description": "Example of using @vikignt/svelte-ui components",
     "author": "viking <vikignt@gmail.com>",
     "repository": {

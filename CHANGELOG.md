@@ -1,13 +1,14 @@
 # svelte-ui changelog
 
-## Unreleased
+## 0.2.0
 
+- ToggleButton delete
 - color
 	- fix ssr
-- Datefield
+- Datefield new component
 - Popover
 	- dispatch 'close' custom event
-- Datepicker
+- Datepicker new component
 
 ## 0.1.11
 
