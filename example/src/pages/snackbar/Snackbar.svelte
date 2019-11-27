@@ -53,7 +53,7 @@
 <Properties data={properties} />
 
 <script>
-	import { Snackbar, Button, Checkbox, Radio, Textfield } from '@vikignt/svelte-ui';
+	import { Snackbar, Button, Checkbox, Radio, Textfield } from '/../../src';
 	import { DemoPanel, Play, Description, Properties } from '/components/demo';
 
 	import code from './code.md';

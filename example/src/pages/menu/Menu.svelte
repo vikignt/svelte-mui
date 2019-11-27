@@ -62,7 +62,7 @@
 <Properties data={properties} />
 
 <script>
-	import { Menu, Menuitem, Icon, Button, Radio } from '@vikignt/svelte-ui';
+	import { Menu, Menuitem, Icon, Button, Radio } from '/../../src';
 	import { arrowDropDown } from '/components/icons';
 	import { DemoPanel, Play, Description, Properties } from '/components/demo';
 

@@ -23,8 +23,8 @@
 <script>
 	import { slide } from 'svelte/transition';
 
-	import { Button, Icon } from '@vikignt/svelte-ui';
-	import { code } from '../icons';
+	import { Button, Icon } from '/../../src';
+	import { code } from '/components/icons';
 
 	let codeVisible = false;
 </script>

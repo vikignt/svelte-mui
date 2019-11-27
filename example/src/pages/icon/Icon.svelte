@@ -59,7 +59,7 @@
 <Properties data={properties} />
 
 <script>
-	import { Icon, Checkbox } from '@vikignt/svelte-ui';
+	import { Icon, Checkbox } from '/../../src';
 	import paint from '/components/icons/svg/paint.svg';
 	import approval from '/components/icons/svg/approval.svg';
 	import { home, cartOutline, spinner } from '/components/icons';

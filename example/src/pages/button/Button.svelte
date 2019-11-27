@@ -81,7 +81,7 @@
 <Properties data={properties} />
 
 <script>
-	import { Button, Checkbox, Icon, Radio } from '@vikignt/svelte-ui';
+	import { Button, Checkbox, Icon, Radio } from '/../../src';
 	import { cartOutline, search } from '/components/icons';
 	import approval from '/components/icons/svg/approval.svg';
 	import { DemoPanel, Play, Description, Properties } from '/components/demo';

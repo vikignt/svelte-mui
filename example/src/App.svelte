@@ -60,16 +60,16 @@
 	import { fly } from 'svelte/transition';
 	import { linear } from 'svelte/easing';
 
-	import { Icon } from '@vikignt/svelte-ui';
-	import { arrowForward } from './components/icons';
+	import { Icon } from '/../../src';
+	import { arrowForward } from '/components/icons';
 
-	import AppBar from './components/AppBar.svelte';
-	import LeftPanel from './components/LeftPanel.svelte';
-	import RightPanel from './components/RightPanel.svelte';
-	import LoginDialog from './components/LoginDialog.svelte';
-	import Nav from './components/nav';
+	import AppBar from '/components/AppBar.svelte';
+	import LeftPanel from '/components/LeftPanel.svelte';
+	import RightPanel from '/components/RightPanel.svelte';
+	import LoginDialog from '/components/LoginDialog.svelte';
+	import Nav from '/components/nav';
 
-	import sn from './sitenav';
+	import sn from '/sitenav';
 
 	let sitenav = sn;
 
