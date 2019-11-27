@@ -46,10 +46,7 @@
 	import Month from './datepicker/Month.svelte';
 	import Year from './datepicker/Year.svelte';
 
-	export let locale =
-		navigator.languages && navigator.languages.length
-			? navigator.languages[0]
-			: navigator.userLanguage || navigator.language || navigator.browserLanguage || 'ru';
+	export let locale = '';
 	export let isAllowed = () => true;
 	export let value = new Date();
 	export let header = true;
@@ -71,6 +68,12 @@
 	year = d.getFullYear();
 
 	onMount(() => {
+		if (!locale) {
+			locale =
+				navigator.languages && navigator.languages.length
+					? navigator.languages[0]
+					: navigator.userLanguage || navigator.language || navigator.browserLanguage || 'ru';
+		}
 		if (contElm) {
 			contElm.style.height = contElm.offsetHeight + 'px';
 			contElm.style.width = contElm.offsetWidth + 'px';
