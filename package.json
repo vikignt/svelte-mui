@@ -34,6 +34,8 @@
     "ui"
   ],
   "files": [
-    "src"
+    "src",
+    "index.js",
+    "index.mjs"
   ]
 }
