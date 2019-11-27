@@ -1,4 +1,5 @@
 export function islegacy() {
+	if (typeof window === 'undefined') return false;
 	return !(window.CSS && window.CSS.supports && window.CSS.supports('(--foo: red)'));
 }
 

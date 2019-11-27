@@ -1,5 +1,10 @@
 # svelte-ui changelog
 
+## Unpublished
+
+- color
+	- fix ssr
+
 ## 0.1.11
 
 - ButtonGroup
