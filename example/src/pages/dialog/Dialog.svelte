@@ -25,7 +25,7 @@
 <Properties data={properties} />
 
 <script>
-	import { Button } from '@vikignt/svelte-ui';
+	import { Button } from '/../../src';
 	import LoginDialog from '/components/LoginDialog.svelte';
 	import { DemoPanel, Description, Properties } from '/components/demo';
 

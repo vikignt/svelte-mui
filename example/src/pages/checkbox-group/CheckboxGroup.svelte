@@ -31,7 +31,7 @@
 </DemoPanel>
 
 <script>
-	import { Button, Checkbox } from '@vikignt/svelte-ui';
+	import { Button, Checkbox } from '/../../src';
 	import { DemoPanel } from '/components/demo';
 
 	import code from './code.md';

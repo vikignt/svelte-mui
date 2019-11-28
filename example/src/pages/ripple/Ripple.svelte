@@ -22,7 +22,7 @@
 <Properties data={properties} />
 
 <script>
-	import { Ripple } from '@vikignt/svelte-ui';
+	import { Ripple } from '/../../src';
 	import { DemoPanel, Description, Properties } from '/components/demo';
 
 	import code from './code.md';

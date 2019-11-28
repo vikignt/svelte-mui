@@ -34,7 +34,7 @@
 	export let username = '';
 	export let password = '';
 
-	import { Dialog, Textfield, Button } from '@vikignt/svelte-ui';
+	import { Dialog, Textfield, Button } from '/../../src';
 </script>
 
 <style>
