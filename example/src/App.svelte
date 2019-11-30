@@ -25,29 +25,27 @@
 	{/if}
 
 	<div class="page">
-		{#await page then component}
-			{#if component}
-				{#if titlePage}
-					<h3>{titlePage}</h3>
-				{/if}
-
-				<svelte:component this={component.default || component} {...ctx} />
-
-				{#if maxWidth < 721 && ctx.path === '/'}
-					<div
-						class="explore"
-						tabindex="0"
-						on:click={() => {
-							leftPanelVisible = true;
-						}}
-						on:keydown={onKeyDown}
-					>
-						<span>Explore components</span>
-						<Icon path={arrowForward} />
-					</div>
-				{/if}
+		{#if page}
+			{#if titlePage}
+				<h3>{titlePage}</h3>
 			{/if}
-		{/await}
+
+			<svelte:component this={page.default || page} {...ctx} />
+
+			{#if maxWidth < 721 && ctx.path === '/'}
+				<div
+					class="explore"
+					tabindex="0"
+					on:click={() => {
+						leftPanelVisible = true;
+					}}
+					on:keydown={onKeyDown}
+				>
+					<span>Explore components</span>
+					<Icon path={arrowForward} />
+				</div>
+			{/if}
+		{/if}
 	</div>
 </main>
 
