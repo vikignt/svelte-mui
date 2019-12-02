@@ -108,8 +108,6 @@
 		color: var(--alternate, #fff);
 		background: #1976d2;
 		background: var(--primary, #1976d2);
-		border-top-left-radius: inherit;
-		border-top-right-radius: inherit;
 		padding: 16px;
 		height: 97px;
 	}
