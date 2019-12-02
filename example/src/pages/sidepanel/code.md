@@ -9,6 +9,6 @@
 <script>
 	export let rightVisible = false;
 
-	import { Sidepanel } from '@vikignt/svelte-ui';
+	import { Sidepanel } from 'svelte-mui';
 </script>
 ```

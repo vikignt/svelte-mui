@@ -8,7 +8,7 @@
 <p>Value: [<code>{group}</code>]</p>
 
 <script>
-	import { Radio } from '@vikignt/svelte-ui';
+	import { Radio } from 'svelte-mui';
 
 	let group = 'Green';
 	let colors = {

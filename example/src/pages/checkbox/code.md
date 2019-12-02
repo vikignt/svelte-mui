@@ -8,7 +8,7 @@
 </Checkbox>
 
 <script>
-	import { Checkbox } from '@vikignt/svelte-ui';
+	import { Checkbox } from 'svelte-mui';
 
 	let checked = true;
 	let indeterminate = false;

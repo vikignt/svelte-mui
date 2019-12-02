@@ -8,7 +8,7 @@
 />
 
 <script>
-	import { Textfield } from '@vikignt/svelte-ui';
+	import { Textfield } from 'svelte-mui';
 
 	let value = '';
 </script>

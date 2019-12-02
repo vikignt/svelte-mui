@@ -7,7 +7,7 @@
 </Snackbar>
 
 <script>
-	import { Snackbar, Button } from '@vikignt/svelte-ui';
+	import { Snackbar, Button } from 'svelte-mui';
 
 	let visible = false;
 	let message = 'Snackbar message!';

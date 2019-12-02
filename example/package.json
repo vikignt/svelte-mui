@@ -1,11 +1,11 @@
 {
     "name": "svelte-app",
     "version": "0.2.0",
-    "description": "Example of using @vikignt/svelte-ui components",
+    "description": "Example of using svelte-mui components",
     "author": "viking <vikignt@gmail.com>",
     "repository": {
         "type": "git",
-        "url": "https://github.com/vikignt/svelte-ui.git"
+        "url": "https://github.com/vikignt/svelte-mui.git"
     },
     "license": "MIT",
     "scripts": {

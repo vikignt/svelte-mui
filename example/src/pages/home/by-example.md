@@ -1,15 +1,15 @@
 ### Get started with an example
 
-Clone repo [vikignt/svelte-ui](https://github.com/vikignt/svelte-ui.git)
+Clone repo [vikignt/svelte-mui](https://github.com/vikignt/svelte-mui.git)
 
 ```bash
-git clone https://github.com/vikignt/svelte-ui.git
+git clone https://github.com/vikignt/svelte-mui.git
 ```
 
 Then explore the __example__
 
 ```bash
-cd svelte-ui/example
+cd svelte-mui/example
 npm install
 npm run dev
 ```

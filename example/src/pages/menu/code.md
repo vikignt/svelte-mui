@@ -17,7 +17,7 @@
 </Menu>
 
 <script>
-	import { Menu, Menuitem, Button, Icon } from '@vikignt/svelte-ui';
+	import { Menu, Menuitem, Button, Icon } from 'svelte-mui';
 	import { arrowDropDown } from '/components/icons';
 </script>
 ```

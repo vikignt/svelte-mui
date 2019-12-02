@@ -1,4 +1,10 @@
-# svelte-ui changelog
+# svelte-mui changelog
+
+## unreleased
+
+- rename repo svelte-ui -> svelte-mui
+- Datefield
+	- add borber-radius popover element
 
 ## 0.2.0
 

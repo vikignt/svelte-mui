@@ -1,11 +1,11 @@
 {
-  "name": "@vikignt/svelte-ui",
+  "name": "svelte-mui",
   "version": "0.2.0",
-  "description": "Simple svelte 3 ui components",
+  "description": "Set of Svelte 3 material ui components",
   "author": "viking <vikignt@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vikignt/svelte-ui.git"
+    "url": "https://github.com/vikignt/svelte-mui.git"
   },
   "license": "MIT",
   "svelte": "src/index.js",
@@ -30,6 +30,7 @@
   "keywords": [
     "svelte",
     "svelte-ui",
+    "svelte-mui",
     "material",
     "ui"
   ],
