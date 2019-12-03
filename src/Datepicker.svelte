@@ -46,10 +46,10 @@
 	import Month from './datepicker/Month.svelte';
 	import Year from './datepicker/Year.svelte';
 
-	export let locale = '';
+	export let locale;
 	export let isAllowed = () => true;
-	export let value = new Date();
 	export let header = true;
+	export let value;
 
 	const events = getEventsAction(current_component);
 	const dispatch = createEventDispatcher();
@@ -68,16 +68,12 @@
 	year = d.getFullYear();
 
 	onMount(() => {
-		if (!locale) {
-			locale =
-				navigator.languages && navigator.languages.length
-					? navigator.languages[0]
-					: navigator.userLanguage || navigator.language || navigator.browserLanguage || 'ru';
-		}
-		if (contElm) {
-			contElm.style.height = contElm.offsetHeight + 'px';
-			contElm.style.width = contElm.offsetWidth + 'px';
-		}
+		setTimeout(() => {
+			if (contElm) {
+				contElm.style.height = contElm.offsetHeight + 'px';
+				contElm.style.width = contElm.offsetWidth + 'px';
+			}
+		}, 0);
 	});
 
 	function onView({ detail }) {
@@ -104,6 +100,7 @@
 		overflow: hidden;
 	}
 	.header {
+		box-sizing: border-box;
 		color: #fff;
 		color: var(--alternate, #fff);
 		background: #1976d2;
