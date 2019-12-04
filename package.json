@@ -1,6 +1,6 @@
 {
   "name": "svelte-mui",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Set of Svelte 3 material ui components",
   "author": "viking <vikignt@gmail.com>",
   "repository": {
@@ -9,11 +9,9 @@
   },
   "license": "MIT",
   "svelte": "src/index.js",
-  "module": "index.mjs",
-  "main": "index.js",
   "scripts": {
-    "lint": "eslint src/* example/src/* --ext .svelte,.js && prettier --check \"**\"",
-    "lint:fix": "eslint src/* example/src/* --ext .svelte,.js && prettier --write \"**\""
+    "lint": "eslint src/* --ext .svelte,.js && prettier --check \"**\"",
+    "lint:fix": "eslint src/* --ext .svelte,.js && prettier --write \"**\""
   },
   "peerDependencies": {
     "svelte": "^3.0.0"
@@ -23,8 +21,7 @@
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-svelte3": "^2.7.3",
     "prettier": "^1.18.2",
-    "prettier-plugin-svelte": "^0.7.0",
-    "svelte": "^3.0.0"
+    "prettier-plugin-svelte": "^0.7.0"
   },
   "dependencies": {},
   "keywords": [

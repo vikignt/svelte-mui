@@ -1,6 +1,6 @@
 # svelte-mui changelog
 
-## unreleased
+## 0.2.1
 
 - rename repo svelte-ui -> svelte-mui
 - Datefield
