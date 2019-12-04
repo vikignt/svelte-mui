@@ -27,7 +27,7 @@
 </Button>
 
 <script>
-	import { Button, Icon } from '@vikignt/svelte-ui';
+	import { Button, Icon } from 'svelte-mui';
 	import { cartOutline, search } from '/components/icons';
 	import approval from '/components/icons/svg/approval.svg';
 

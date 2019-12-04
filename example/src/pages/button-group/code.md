@@ -54,7 +54,7 @@
 </ButtonGroup>
 
 <script>
-	import { ButtonGroup, Button, Icon } from '@vikignt/svelte-ui';
+	import { ButtonGroup, Button, Icon } from 'svelte-mui';
 	import {
 		alignCenter,
 		alignJustify,

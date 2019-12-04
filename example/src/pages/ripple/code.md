@@ -9,7 +9,7 @@
 </div>
 
 <script>
-	import { Ripple } from '@vikignt/svelte-ui';
+	import { Ripple } from 'svelte-mui';
 </script>
 
 <style>

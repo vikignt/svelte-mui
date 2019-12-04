@@ -1,15 +1,15 @@
-# svelte-ui
+# svelte-mui
 
-Set of the UI components for [Svelte](https://svelte.dev) (~30 KB minzipped)
+Set of the UI components for [Svelte](https://svelte.dev) (~30 KB minzipped), inspired by Google's [Material Design](https://material.io/design/)
 
-[View the demo](https://svelte-ui.ibbf.ru)
+[View the demo](https://svelte-mui.ibbf.ru)
 
 ## Installation
 
 _Note that you will need to have [Node.js](https://nodejs.org) installed_
 
 ```bash
-npm install --save-dev @vikignt/svelte-ui
+npm install --save-dev svelte-mui
 ```
 
 ## Usage
@@ -21,13 +21,13 @@ npm install --save-dev @vikignt/svelte-ui
 
 <script>
     // import any components you want
-    import { Textfield } from '@vikignt/svelte-ui';
+    import { Textfield } from 'svelte-mui';
 
     let value = 'world';
 </script>
 ```
 
-This code on the [Svelte REPL](https://svelte.dev/repl/5cae739a3a2f4208a48fd2822061b164?version=3.12.1)
+This code on the [Svelte REPL](https://svelte.dev/repl/dfec17bd888749a1b76fa950df40f5dd?version=3.16.0)
 
 ## Quick start with new project
 
@@ -42,7 +42,7 @@ npm install
 Add components
 
 ```bash
-npm install --save-dev @vikignt/svelte-ui
+npm install --save-dev svelte-mui
 ```
 
 * _Optionally_ add [focus-visible](https://github.com/WICG/focus-visible) polyfill to enable focus to be visible when using <kbd>TAB</kbd> key. This option can be applied to `Button`, `Checkbox`, `Radio` button, `Menuitem`
@@ -58,7 +58,7 @@ Modify file `src/App.svelte` in the following way
     // optional import focus-visible polyfill only once
     import 'focus-visible';
     // import any components
-    import { Button, Checkbox } from '@vikignt/svelte-ui';
+    import { Button, Checkbox } from 'svelte-mui';
 
     let checked = true;
 </script>
@@ -104,16 +104,16 @@ For real applications, you have to add global styles to `disabled` state
 
 ## Get started with an example
 
-Clone repo [vikignt/svelte-ui](https://github.com/vikignt/svelte-ui.git)
+Clone repo [vikignt/svelte-mui](https://github.com/vikignt/svelte-mui.git)
 
 ```bash
-git clone https://github.com/vikignt/svelte-ui.git
+git clone https://github.com/vikignt/svelte-mui.git
 ```
 
 Then explore the __example__
 
 ```bash
-cd svelte-ui/example
+cd svelte-mui/example
 npm install
 npm run dev
 ```

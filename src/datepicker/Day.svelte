@@ -87,8 +87,8 @@
 	);
 	const weekStartSix = 'ar-ly ar-ma ar ku tzm-latn tzm'.split(' ');
 
-	let weekdays;
-	let cells;
+	let weekdays = [];
+	let cells = [];
 	$: if (locale) {
 		// locale changed
 		if (weekStartOne.indexOf(locale.toLowerCase()) >= 0) {
@@ -103,7 +103,7 @@
 			weekStart = 0;
 		}
 
-		weekdays = [];
+		weekdays.length = 0;
 		let date = new Date(0);
 		for (let i = 0; i < 7; i++) {
 			date.setDate(4 + weekStart + i);
@@ -127,6 +127,12 @@
 
 	onMount(() => {
 		legacy = typeof document.createElement('div').style.grid !== 'string';
+		if (!locale) {
+			locale =
+				navigator.languages && navigator.languages.length
+					? navigator.languages[0]
+					: navigator.userLanguage || navigator.language || navigator.browserLanguage || 'ru';
+		}
 	});
 
 	const allow = (year, month, date) => {

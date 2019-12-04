@@ -21,7 +21,7 @@
 			<Icon path={invertColors} />
 		</Button>
 	{/if}
-	<a class="icon" target="_blank" href="https://github.com/vikignt/svelte-ui">
+	<a class="icon" target="_blank" href="https://github.com/vikignt/svelte-mui">
 		<Icon
 			path="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577
 			0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633

@@ -85,7 +85,9 @@
 
 <style>
 	.card {
+		border-radius: 4px;
 		display: inline-block;
+		overflow: hidden;
 		box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.14),
 			0 1px 8px 0 rgba(0, 0, 0, 0.12);
 	}

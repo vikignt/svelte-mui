@@ -19,7 +19,7 @@
 </p>
 
 <script>
-	import { Checkbox } from '@vikignt/svelte-ui';
+	import { Checkbox } from 'svelte-mui';
 
 	let colors = ['coral', 'goldenrod', 'limegreen'];
 	let favorite = ['coral', 'goldenrod'];

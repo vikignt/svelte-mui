@@ -40,7 +40,7 @@
 <Icon path={cartOutline} flip />
 
 <script>
-	import { Icon } from '@vikignt/svelte-ui';
+	import { Icon } from 'svelte-mui';
 
 	import paint from '/components/icons/svg/paint.svg';
 	import approval from '/components/icons/svg/approval.svg';

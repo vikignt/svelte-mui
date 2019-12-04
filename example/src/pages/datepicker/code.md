@@ -9,7 +9,7 @@
 </div>
 
 <script>
-	import { Datepicker } from '@vikignt/svelte-ui';
+	import { Datepicker } from 'svelte-mui';
 
 	let date = new Date();
 	date.setDate(date.getDate() + 2);

@@ -37,7 +37,13 @@
 		/>
 	{/if}
 
-	<Popover dx={icon ? 36 : 0} dy="24" bind:visible on:close={focusInputElm}>
+	<Popover
+		dx={icon ? 36 : 0}
+		dy="24"
+		style="border-radius: 4px;"
+		bind:visible
+		on:close={focusInputElm}
+	>
 		<Datepicker {locale} {isAllowed} value={pickerVal} on:select={onselect} />
 	</Popover>
 </div>

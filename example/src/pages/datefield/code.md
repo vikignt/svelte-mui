@@ -8,7 +8,7 @@
 />
 
 <script>
-	import { Datefield } from '@vikignt/svelte-ui';
+	import { Datefield } from 'svelte-mui';
 
 	let format = 'D.MM.YYYY';
 	let date = '21.01.2019';  // String or

@@ -1,7 +1,7 @@
 <svelte:window on:scroll|passive={onScroll} on:resize|passive={onResize} />
 
 <svelte:head>
-	<title>svelte-ui{titlePage ? `: ${titlePage}` : ''}</title>
+	<title>svelte-mui{titlePage ? `: ${titlePage}` : ''}</title>
 </svelte:head>
 
 <AppBar
