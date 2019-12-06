@@ -181,7 +181,7 @@
 		position: absolute;
 		right: 0;
 		top: 0;
-		transition: 0.4s cubic-bezier(0.25, 0.8, 0.5, 1);
+		transition: 0.2s cubic-bezier(0.25, 0.8, 0.5, 1);
 		will-change: background-color, opacity;
 	}
 	.toggle:before {
@@ -245,13 +245,17 @@
 	}
 
 	@media (hover: hover) {
-		button:hover:not([disabled]):not(.disabled):before {
+		button:hover:not(.toggle):not([disabled]):not(.disabled):before {
 			background-color: currentColor;
 			opacity: 0.15;
 		}
-		button.focus-visible:focus:not([disabled]):not(.disabled):before {
+		button.focus-visible:focus:not(.toggle):not([disabled]):not(.disabled):before {
 			background-color: currentColor;
 			opacity: 0.3;
+		}
+		button.focus-visible.toggle:focus:not(.active):not([disabled]):not(.disabled):before {
+			background-color: currentColor;
+			opacity: 0.15;
 		}
 	}
 </style>
