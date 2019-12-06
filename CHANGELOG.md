@@ -1,5 +1,12 @@
 # svelte-mui changelog
 
+## Unreleased
+
+- Button
+	- update :hove, :focus style for toggle button
+- Icon, Datepicker
+	- simple optimization
+
 ## 0.2.1
 
 - rename repo svelte-ui -> svelte-mui

@@ -1,9 +1,9 @@
 <DemoPanel>
 	<div class="demo-content">
 		<ButtonGroup color="primary">
-			<Button {...props} on:click={increment}>This one</Button>
-			<Button {...props} on:click={increment}>Click</Button>
-			<Button {...props} on:click={increment}>Here</Button>
+			<Button {...props} ripple on:click={increment}>This one</Button>
+			<Button {...props} ripple on:click={increment}>Click</Button>
+			<Button {...props} ripple on:click={increment}>Here</Button>
 		</ButtonGroup>
 	</div>
 
@@ -135,7 +135,7 @@
 		outlined: false,
 		shaped: true,
 		dense: false,
-		ripple: true,
+		ripple: false,
 		disabled: false,
 	};
 
