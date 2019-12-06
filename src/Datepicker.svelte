@@ -18,7 +18,7 @@
 			{/if}
 		</div>
 	{/if}
-	<div class="body" bind:this={contElm}>
+	<div class="body" bind:this={elm}>
 		{#if type === 'year'}
 			<Year {year} on:select={onYear} />
 		{:else if type === 'month'}
@@ -38,7 +38,7 @@
 </div>
 
 <script>
-	import { onMount, createEventDispatcher } from 'svelte';
+	import { createEventDispatcher } from 'svelte';
 	import { current_component } from 'svelte/internal';
 	import { getEventsAction } from './lib/events';
 	import { isDate } from './lib/date';
@@ -57,7 +57,7 @@
 	let type = 'days';
 	let month;
 	let year;
-	let contElm;
+	let elm;
 
 	if (!isDate(value)) {
 		value = new Date(NaN);
@@ -67,14 +67,12 @@
 	month = d.getMonth();
 	year = d.getFullYear();
 
-	onMount(() => {
+	$: if (elm) {
 		setTimeout(() => {
-			if (contElm) {
-				contElm.style.height = contElm.offsetHeight + 'px';
-				contElm.style.width = contElm.offsetWidth + 'px';
-			}
+			elm.style.height = elm.offsetHeight + 'px';
+			elm.style.width = elm.offsetWidth + 'px';
 		}, 0);
-	});
+	}
 
 	function onView({ detail }) {
 		type = detail.type;
