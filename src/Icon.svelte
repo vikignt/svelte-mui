@@ -1,4 +1,4 @@
-<em
+<i
 	class={'icon ' + className}
 	class:flip={flip && typeof flip === 'boolean'}
 	class:flip-h={flip === 'h'}
@@ -16,10 +16,9 @@
 	{:else}
 		<slot />
 	{/if}
-</em>
+</i>
 
 <script>
-	import { beforeUpdate } from 'svelte';
 	import { current_component } from 'svelte/internal';
 	import { getEventsAction } from './lib/events';
 
@@ -46,15 +45,12 @@
 		delete other.class;
 		attrs = other;
 	}
+	$: if (elm) {
+		elm.firstChild.setAttribute('width', size);
+		elm.firstChild.setAttribute('height', size);
 
-	beforeUpdate(() => {
-		if (elm) {
-			elm.firstChild.setAttribute('width', size);
-			elm.firstChild.setAttribute('height', size);
-
-			color && elm.firstChild.setAttribute('fill', color);
-		}
-	});
+		color && elm.firstChild.setAttribute('fill', color);
+	}
 </script>
 
 <style>
