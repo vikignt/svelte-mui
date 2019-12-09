@@ -1,11 +1,12 @@
 # svelte-mui changelog
 
-## Unreleased
+## 0.2.2
 
+- ExpansionPanel new component
 - Button
 	- update :hove, :focus style for toggle button
 - Icon, Datepicker
-	- simple optimization
+	- small optimization
 
 ## 0.2.1
 

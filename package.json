@@ -1,37 +1,47 @@
 {
-  "name": "svelte-mui",
-  "version": "0.2.1",
-  "description": "Set of Svelte 3 material ui components",
-  "author": "viking <vikignt@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/vikignt/svelte-mui.git"
-  },
-  "license": "MIT",
-  "svelte": "src/index.js",
-  "scripts": {
-    "lint": "eslint src/* --ext .svelte,.js && prettier --check \"**\"",
-    "lint:fix": "eslint src/* --ext .svelte,.js && prettier --write \"**\""
-  },
-  "peerDependencies": {
-    "svelte": "^3.0.0"
-  },
-  "devDependencies": {
-    "eslint": "^6.5.1",
-    "eslint-config-prettier": "^6.4.0",
-    "eslint-plugin-svelte3": "^2.7.3",
-    "prettier": "^1.18.2",
-    "prettier-plugin-svelte": "^0.7.0"
-  },
-  "dependencies": {},
-  "keywords": [
-    "svelte",
-    "svelte-ui",
-    "svelte-mui",
-    "material",
-    "ui"
-  ],
-  "files": [
-    "src"
-  ]
+	"name": "svelte-mui",
+	"version": "0.2.2",
+	"description": "Set of Svelte 3 material ui components",
+	"author": "viking <vikignt@gmail.com>",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/vikignt/svelte-mui.git"
+	},
+	"license": "MIT",
+	"module": "index.mjs",
+	"main": "index.js",
+	"scripts": {
+		"build": "rollup -c",
+		"zip": "gzip -9k index.mjs index.js",
+		"lint": "eslint src/* --ext .svelte,.js",
+		"format": "prettier --check \"**\"",
+		"format:fix": "prettier --write \"**\""
+	},
+	"peerDependencies": {
+		"svelte": "^3.0.0"
+	},
+	"devDependencies": {
+		"eslint": "^6.5.1",
+		"eslint-config-prettier": "^6.4.0",
+		"eslint-plugin-svelte3": "^2.7.3",
+		"prettier": "^1.18.2",
+		"prettier-plugin-svelte": "^0.7.0",
+		"rollup": "^1.27.8",
+		"rollup-plugin-node-resolve": "^5.2.0",
+		"rollup-plugin-svelte": "^5.1.1",
+		"rollup-plugin-terser": "^5.1.2",
+		"svelte": "^3.0.0"
+	},
+	"dependencies": {},
+	"keywords": [
+		"svelte",
+		"svelte-ui",
+		"svelte-mui",
+		"material",
+		"ui"
+	],
+	"files": [
+		"index.mjs",
+		"index.js"
+	]
 }
