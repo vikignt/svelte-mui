@@ -4,6 +4,7 @@ import Checkbox from './Checkbox.svelte';
 import Datefield from './Datefield.svelte';
 import Datepicker from './Datepicker.svelte';
 import Dialog from './Dialog.svelte';
+import ExpansionPanel from './ExpansionPanel.svelte';
 import Icon from './Icon.svelte';
 import Menu from './Menu.svelte';
 import Menuitem from './Menuitem.svelte';
@@ -20,6 +21,7 @@ export {
 	Datefield,
 	Datepicker,
 	Dialog,
+	ExpansionPanel,
 	Icon,
 	Menu,
 	Menuitem,

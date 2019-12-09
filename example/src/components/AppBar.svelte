@@ -91,6 +91,8 @@
 
 		'--bg-app-bar': '#838383',
 		'--bg-panel': '#434343',
+
+		'--focus-color': 'rgba(62, 166, 255, 0.5)', // primary with alpha
 	};
 
 	$: if (el) {
