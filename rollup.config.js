@@ -8,15 +8,36 @@ const name = pkg.name
 	.replace(/^\w/, m => m.toUpperCase())
 	.replace(/-\w/g, m => m[1].toUpperCase());
 
-export default {
-	input: 'src/index.js',
-	output: [
-		{ file: pkg.module, 'format': 'es' },
-		{ file: pkg.main, 'format': 'umd', name }
-	],
-	plugins: [
-		svelte(),
-		resolve(),
-		terser()
-	]
-};
+export default [
+	{
+		external: [
+			'svelte',
+			'svelte/animate',
+			'svelte/easing',
+			'svelte/internal',
+			'svelte/motion',
+			'svelte/store',
+			'svelte/transition',
+		],
+		input: 'src/index.js',
+		output: [
+			{ file: pkg.module, 'format': 'es' },
+		],
+		plugins: [
+			svelte(),
+			resolve(),
+			terser()
+		]
+	},
+	{
+		input: 'src/index.js',
+		output: [
+			{ file: pkg.main, 'format': 'umd', name }
+		],
+		plugins: [
+			svelte(),
+			resolve(),
+			terser()
+		]
+	}
+];

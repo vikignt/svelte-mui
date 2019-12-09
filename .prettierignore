@@ -2,8 +2,11 @@
 example/assets
 example/public
 temp
+/index.js
+/index.mjs
 *.json
 *.md
+*.gz
 *.tgz
 *.svg
 rollup.config.js
