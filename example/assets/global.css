@@ -16,6 +16,8 @@
 	--heading-font-family: var(--font-family);
 	--button-font-family: var(--font-family);
 	--code-font-family: 'Roboto Mono', Menlo, Consolas, monospace;
+
+	--focus-color: rgba(25, 118, 210, 0.5); /* primary with alpha */
 }
 
 * {
@@ -26,7 +28,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html {

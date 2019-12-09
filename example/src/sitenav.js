@@ -6,6 +6,7 @@ import CheckboxGroup from '/pages/checkbox-group';
 import Datefield from '/pages/datefield';
 import Datepicker from '/pages/datepicker';
 import Dialog from '/pages/dialog';
+import ExpansionPanel from '/pages/expansion-panel';
 import Icon from '/pages/icon';
 import Menu from '/pages/menu';
 import Radio from '/pages/radio';
@@ -43,17 +44,22 @@ let routes = [
 	{
 		path: '/datepicker',
 		component: Datepicker,
-		name: 'Datepicker *',
+		name: 'Datepicker',
 	},
 	{
 		path: '/datepicker/datefield',
 		component: Datefield,
-		name: 'Datefield *',
+		name: 'Datefield',
 	},
 	{
 		path: '/dialog',
 		component: Dialog,
 		name: 'Dialog',
+	},
+	{
+		path: '/expansion-panel',
+		component: ExpansionPanel,
+		name: 'Expansion Panel *',
 	},
 	{
 		path: '/icon',
