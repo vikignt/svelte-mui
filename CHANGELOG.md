@@ -1,5 +1,10 @@
 # svelte-mui changelog
 
+## Unreleased
+
+- ExpansionPanel
+	- fix slide on safari
+
 ## 0.2.2
 
 - ExpansionPanel new component

@@ -144,6 +144,7 @@
 	}
 
 	.content {
+		overflow: auto;
 		margin: 0;
 		padding: 0 24px 16px;
 	}
