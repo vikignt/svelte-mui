@@ -54,7 +54,7 @@
 	export let titlePage = null;
 	export let ctx = null;
 
-	import { onMount } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { linear } from 'svelte/easing';
 
@@ -92,13 +92,26 @@
 		}
 	}
 
-	function onResize() {
+	async function onResize() {
 		maxWidth =
 			window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
 		if (maxWidth > 720) {
 			delete sitenav[0].name;
 			leftPanelVisible = false;
+
+			await tick();
+			let node = document.getElementsByClassName('nav-panel')[0];
+			try {
+				const rc = node.getClientRects()[0];
+				const h =
+					window.innerHeight ||
+					document.documentElement.clientHeight ||
+					document.body.clientHeight;
+				const maxHeight = h - rc.top - 24;
+
+				node.style.maxHeight = maxHeight + 'px';
+			} catch (err) {} // eslint-disable-line
 		} else {
 			sitenav[0].name = 'Home';
 		}
@@ -128,10 +141,20 @@
 		top: 64px;
 		width: 200px;
 		min-width: 200px;
+		overflow-x: hidden;
+		overflow-y: auto;
+		overscroll-behavior: none;
 		padding: 8px 0;
 		border-radius: 4px;
 		background: var(--bg-panel);
 		border: 1px solid var(--divider);
+	}
+	.nav-panel::-webkit-scrollbar {
+		height: 4px;
+		width: 4px;
+	}
+	.nav-panel::-webkit-scrollbar-thumb {
+		background: var(--bg-app-bar, #888);
 	}
 
 	.explore {
