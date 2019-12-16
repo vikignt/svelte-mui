@@ -77,6 +77,12 @@ Modify file `src/App.svelte` in the following way
 </Button>
 ```
 
+_Note for the [sapper](https://sapper.svelte.dev/) application, you must import components from `svelte-mui/src` like so_
+
+```js
+    import { Button, Checkbox } from 'svelte-mui/src';
+```
+
 ...then start [Rollup](https://rollupjs.org/)
 
 ```bash
