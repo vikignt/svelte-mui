@@ -1,6 +1,6 @@
 {
 	"name": "svelte-mui",
-	"version": "0.2.2",
+	"version": "0.3.0",
 	"description": "Set of Svelte 3 material ui components",
 	"author": "viking <vikignt@gmail.com>",
 	"repository": {
@@ -41,6 +41,7 @@
 		"ui"
 	],
 	"files": [
+		"src",
 		"index.mjs",
 		"index.js"
 	]

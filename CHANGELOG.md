@@ -1,7 +1,8 @@
 # svelte-mui changelog
 
-## Unreleased
+## 0.3.0
 
+- add src to the npm package for sapper
 - ExpansionPanel
 	- fix slide on safari
 
