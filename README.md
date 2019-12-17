@@ -4,6 +4,8 @@ Set of the UI components for [Svelte](https://svelte.dev) (~30 KB minzipped), in
 
 [View the demo](https://svelte-mui.ibbf.ru)
 
+[View the sapper demo](https://sapper-mui.ibbf.ru)
+
 ## Installation
 
 _Note that you will need to have [Node.js](https://nodejs.org) installed_
@@ -125,3 +127,19 @@ npm run dev
 ```
 
 Navigate to [localhost:5000](http://localhost:5000)
+
+### Get started with an sapper example
+
+Clone repo [vikignt/sapper-mui](https://github.com/vikignt/sapper-mui.git)
+
+```bash
+git clone https://github.com/vikignt/sapper-mui.git
+```
+
+```bash
+cd sapper-mui
+npm install
+npm run dev
+```
+
+Navigate to [localhost:5000](http://localhost:3000)
