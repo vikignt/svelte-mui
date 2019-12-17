@@ -1,4 +1,4 @@
-Datepicker component shows a calendar that allows the user to pick a date. This is the basis for <a href='/datefield'>Datefield</a> component, but can be used individually. This component uses the `Intl` browser Internationalization API which provides language sensitive date formatting
+Datepicker component shows a calendar that allows the user to pick a date. This is the basis for <a href='/datepicker/datefield'>Datefield</a> component, but can be used individually. This component uses the `Intl` browser Internationalization API which provides language sensitive date formatting
 
 #### Events
 
