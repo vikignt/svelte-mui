@@ -1,5 +1,10 @@
 # svelte-mui changelog
 
+## 0.3.1
+
+- ExpansionPanel
+	- set local transition
+
 ## 0.3.0
 
 - add src to the npm package for sapper
