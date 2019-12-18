@@ -17,7 +17,7 @@
 	</button>
 
 	{#if active}
-		<div class="content" transition:slide={{ duration: 250 }}>
+		<div class="content" transition:slide|local={{ duration: 250 }}>
 			<slot />
 		</div>
 	{/if}
