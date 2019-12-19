@@ -119,8 +119,9 @@
 			svgs[i].setAttribute('height', iconSize + (toggle && !icon ? 2 : 0));
 		}
 
-		elm.style.color = raised || unelevated ? (luminance(color) > 0.5 ? '#000' : '#fff') : color;
 		elm.style.backgroundColor = raised || unelevated ? color : 'transparent';
+		let bg = getComputedStyle(elm).getPropertyValue('background-color');
+		elm.style.color = raised || unelevated ? (luminance(bg) > 0.5 ? '#000' : '#fff') : color;
 	});
 
 	function onclick(e) {
