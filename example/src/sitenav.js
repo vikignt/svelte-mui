@@ -59,7 +59,7 @@ let routes = [
 	{
 		path: '/expansion-panel',
 		component: ExpansionPanel,
-		name: 'ExpansionPanel *',
+		name: 'ExpansionPanel',
 	},
 	{
 		path: '/icon',
