@@ -67,9 +67,7 @@
 	import LoginDialog from '/components/LoginDialog.svelte';
 	import Nav from '/components/nav';
 
-	import sn from '/sitenav';
-
-	let sitenav = sn;
+	import sitenav from '/sitenav';
 
 	let maxWidth = 720;
 	let offsetTop = 0;
