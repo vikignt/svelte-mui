@@ -3,28 +3,7 @@ export function islegacy() {
 	return !(window.CSS && window.CSS.supports && window.CSS.supports('(--foo: red)'));
 }
 
-export function cssVar(name, value) {
-	// if name like 'var(--variable)' or 'var(--variable, fallback_color)' reduce to '--variable'
-	name = name.replace(/var\(|\s?,.+|\)|'|"/g, '');
-
-	if (name.substr(0, 2) !== '--') {
-		name = '--' + name;
-	}
-
-	if (value) {
-		document.documentElement.style.setProperty(name, value);
-	}
-
-	return getComputedStyle(document.documentElement).getPropertyValue(name);
-}
-
 export function normalize(color) {
-	color = color.replace(/\s/, '');
-	// var()
-	if (color.charAt(0) === 'v') {
-		color = cssVar(color);
-	}
-	// rgb(), rgba()
 	if (color.charAt(0) === 'r') {
 		color = rgb2hex(color);
 	} else if (color.toLowerCase() === 'transparent') {

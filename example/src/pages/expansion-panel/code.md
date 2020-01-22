@@ -49,7 +49,7 @@
     let group = '';
 
     const onchage = ({ detail }) => {
-        console.log(detail.expanded ? 'open' : 'close', detail.name);
+        // console.log(detail.expanded ? 'open' : 'close', detail.name);
     };
 </script>
 

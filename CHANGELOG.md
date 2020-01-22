@@ -1,5 +1,10 @@
 # svelte-mui changelog
 
+## Unreleased
+
+- Button
+	- color optimize
+
 ## 0.3.1
 
 - ExpansionPanel
