@@ -160,6 +160,6 @@
 		width: 100%;
 	}
 	.demo-content :global(button) {
-		margin: 0;
+		margin: 0 !important;
 	}
 </style>

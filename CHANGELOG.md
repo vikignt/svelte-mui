@@ -4,6 +4,8 @@
 
 - Button
 	- color optimize
+- ExpansionPanel
+	- fix header align-items on ff
 
 ## 0.3.1
 
