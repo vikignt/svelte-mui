@@ -43,7 +43,7 @@
         "rollup-plugin-terser": "^5.1.2",
         "rollup-pluginutils": "^2.8.2",
         "sirv-cli": "^0.4.4",
-        "svelte": "^3.0.0"
+        "svelte": "3.12.1"
     },
     "dependencies": {}
 }
