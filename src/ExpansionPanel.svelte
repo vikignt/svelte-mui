@@ -106,6 +106,7 @@
 
 	.header {
 		display: flex;
+		align-items: flex-start;
 		width: 100%;
 		min-height: 48px;
 		cursor: pointer;
