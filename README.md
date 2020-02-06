@@ -29,7 +29,7 @@ npm install --save-dev svelte-mui
 </script>
 ```
 
-This code on the [Svelte REPL](https://svelte.dev/repl/dfec17bd888749a1b76fa950df40f5dd?version=3.16.0)
+This code on the [Svelte REPL](https://svelte.dev/repl/dfec17bd888749a1b76fa950df40f5dd?version=3.18.1)
 
 ## Quick start with new project
 
