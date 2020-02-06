@@ -1,6 +1,6 @@
 # svelte-mui changelog
 
-## Unreleased
+## 0.3.3
 
 - Button
 	- color optimize

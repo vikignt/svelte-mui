@@ -1,6 +1,6 @@
 {
 	"name": "svelte-mui",
-	"version": "0.3.1",
+	"version": "0.3.3",
 	"description": "Set of Svelte 3 material ui components",
 	"author": "viking <vikignt@gmail.com>",
 	"repository": {
@@ -18,7 +18,7 @@
 		"format:fix": "prettier --write \"**\""
 	},
 	"peerDependencies": {
-		"svelte": "^3.0.0"
+		"svelte": "^3.18.0"
 	},
 	"devDependencies": {
 		"eslint": "^6.5.1",
@@ -30,7 +30,7 @@
 		"rollup-plugin-node-resolve": "^5.2.0",
 		"rollup-plugin-svelte": "^5.1.1",
 		"rollup-plugin-terser": "^5.1.2",
-		"svelte": "^3.0.0"
+		"svelte": "^3.18.1"
 	},
 	"dependencies": {},
 	"keywords": [
