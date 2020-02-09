@@ -79,6 +79,10 @@
 
 <Properties data={properties} />
 
+<Properties data={custom}>
+	<h4 slot="name">CSS custom properties</h4>
+</Properties>
+
 <script>
 	import { ExpansionPanel, Checkbox, Icon } from '/../../src';
 	import approval from '/components/icons/svg/approval.svg';
@@ -87,6 +91,7 @@
 	import code from './code.md';
 	import doc from './doc.md';
 	import properties from './props';
+	import custom from './custom';
 
 	let accordion = true;
 	let group = Array(4);

@@ -36,6 +36,10 @@
 
 <Properties data={properties} />
 
+<Properties data={custom}>
+	<h4 slot="name">CSS custom properties</h4>
+</Properties>
+
 <script>
 	import { Button, Checkbox, Radio } from '/../../src';
 	import { DemoPanel, Play, Description, Properties } from '/components/demo';
@@ -43,6 +47,7 @@
 	import code from './code.md';
 	import doc from './doc.md';
 	import properties from './props';
+	import custom from './custom';
 
 	let group = 'Green';
 	let colors = {

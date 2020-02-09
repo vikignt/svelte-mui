@@ -80,6 +80,10 @@
 
 <Properties data={properties} />
 
+<Properties data={custom}>
+	<h4 slot="name">CSS custom properties</h4>
+</Properties>
+
 <script>
 	import { Button, Checkbox, Icon, Radio } from '/../../src';
 	import { cartOutline, search } from '/components/icons';
@@ -90,6 +94,7 @@
 	import code from './code.md';
 	import doc from './doc.md';
 	import properties from './props';
+	import custom from './custom';
 
 	let counter = 0;
 
