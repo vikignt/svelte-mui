@@ -11,7 +11,7 @@
 		</tr>
 		{#each data as item}
 			<tr>
-				<td nowrap>
+				<td>
 					<code>{item.name}</code>
 					{#if item.type}
 						<small>{item.type}</small>
@@ -20,7 +20,7 @@
 				<td>
 					{@html item.desc}
 				</td>
-				<td nowrap>
+				<td>
 					<strong>
 						{#if item.def && (item.def[0] === '#' || item.def.indexOf('rgb') === 0)}
 							<span
@@ -56,7 +56,7 @@
 		font-weight: 500;
 	}
 	tr:first-child th:nth-child(2) {
-		width: 80%;
+		max-width: 80%;
 	}
 	th,
 	td {
