@@ -61,6 +61,10 @@
 
 <Properties data={properties} />
 
+<Properties data={custom}>
+	<h4 slot="name">CSS custom properties</h4>
+</Properties>
+
 <script>
 	import { Menu, Menuitem, Icon, Button, Radio } from '/../../src';
 	import { arrowDropDown } from '/components/icons';
@@ -69,6 +73,7 @@
 	import code from './code.md';
 	import doc from './doc.md';
 	import properties from './props';
+	import custom from './custom';
 
 	let menu;
 	let origin = 'top left';

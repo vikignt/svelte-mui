@@ -2,9 +2,7 @@
 
 Set of the UI components for [Svelte](https://svelte.dev) (~30 KB minzipped), inspired by Google's [Material Design](https://material.io/design/)
 
-[View the demo](https://svelte-mui.ibbf.ru)
-
-[View the sapper demo](https://sapper-mui.ibbf.ru)
+[View the demo](https://svelte-mui.now.sh)
 
 ## Installation
 
