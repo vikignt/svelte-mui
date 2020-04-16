@@ -1,7 +1,7 @@
 <svelte:window
 	on:scroll|passive={onScroll}
 	on:resize|passive={onResize}
-	on:keydown={onKeydown}
+	on:keydown|capture={onKeydown}
 	on:click={onclickOutside}
 />
 
@@ -141,6 +141,7 @@
 	function onKeydown(e) {
 		if (visible) {
 			if (e.keyCode === 27) {
+				e.stopPropagation();
 				close('escape');
 			}
 			trapTabKey(e, popoverEl);
