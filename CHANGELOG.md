@@ -1,6 +1,6 @@
 # svelte-mui changelog
 
-## Unpublish
+## 0.3.3-2
 
 - Popover
 	- listen keydown event on capture phase and stopPropagation on ESC key
