@@ -2,7 +2,7 @@
 	on:scroll|passive={onScroll}
 	on:resize|passive={onResize}
 	on:keydown|capture={onKeydown}
-	on:click={onclickOutside}
+	on:click|capture={onclickOutside}
 />
 
 {#if visible}
@@ -149,6 +149,7 @@
 	}
 	function onclickOutside(e) {
 		if (visible && triggerEl && !triggerEl.contains(e.target)) {
+			e.stopPropagation();
 			close('clickOutside');
 		}
 	}
