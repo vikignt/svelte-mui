@@ -1,5 +1,10 @@
 # svelte-mui changelog
 
+## 0.3.3-3
+
+- Popover
+	- fix click outside
+
 ## 0.3.3-2
 
 - Popover
