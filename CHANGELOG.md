@@ -1,5 +1,10 @@
 # svelte-mui changelog
 
+## unpublish
+
+- ButtonGroup
+	- set wrap style
+
 ## 0.3.3-3
 
 - Popover
