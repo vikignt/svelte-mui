@@ -20,6 +20,7 @@
 <style>
 	.button-group {
 		display: inline-flex;
+		flex-wrap: wrap;
 	}
 	.button-group :global(button) {
 		padding: 0 8px;
