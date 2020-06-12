@@ -3,7 +3,7 @@
 	<div slot="activator">
 		<Button color="primary" outlined ripple={false} style="padding-right: 4px;">
 			<span>Menu</span>
-			<Icon content={arrowDropDown} />
+			<Icon path={arrowDropDown} />
 		</Button>
 	</div>
 
