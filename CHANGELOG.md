@@ -1,7 +1,9 @@
 # svelte-mui changelog
 
-## unpublish
+## 0.3.3-4
 
+- Dialog
+	fix for the sapper when loading a page with a visible dialog
 - ButtonGroup
 	- set wrap style
 
