@@ -100,6 +100,8 @@
 	}
 
 	async function onVisible() {
+		if (!elm) return;
+
 		await tick();
 		let inputs = elm.querySelectorAll('input:not([type="hidden"])');
 		let length = inputs.length;
