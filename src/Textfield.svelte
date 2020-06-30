@@ -3,6 +3,7 @@
 	class:filled
 	class:dirty
 	class:disabled
+	class:invalid
 	{style}
 	{title}
 >
@@ -11,7 +12,7 @@
 	<div class="focus-ring" />
 	<div class="label">
 		{label}
-		{#if required && !value.length}
+		{#if required}
 			<span class="required">*</span>
 		{/if}
 	</div>
@@ -21,9 +22,11 @@
 	{/if}
 
 	{#if !!message || !!error}
-		<div class="help" class:persist={messagePersist} class:error>
-			<div class="message">{error || message}</div>
-		</div>
+		{#if invalid}
+			<div class="help error">{error}{error ? '' : message}</div>
+		{:else}
+			<div class:persist={ !!messagePersist } class="help message">{message}</div>
+		{/if}
 	{/if}
 </div>
 
@@ -46,8 +49,9 @@
 		messagePersist,
 		message,
 		error,
+		validator
 	};
-
+	let defaultValidator = v => (""+v).trim().length > 0;
 	let value = '';
 	let disabled = false;
 	let required = false;
@@ -60,6 +64,8 @@
 	let messagePersist = false;
 	let message = '';
 	let error = '';
+	let invalid = false;
+	let validator = required ? defaultValidator : null;
 
 	let placeholder;
 
@@ -82,11 +88,17 @@
 
 		!other.readonly && delete other.readonly;
 		!other.disabled && delete other.disabled;
+		other.required && validator == null && (validator = defaultValidator);
+		!other.required && validator == defaultValidator && (validator = null);
+		!other.required && delete other.required;
+
 		delete other.class;
 		other.type = allowedTypes.indexOf(other.type) < 0 ? 'text' : other.type;
 		placeholder = other.placeholder;
 		attrs = other;
 	}
+
+	$: invalid =  (validator && value.length) ? !validator(value) : false;
 
 	$: dirty =
 		(typeof value === 'string' && value.length > 0) ||
@@ -135,6 +147,7 @@
 		left: 0.125em;
 		color: #ff5252;
 	}
+
 	.input {
 		box-sizing: border-box;
 		font: inherit;
@@ -170,6 +183,7 @@
 	.input:required {
 		box-shadow: none;
 	}
+	.invalid input,
 	.input:invalid {
 		box-shadow: none;
 	}
@@ -263,17 +277,22 @@
 		color: rgba(0, 0, 0, 0.3755);
 		/* postcss-custom-properties: ignore next */
 		color: var(--label, rgba(0, 0, 0, 0.3755));
-		opacity: 0;
+		opacity: 1;
 
 		overflow: hidden;
 		max-width: 90%;
 		white-space: nowrap;
 	}
-	.persist,
-	.error,
-	.input:focus ~ .help {
+
+	.help.message {
+		opacity: 0;
+	}
+
+	input:focus ~ .help.message,
+	.help.message.persist {
 		opacity: 1;
 	}
+
 	.error {
 		color: #ff5252;
 	}
