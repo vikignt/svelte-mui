@@ -22,7 +22,7 @@
 	{/if}
 
 	{#if !!message || !!error}
-		{#if invalid}
+		{#if hasError}
 			<div class="help error">{error}{error ? '' : message}</div>
 		{:else}
 			<div class:persist={ !!messagePersist } class="help message">{message}</div>
@@ -49,7 +49,8 @@
 		messagePersist,
 		message,
 		error,
-		validator
+		validator,
+        invalid
 	};
 	let defaultValidator = v => (""+v).trim().length > 0;
 	let value = '';
@@ -66,6 +67,7 @@
 	let error = '';
 	let invalid = false;
 	let validator = required ? defaultValidator : null;
+	let hasError = false;
 
 	let placeholder;
 
@@ -98,7 +100,10 @@
 		attrs = other;
 	}
 
-	$: invalid =  (validator && value.length) ? !validator(value) : false;
+	$: {
+		invalid = validator ? !validator(value) : false;
+		hasError = required ? (invalid && value.length) : invalid;
+	}
 
 	$: dirty =
 		(typeof value === 'string' && value.length > 0) ||
