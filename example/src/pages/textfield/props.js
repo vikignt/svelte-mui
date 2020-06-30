@@ -60,4 +60,10 @@ export default [
 		type: '[number, string]',
 		desc: 'Input value',
 	},
+	{
+		name: 'validator',
+		def: "null (*)",
+		type: 'Function',
+		desc: "A callback to check the value of the Textfield against. It takes a single argument, the value of the Textfield, and should return 'true' or 'false'.<br><br>When false is returned, the Textfield is marked as invalid and displays the '*' sign and the 'error' string if there is one. When no 'error' is provided the 'help' is displayed using the error color..<br><br> When 'required' is set and no validator is given, a default callback is attached that checks if the length of the trimmed string is bigger than 0.<br><br><br><i>Note:'required' must be set in order for the validator to be available</i>",
+	},
 ];

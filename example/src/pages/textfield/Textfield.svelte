@@ -2,6 +2,18 @@
 	<!-- NOTE: for 'outlined' Textfield parent element must set the background -->
 	<div style="flex: 1;margin: 0 8px;background: #eee;background: var(--bg-panel);">
 		<Textfield
+			required
+			autocomplete="off"
+			label="Secret word"
+			message="Please provide your Secret Word."
+			messagePersist
+			error="The secret word should start with SW !"
+			validator="{ startsWithSW }"
+		/>
+	</div>
+
+	<div style="flex: 1;margin: 0 8px;background: #eee;background: var(--bg-panel);">
+		<Textfield
 			bind:value
 			{label}
 			{required}
@@ -87,6 +99,10 @@
 	let filled = false;
 	let readonly = false;
 	let disabled = false;
+
+	const startsWithSW = text => {
+		return text.startsWith('SW');
+	};
 
 	let type = 'default';
 
