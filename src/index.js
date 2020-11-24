@@ -13,6 +13,8 @@ import Ripple from './Ripple.svelte';
 import Sidepanel from './Sidepanel.svelte';
 import Snackbar from './Snackbar.svelte';
 import Textfield from './Textfield.svelte';
+import Tabs from './Tabs.svelte';
+import Tab from './Tab.svelte';
 
 export {
 	Button,
@@ -30,4 +32,6 @@ export {
 	Sidepanel,
 	Snackbar,
 	Textfield,
+	Tabs,
+	Tab
 };
