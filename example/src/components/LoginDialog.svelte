@@ -25,7 +25,7 @@
 
 	<div slot="footer" class="footer">
 		Don't have account?
-		<a href="/singup" class="disabled">Sing Up</a>
+		<a href="/singup" class="disabled">Sign Up</a>
 	</div>
 </Dialog>
 
