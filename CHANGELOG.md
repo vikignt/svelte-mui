@@ -1,5 +1,12 @@
 # svelte-mui changelog
 
+## 0.3.3-5
+
+- example
+	typo
+- Datefield
+	changes the props order
+
 ## 0.3.3-4
 
 - Dialog
