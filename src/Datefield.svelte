@@ -18,9 +18,9 @@
 	<Textfield
 		bind:value={text}
 		placeholder={visible ? attrs.message || 'date' : ''}
+		{error}
 		{...attrs}
 		message={attrs.message}
-		{error}
 		on:keydown={onkeydown}
 		on:focus={onfocus}
 		on:blur={onblur}
