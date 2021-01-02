@@ -9,7 +9,6 @@ import root from 'rollup-plugin-root-import';
 import copy from 'rollup-plugin-copy';
 import postcss from 'rollup-plugin-postcss';
 import autoprefixer from 'autoprefixer';
-import properties from 'postcss-custom-properties';
 import md from './build/rollup-plugin-markdown';
 import hljs from 'highlight.js';
 
@@ -51,9 +50,6 @@ export default {
 			sourceMap: false,
 			plugins: [
 				autoprefixer(),
-				properties({
-					importFrom: 'assets/global.css',
-				}),
 			],
 		}),
 		md({
