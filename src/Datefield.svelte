@@ -24,7 +24,7 @@
 		on:keydown={onkeydown}
 		on:focus={onfocus}
 		on:blur={onblur}
-		style={`padding-right: ${icon ? 0 : 21}px;`}
+		style={`padding-right: ${icon ? 0 : 21}px; ${textfieldStyle}`}
 	/>
 
 	{#if !icon}
@@ -68,6 +68,7 @@
 	export let disabled = null;
 	export let format = FORMAT_DEFAULT;
 	export let isAllowed = () => true;
+	export let textfieldStyle = undefined;
 
 	const events = getEventsAction(current_component);
 	const dispatch = createEventDispatcher();
