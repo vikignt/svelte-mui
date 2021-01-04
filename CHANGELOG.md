@@ -1,11 +1,17 @@
 # svelte-mui changelog
 
+## 0.3.3-6
+
+- Datefield
+	fixes behavoir of event bubbling (#41)
+	add textfieldStyle prop (#40)
+
 ## 0.3.3-5
 
 - example
 	typo
 - Datefield
-	changes the props order
+	changes the props order (#39)
 
 ## 0.3.3-4
 
