@@ -127,12 +127,14 @@
 		text = tostring(detail, format);
 		value = typeof value === 'string' ? text : clone(detail);
 		visible = false;
-		readonly ? setval(text) : focusInputElm();
+		setval(text);
+		focusInputElm();
 	}
 
 	function onfocus() {
 		inputActive = true;
 		readonly && open();
+		dispatch('focus', e);
 	}
 
 	function onblur(e) {
@@ -143,6 +145,7 @@
 				return;
 			}
 			setval(text);
+			dispatch('blur', e);
 		}, 0);
 	}
 
