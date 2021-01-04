@@ -131,7 +131,7 @@
 		focusInputElm();
 	}
 
-	function onfocus() {
+	function onfocus(e) {
 		inputActive = true;
 		readonly && open();
 		dispatch('focus', e);
