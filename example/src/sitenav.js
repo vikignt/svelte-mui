@@ -14,6 +14,7 @@ import Ripple from '/pages/ripple';
 import Sidepanel from '/pages/sidepanel';
 import Snackbar from '/pages/snackbar';
 import Textfield from '/pages/textfield';
+import Tabs from '/pages/tabs';
 import { NotFound } from '/pages/errors';
 
 let routes = [
@@ -96,6 +97,11 @@ let routes = [
 		component: Textfield,
 		name: 'Textfield',
 	},
+	{
+		path: '/tabs',
+		component: Tabs,
+		name: 'Tabs',
+	},	
 	{
 		path: '*',
 		component: NotFound,
