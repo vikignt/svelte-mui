@@ -8,6 +8,7 @@
 		"url": "https://github.com/vikignt/svelte-mui.git"
 	},
 	"license": "MIT",
+	"svelte": "src/index.js",
 	"module": "index.mjs",
 	"main": "index.js",
 	"scripts": {
