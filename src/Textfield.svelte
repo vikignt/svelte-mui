@@ -176,7 +176,7 @@
 	.input:active {
 		outline: none;
 	}
-	.input:hover ~ .input-line {
+	.input:hover:not([disabled]):not([readonly]) ~ .input-line {
 		background: #333;
 		/* postcss-custom-properties: ignore next */
 		background: var(--color, #333);
@@ -227,7 +227,7 @@
 		/* postcss-custom-properties: ignore next */
 		background: var(--label, rgba(0, 0, 0, 0.3755));
 	}
-	.focus-line {
+	input:not([disabled]):not([readonly]) ~ .focus-line {
 		position: absolute;
 		bottom: 0;
 		left: 0;
@@ -284,7 +284,7 @@
 		bottom: unset;
 		font-size: 13px;
 	}
-	.baseline .input:focus ~ .label {
+	.baseline .input:focus:not([disabled]):not([readonly]) ~ .label {
 		letter-spacing: 0.4px;
 		top: 6px;
 		bottom: unset;
@@ -323,8 +323,8 @@
 	.baseline.filled .help {
 		padding-left: 8px;
 	}
-	.filled .input:hover,
-	.filled .input:focus {
+	.filled .input:hover:not([disabled]):not([readonly]) ,
+	.filled .input:focus:not([disabled]):not([readonly]) {
 		background: rgba(0, 0, 0, 0.0555);
 		/* postcss-custom-properties: ignore next */
 		background: var(--bg-input-filled, rgba(0, 0, 0, 0.0555));
@@ -354,12 +354,12 @@
 		padding: 0 4px;
 		left: 13px;
 	}
-	.outlined .input:hover {
+	.outlined .input:hover:not([disabled]):not([readonly]) {
 		border-color: #333;
 		/* postcss-custom-properties: ignore next */
 		border-color: var(--color, #333);
 	}
-	.outlined .input:focus ~ .label {
+	.outlined .input:focus:not([disabled]):not([readonly]) ~ .label {
 		top: -6px;
 		bottom: unset;
 		font-size: 12px;
@@ -370,8 +370,8 @@
 		/* postcss-custom-properties: ignore next */
 		color: var(--primary, #1976d2);
 	}
-	.outlined .input:focus ~ .focus-ring,
-	.outlined .input.focus-visible ~ .focus-ring {
+	.outlined .input:focus:not([disabled]):not([readonly]) ~ .focus-ring,
+	.outlined .input:not([disabled]):not([readonly]).focus-visible ~ .focus-ring {
 		border-color: #1976d2;
 		/* postcss-custom-properties: ignore next */
 		border-color: var(--primary, #1976d2);
