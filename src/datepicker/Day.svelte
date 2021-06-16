@@ -82,31 +82,44 @@
 	const today = new Date();
 	today.setHours(0, 0, 0, 0);
 
-	const weekStartOne = 'af ar-tn az be bg bm br bs ca cs cv cy da de-at de-ch de el en-SG en-au en-gb en-ie en-nz eo es-do es et eu fi fo fr-ch fr fy ga gd gl gom-latn hr hu hy-am id is it-ch it jv ka kk km ky lb lt lv me mi mk ms-my ms mt my nb nl-be nl nn oc-lnc pl pt-br pt ro ru sd se sk sl sq sr-cyrl sr ss sv sw tet tg tl-ph tlh tr tzl ug-cn uk ur uz-latn uz vi x-pseudo yo zh-cn'.split(
-		' '
-	);
-	const weekStartSix = 'ar-ly ar-ma ar ku tzm-latn tzm'.split(' ');
+	const region_from_locale = (locale, _default='001') => {
+		// not super robust; consider something like: https://github.com/gagle/node-bcp47
+		return (locale.indexOf('-') > 0) ? locale.split('-')[1].toUpperCase() : _default;
+	}
+
+	// from cldr-json: https://github.com/unicode-org/cldr-json/blob/master/cldr-json/cldr-core/supplemental/weekData.json
+	const firstDay = {"001":"mon","AD":"mon","AE":"sat","AF":"sat","AG":"sun","AI":"mon","AL":"mon","AM":"mon","AN":"mon","AR":"mon","AS":"sun","AT":"mon","AU":"sun","AX":"mon","AZ":"mon","BA":"mon","BD":"sun","BE":"mon","BG":"mon","BH":"sat","BM":"mon","BN":"mon","BR":"sun","BS":"sun","BT":"sun","BW":"sun","BY":"mon","BZ":"sun","CA":"sun","CH":"mon","CL":"mon","CM":"mon","CN":"sun","CO":"sun","CR":"mon","CY":"mon","CZ":"mon","DE":"mon","DJ":"sat","DK":"mon","DM":"sun","DO":"sun","DZ":"sat","EC":"mon","EE":"mon","EG":"sat","ES":"mon","ET":"sun","FI":"mon","FJ":"mon","FO":"mon","FR":"mon","GB":"mon","GB-alt-variant":"sun","GE":"mon","GF":"mon","GP":"mon","GR":"mon","GT":"sun","GU":"sun","HK":"sun","HN":"sun","HR":"mon","HU":"mon","ID":"sun","IE":"mon","IL":"sun","IN":"sun","IQ":"sat","IR":"sat","IS":"mon","IT":"mon","JM":"sun","JO":"sat","JP":"sun","KE":"sun","KG":"mon","KH":"sun","KR":"sun","KW":"sat","KZ":"mon","LA":"sun","LB":"mon","LI":"mon","LK":"mon","LT":"mon","LU":"mon","LV":"mon","LY":"sat","MC":"mon","MD":"mon","ME":"mon","MH":"sun","MK":"mon","MM":"sun","MN":"mon","MO":"sun","MQ":"mon","MT":"sun","MV":"fri","MX":"sun","MY":"mon","MZ":"sun","NI":"sun","NL":"mon","NO":"mon","NP":"sun","NZ":"mon","OM":"sat","PA":"sun","PE":"sun","PH":"sun","PK":"sun","PL":"mon","PR":"sun","PT":"sun","PY":"sun","QA":"sat","RE":"mon","RO":"mon","RS":"mon","RU":"mon","SA":"sun","SD":"sat","SE":"mon","SG":"sun","SI":"mon","SK":"mon","SM":"mon","SV":"sun","SY":"sat","TH":"sun","TJ":"mon","TM":"mon","TR":"mon","TT":"sun","TW":"sun","UA":"mon","UM":"sun","US":"sun","UY":"mon","UZ":"mon","VA":"mon","VE":"sun","VI":"sun","VN":"mon","WS":"sun","XK":"mon","YE":"sun","ZA":"sun","ZW":"sun"};
+
+	const firstDay_for_region = (region, _default='mon') => {
+		return firstDay[region] || _default;
+	}
+
+	const offset_for_day = (day, _default=1) => {
+		// https://tc39.es/ecma262/#sec-week-day
+		switch(day) {
+			case 'sun': return 0;
+			case 'mon': return 1;
+			case 'tue': return 2;
+			case 'wed': return 3;
+			case 'thu': return 4;
+			case 'fri': return 5;
+			case 'sat': return 6;
+			default: return _default;
+		}
+	}
 
 	let weekdays = [];
 	let cells = [];
 	$: if (locale) {
 		// locale changed
-		if (weekStartOne.indexOf(locale.toLowerCase()) >= 0) {
-			weekStart = 1;
-		} else if (weekStartSix.indexOf(locale.toLowerCase()) >= 0) {
-			weekStart = 6;
-		} else if (weekStartOne.indexOf(locale.split('-')[0].toLowerCase()) >= 0) {
-			weekStart = 1;
-		} else if (weekStartSix.indexOf(locale.split('-')[0].toLowerCase()) >= 0) {
-			weekStart = 6;
-		} else {
-			weekStart = 0;
-		}
-
+		weekStart = offset_for_day( firstDay_for_region( region_from_locale(locale) ) );
 		weekdays.length = 0;
-		let date = new Date(0);
+		let date = new Date(0); // universal time zero (UTC: Thu, 01 Jan 1970 00:00:00 GMT)
+		date.setHours(0); // start of day, local time
+		let dayZero = date.getDate() - date.getDay(); // day zero of the week (Sunday)
+		while (dayZero > 16) dayZero -= 7; // avoid overflow: (dayZero + 6 + 6) <= 28
 		for (let i = 0; i < 7; i++) {
-			date.setDate(4 + weekStart + i);
+			date.setDate(dayZero + weekStart + i);
 			weekdays.push(
 				new Intl.DateTimeFormat(locale, {
 					weekday: 'narrow',
@@ -131,7 +144,7 @@
 			locale =
 				navigator.languages && navigator.languages.length
 					? navigator.languages[0]
-					: navigator.userLanguage || navigator.language || navigator.browserLanguage || 'ru';
+					: navigator.userLanguage || navigator.language || navigator.browserLanguage || 'ru-RU';
 		}
 	});
 
