@@ -1,6 +1,6 @@
 # svelte-mui
 
-Set of the UI components for [Svelte](https://svelte.dev) (~30 KB minzipped), inspired by Google's [Material Design](https://material.io/design/)
+Set of the UI components for [Svelte](https://svelte.dev) (~33 KB minzipped), inspired by Google's [Material Design](https://material.io/design/)
 
 [View the demo](https://svelte-mui.now.sh)
 
@@ -77,19 +77,13 @@ Modify file `src/App.svelte` in the following way
 </Button>
 ```
 
-_Note for the [sapper](https://sapper.svelte.dev/) application, you must import components from `svelte-mui/src` like so_
-
-```js
-    import { Button, Checkbox } from 'svelte-mui/src';
-```
-
 ...then start [Rollup](https://rollupjs.org/)
 
 ```bash
 npm run dev
 ```
 
-Navigate to [localhost:5000](http://localhost:5000)
+Navigate to [localhost:8080](http://localhost:8080)
 
 For real applications, you have to add global styles to `disabled` state
 
@@ -125,19 +119,3 @@ npm run dev
 ```
 
 Navigate to [localhost:5000](http://localhost:5000)
-
-### Get started with an sapper example
-
-Clone repo [vikignt/sapper-mui](https://github.com/vikignt/sapper-mui.git)
-
-```bash
-git clone https://github.com/vikignt/sapper-mui.git
-```
-
-```bash
-cd sapper-mui
-npm install
-npm run dev
-```
-
-Navigate to [localhost:3000](http://localhost:3000)
