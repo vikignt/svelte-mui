@@ -2,9 +2,9 @@ import '../assets/global.css';
 import 'focus-visible';
 import page from 'page';
 
-import App from '/App.svelte';
+import App from './App.svelte';
 
-import sitenav from '/sitenav';
+import sitenav from './sitenav';
 
 const app = new App({
 	target: document.body,

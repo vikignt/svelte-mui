@@ -10,8 +10,6 @@ You can use any HTMLElement attributes, like
 
 `open`, `close` custom events
 
-Any HTMLElement events
-
 #### Slots
 
 `title`, `actions`, `footer`

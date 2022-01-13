@@ -10,9 +10,10 @@ You can use any HTMLElement attributes, like
 
 #### Events
 
+`click` forwarded header HTMLElement event
+
 `change` custom event emitted when the panel is open or close, `detail` object contains boolean `expanded` and `name` fields
 
-Any HTMLElement events
 
 #### Slots
 

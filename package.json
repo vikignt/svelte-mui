@@ -1,6 +1,6 @@
 {
 	"name": "svelte-mui",
-	"version": "0.3.3-7",
+	"version": "0.4.0-2",
 	"description": "Set of Svelte 3 material ui components",
 	"author": "viking <vikignt@gmail.com>",
 	"repository": {
@@ -8,29 +8,22 @@
 		"url": "https://github.com/vikignt/svelte-mui.git"
 	},
 	"license": "MIT",
+	"svelte": "src/index.js",
 	"module": "index.mjs",
-	"main": "index.js",
+	"cdn": "index.js",
+	"unpkg": "index.js",
 	"scripts": {
-		"build": "rollup -c",
+		"build": "node esbuild",
 		"zip": "gzip -9k index.mjs index.js",
-		"lint": "eslint src/* --ext .svelte,.js",
-		"format": "prettier --check \"**\"",
-		"format:fix": "prettier --write \"**\""
+		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"peerDependencies": {
-		"svelte": "^3.18.0"
+		"svelte": "3.*"
 	},
 	"devDependencies": {
-		"eslint": "^6.5.1",
-		"eslint-config-prettier": "^6.4.0",
-		"eslint-plugin-svelte3": "^2.7.3",
-		"prettier": "^1.18.2",
-		"prettier-plugin-svelte": "^0.7.0",
-		"rollup": "^1.27.8",
-		"rollup-plugin-node-resolve": "^5.2.0",
-		"rollup-plugin-svelte": "^5.1.1",
-		"rollup-plugin-terser": "^5.1.2",
-		"svelte": "^3.18.1"
+		"esbuild": "0.14.11",
+		"esbuild-svelte": "0.6.1",
+		"svelte": "3.46.1"
 	},
 	"dependencies": {},
 	"keywords": [

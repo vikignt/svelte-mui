@@ -1,20 +1,20 @@
-import Home from '/pages/home';
-import Button from '/pages/button';
-import ButtonGroup from '/pages/button-group';
-import Checkbox from '/pages/checkbox';
-import CheckboxGroup from '/pages/checkbox-group';
-import Datefield from '/pages/datefield';
-import Datepicker from '/pages/datepicker';
-import Dialog from '/pages/dialog';
-import ExpansionPanel from '/pages/expansion-panel';
-import Icon from '/pages/icon';
-import Menu from '/pages/menu';
-import Radio from '/pages/radio';
-import Ripple from '/pages/ripple';
-import Sidepanel from '/pages/sidepanel';
-import Snackbar from '/pages/snackbar';
-import Textfield from '/pages/textfield';
-import { NotFound } from '/pages/errors';
+import Home from './pages/home';
+import Button from './pages/button';
+import ButtonGroup from './pages/button-group';
+import Checkbox from './pages/checkbox';
+import CheckboxGroup from './pages/checkbox-group';
+import Datefield from './pages/datefield';
+import Datepicker from './pages/datepicker';
+import Dialog from './pages/dialog';
+import ExpansionPanel from './pages/expansion-panel';
+import Icon from './pages/icon';
+import Menu from './pages/menu';
+import Radio from './pages/radio';
+import Ripple from './pages/ripple';
+import Sidepanel from './pages/sidepanel';
+import Snackbar from './pages/snackbar';
+import Textfield from './pages/textfield';
+import { NotFound } from './pages/errors';
 
 let routes = [
 	{
