@@ -57,8 +57,6 @@ Modify file `src/App.svelte` in the following way
 </style>
 ```
 
-_Note for the [sapper](https://sapper.svelte.dev/) application, you must import components from `svelte-mui/src` like so_
-
 ```html
 <script>
     import { Button, Checkbox } from 'svelte-mui/src';
@@ -71,7 +69,7 @@ _Note for the [sapper](https://sapper.svelte.dev/) application, you must import 
 npm run dev
 ```
 
-Navigate to [localhost:5000](http://localhost:5000)
+Navigate to [localhost:8080](http://localhost:8080)
 
 _NOTE: In real applications, you have to add global styles to `disabled` states_
 

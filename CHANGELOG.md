@@ -1,5 +1,9 @@
 # svelte-mui changelog
 
+## 0.4.0-2
+
+- #46 update for latest Svelte version v3.46.1 compatible
+
 ## 0.3.3-6
 
 - Datefield

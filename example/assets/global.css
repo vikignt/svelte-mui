@@ -176,7 +176,8 @@ h6 {
 	visibility: hidden;
 }
 
-code {
+code,
+.mono {
 	font-family: var(--code-font-family);
 	font-size: 13px;
 	padding: 0;

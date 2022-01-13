@@ -38,6 +38,6 @@ You can use any HTMLElement attributes, like
 
 #### Events
 
-`change` toggle button dispatch custom event
+`click` forwarded HTMLElement event
 
-Any HTMLElement events
+`change` toggle button dispatch custom event

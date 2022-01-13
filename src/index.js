@@ -1,33 +1,15 @@
-import Button from './Button.svelte';
-import ButtonGroup from './ButtonGroup.svelte';
-import Checkbox from './Checkbox.svelte';
-import Datefield from './Datefield.svelte';
-import Datepicker from './Datepicker.svelte';
-import Dialog from './Dialog.svelte';
-import ExpansionPanel from './ExpansionPanel.svelte';
-import Icon from './Icon.svelte';
-import Menu from './Menu.svelte';
-import Menuitem from './Menuitem.svelte';
-import Radio from './Radio.svelte';
-import Ripple from './Ripple.svelte';
-import Sidepanel from './Sidepanel.svelte';
-import Snackbar from './Snackbar.svelte';
-import Textfield from './Textfield.svelte';
-
-export {
-	Button,
-	ButtonGroup,
-	Checkbox,
-	Datefield,
-	Datepicker,
-	Dialog,
-	ExpansionPanel,
-	Icon,
-	Menu,
-	Menuitem,
-	Radio,
-	Ripple,
-	Sidepanel,
-	Snackbar,
-	Textfield,
-};
+export {default as Button} from './Button.svelte';
+export {default as ButtonGroup} from './ButtonGroup.svelte';
+export {default as Checkbox} from './Checkbox.svelte';
+export {default as Datefield} from './Datefield.svelte';
+export {default as Datepicker} from './Datepicker.svelte';
+export {default as Dialog} from './Dialog.svelte';
+export {default as ExpansionPanel} from './ExpansionPanel.svelte';
+export {default as Icon} from './Icon.svelte';
+export {default as Menu} from './Menu.svelte';
+export {default as Menuitem} from './Menuitem.svelte';
+export {default as Radio} from './Radio.svelte';
+export {default as Ripple} from './Ripple.svelte';
+export {default as Sidepanel} from './Sidepanel.svelte';
+export {default as Snackbar} from './Snackbar.svelte';
+export {default as Textfield} from './Textfield.svelte';

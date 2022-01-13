@@ -8,4 +8,4 @@ You can use any HTMLElement attributes, like
 
 #### Events
 
-Any HTMLElement events
+`click`, `focus`, `blur` forwarded HTMLElement event
