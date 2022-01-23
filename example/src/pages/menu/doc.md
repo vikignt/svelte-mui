@@ -2,6 +2,10 @@ Popover container with Menuitem's. Any DOM element which is put in the `activato
 
 `Menu` can use HTMLElement attributes `class`, `style`
 
+#### Events
+
+`open`, `close` custom events
+
 #### Slot
 
 `activator`
