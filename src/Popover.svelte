@@ -17,6 +17,8 @@
   let popoverEl;
   let triggerEl;
 
+  let listeners = [];
+
   const MARGIN = 8;
 
   function popoverIn(target) {
@@ -53,8 +55,29 @@
     target.style.transitionProperty = null;
     target.style.transform = null;
 
+    let scrollable = target;
+    while ((scrollable = getScrollable(scrollable.parentElement))) {
+      try {
+        scrollable.addEventListener("scroll", onScroll);
+        listeners.push(scrollable);
+      } catch (error) {}
+    }
+
     // grab focus
     target.focus();
+    dispatch("open");
+  }
+  function oend({ target }) {
+    if (listeners.length > 0) {
+      let listener;
+      while ((listener = listeners.pop())) {
+        try {
+          listener.removeEventListener("scroll", onScroll);
+        } catch (error) {}
+      }
+    }
+
+    dispatch("close");
   }
   function getLeftPosition(width, rc) {
     let left = 0;
@@ -121,6 +144,25 @@
       close("clickOutside");
     }
   }
+
+  const isScrollable = function (elm) {
+    if (!elm) return false;
+    if (!(elm instanceof Element)) return false;
+
+    const hasScrollableContent = elm.scrollHeight > elm.clientHeight;
+
+    const overflowYStyle = window.getComputedStyle(elm).overflowY;
+    const isOverflowHidden = overflowYStyle.indexOf("hidden") !== -1;
+
+    return hasScrollableContent && !isOverflowHidden;
+  };
+
+  const getScrollable = function (elm) {
+    if (!elm) return null;
+    if (isScrollable(elm)) return elm;
+
+    return getScrollable(elm.parentNode);
+  };
 </script>
 
 <svelte:window
@@ -139,6 +181,7 @@
     out:popoverOut
     on:introstart={(e) => istart(e)}
     on:introend={(e) => iend(e)}
+    on:outroend={(e) => oend(e)}
     on:click
     bind:this={popoverEl}
   >

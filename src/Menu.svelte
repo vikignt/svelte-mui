@@ -40,7 +40,18 @@
     <span />
   </slot>
 
-  <Popover class={className} {style} {origin} {dx} {dy} {duration} bind:visible on:click={onPopoverClick}>
+  <Popover
+    class={className}
+    {style}
+    {origin}
+    {dx}
+    {dy}
+    {duration}
+    bind:visible
+    on:open
+    on:close
+    on:click={onPopoverClick}
+  >
     <ul style={`min-width: ${width}px`}>
       <slot />
     </ul>

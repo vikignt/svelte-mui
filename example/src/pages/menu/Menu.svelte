@@ -16,7 +16,7 @@
 </script>
 
 <DemoPanel>
-  <Menu style="border-radius: 4px;" {origin} {dx} {dy} width={width * 56}>
+  <Menu style="border-radius: 4px;" {origin} {dx} {dy} on:open={() => console.log("menu open")} width={width * 56}>
     <div slot="activator">
       <Button color="primary" outlined ripple={false} style="padding-right: 4px;">
         <span>Menu</span>

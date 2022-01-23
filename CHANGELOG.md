@@ -1,6 +1,7 @@
 # svelte-mui changelog
 
 ## unpublish
+- Menu, Popover add open, close custom events
 - Menu add 'duration' (mS) prop for Popover animation, 300 by default
 - Modal
 - Popover
