@@ -1,7 +1,9 @@
 <script>
-  import { onDestroy } from "svelte";
+  import { onDestroy, createEventDispatcher } from "svelte";
   import { fly } from "svelte/transition";
   import Button from "./Button.svelte";
+
+  const dispatch = createEventDispatcher();
 
   export let visible = false;
   export { className as class };
@@ -29,18 +31,27 @@
     clearTimeout(timerId);
     timerId = undefined;
   });
+
+  function iend({ target }) {
+    dispatch("open");
+  }
+  function oend({ target }) {
+    dispatch("close");
+  }
 </script>
 
 {#if visible}
   <div
     in:fly={{ y: bottom ? 48 : -48, duration: 350 }}
     out:fly={{ y: bottom ? 48 : -48, duration: 350 }}
+    on:introend={(e) => iend(e)}
+    on:outroend={(e) => oend(e)}
     class={"snackbar " + className}
     class:top={!bottom}
     class:bottom
     style={`color: ${color};background: ${bg};${style}`}
   >
-    <div class="message">
+    <div>
       <slot />
     </div>
     <div class="action">
@@ -70,13 +81,6 @@
     margin-right: -16px;
     padding: 0 8px;
     margin-left: auto;
-  }
-
-  .message {
-    padding: 8px 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .top {

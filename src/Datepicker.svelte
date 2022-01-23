@@ -27,8 +27,10 @@
 
   $: if (elm) {
     setTimeout(() => {
-      elm.style.height = elm.offsetHeight + "px";
-      elm.style.width = elm.offsetWidth + "px";
+      if (elm) {
+        elm.style.height = elm.offsetHeight + "px";
+        elm.style.width = elm.offsetWidth + "px";
+      }
     }, 0);
   }
 

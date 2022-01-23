@@ -1,5 +1,14 @@
 # svelte-mui changelog
 
+## 0.5.0
+- Datepicker: check elm after time out; Day, Month use local transition
+- Snackbar: add open, close custom events; remove css .message class
+- DatePicker: add validation after 'value' changed, good for period select
+- Menu, Popover add open, close custom events
+- Menu add 'duration' (mS) prop for Popover animation, 300 by default
+- Modal
+- Popover
+
 ## 0.4.0-2
 
 - #46 update for latest Svelte version v3.46.1 compatible

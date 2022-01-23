@@ -57,7 +57,7 @@
     }));
   }
 
-  $: cells = getDateCells(year, month).map((c) => ({
+  $: cells = getDateCells(year, month, value).map((c) => ({
     value: c,
     allowed: allow(year, month, c),
   }));
@@ -168,8 +168,8 @@
     {#each [0] as item (legacy ? item : year + month)}
       <div
         class="grid-cell"
-        in:fly={{ x: direction * 50, duration: 200, delay: 80 }}
-        out:fade={{ duration: direction === 0 ? 0 : 160 }}
+        in:fly|local={{ x: direction * 50, duration: 200, delay: 80 }}
+        out:fade|local={{ duration: direction === 0 ? 0 : 160 }}
       >
         <div class="title" tabindex="0" on:keydown={onKeydown} on:click={onMonth}>
           {new Intl.DateTimeFormat(locale, { month: "long" }).format(new Date(year, month, 1))}

@@ -18,7 +18,7 @@
   let btcolors = ["#f50057", "#ff0", "#ff0", "#ff0"];
 </script>
 
-<Snackbar bind:visible bg={bgs[type]} {color} {bottom} {timeout}>
+<Snackbar bind:visible bg={bgs[type]} {color} {bottom} {timeout} on:open={() => console.log("snackbar open")}>
   {message}
   <span slot="action">
     <Button color={btcolors[type]} on:click={() => (visible = false)}>Close</Button>
