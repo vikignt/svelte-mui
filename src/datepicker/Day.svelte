@@ -57,7 +57,7 @@
     }));
   }
 
-  $: cells = getDateCells(year, month).map((c) => ({
+  $: cells = getDateCells(year, month, value).map((c) => ({
     value: c,
     allowed: allow(year, month, c),
   }));
