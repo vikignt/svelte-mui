@@ -104,7 +104,7 @@
 <svelte:body on:touchstart={onTouchStart} on:touchend={onTouchEnd} />
 
 {#if visible}
-  <div class="overlay" transition:fade={{ duration: 300 }} on:click={hide} />
+  <div class="mui-overlay" transition:fade={{ duration: 300 }} on:click={hide} />
 {/if}
 <aside
   class="side-panel"
@@ -161,7 +161,7 @@
     transform: translateX(0);
   }
 
-  .overlay {
+  .mui-overlay {
     background-color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
     position: fixed;
