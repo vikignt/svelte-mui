@@ -41,7 +41,8 @@ const options = {
   bundle: true,
   watch,
   format: 'iife',
-  minify: production,
+  minifyWhitespace: true,
+  minifyIdentifiers: true,
   sourcemap: false,
   outfile: './public/build/bundle.js', // and bundle.css
   plugins: [
