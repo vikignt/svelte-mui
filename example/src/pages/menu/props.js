@@ -29,4 +29,10 @@ export default [
 		type: 'number',
 		desc: 'Popover minimum width, px',
 	},
+	{
+		name: 'duration',
+		def: '300',
+		type: 'number',
+		desc: 'Popover animation, mS',
+	},
 ];
