@@ -1,12 +1,13 @@
 <script>
   import Popover from "./Popover.svelte";
 
-  export { className as class, style, dx, dy, origin, width };
+  export { className as class, style, dx, dy, duration, origin, width };
 
   let className = "";
   let style = null;
   let dx = 0;
   let dy = 0;
+  let duration = 300;
   let origin = "top left"; // 'bottom left', 'bottom right', 'top left', 'top right'
   let width = 2 * 56;
 
@@ -39,7 +40,7 @@
     <span />
   </slot>
 
-  <Popover class={className} {style} {origin} {dx} {dy} bind:visible on:click={onPopoverClick}>
+  <Popover class={className} {style} {origin} {dx} {dy} {duration} bind:visible on:click={onPopoverClick}>
     <ul style={`min-width: ${width}px`}>
       <slot />
     </ul>
