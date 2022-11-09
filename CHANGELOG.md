@@ -1,5 +1,8 @@
 # svelte-mui changelog
 
+## 0.5.1
+- Datepicker: #43 fix week start day, thanks to @ellemenno
+
 ## 0.5.0
 - Datepicker: check elm after time out; Day, Month use local transition
 - Snackbar: add open, close custom events; remove css .message class
