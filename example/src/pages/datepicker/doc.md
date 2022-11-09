@@ -3,5 +3,3 @@ Datepicker component shows a calendar that allows the user to pick a date. This 
 #### Events
 
 `select` custom event emitted when the datepicker value is selected, `detail` field contains the `Date` object
-
-Any HTMLElement events

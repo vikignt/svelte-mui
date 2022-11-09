@@ -2,6 +2,8 @@
 node_modules
 yarn.lock
 package-lock.json
-/index.js
-/index.mjs
-public
+dist
+example/public/build
+index.js
+index.mjs
+*.tgz

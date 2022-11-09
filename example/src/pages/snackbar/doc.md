@@ -2,7 +2,7 @@ Snackbar component is used to display a quick message to a user and has close ac
 
 #### Events
 
-Any events
+`open`, `close` custom events
 
 #### Slot
 
