@@ -1,5 +1,9 @@
 # svelte-mui changelog
 
+## unpublish
+
+- Menu: prevent menu activator while open/close transitions
+
 ## 0.5.1
 - Datepicker: #43 fix week start day, thanks to @ellemenno
 
