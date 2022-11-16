@@ -11,20 +11,25 @@
   let origin = "top left"; // 'bottom left', 'bottom right', 'top left', 'top right'
   let width = 2 * 56;
 
+  let activatorEnabled = true;
   let visible = false;
   let menuEl;
 
   function onActivatorClick(e) {
-    try {
-      let triggerEl = menuEl.childNodes[0];
+    if (activatorEnabled) {
+      try {
+        let triggerEl = menuEl.childNodes[0];
 
-      if (triggerEl.contains(e.target)) {
-        visible = !visible;
-      } else if (e.target === menuEl) {
-        visible = false;
+        if (triggerEl.contains(e.target)) {
+          activatorEnabled = false;
+          visible = !visible;
+        } else if (e.target === menuEl) {
+          activatorEnabled = false;
+          visible = false;
+        }
+      } catch (err) {
+        console.error(err);
       }
-    } catch (err) {
-      console.error(err);
     }
   }
 
@@ -48,6 +53,8 @@
     {dy}
     {duration}
     bind:visible
+    on:open={() => (activatorEnabled = true)}
+    on:close={() => (activatorEnabled = true)}
     on:open
     on:close
     on:click={onPopoverClick}
