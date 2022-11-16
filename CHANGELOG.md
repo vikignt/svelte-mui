@@ -1,6 +1,6 @@
 # svelte-mui changelog
 
-## unpublish
+## 0.5.2
 
 - Menu: prevent menu activator while open/close transitions
 
