@@ -41,7 +41,7 @@
       duration: +duration,
     };
   }
-  async function istart({ target }) {
+  function istart({ target }) {
     setTimeout(() => {
       target.style.transitionDuration = duration + "ms";
       target.style.transitionProperty = "opacity, transform";
@@ -104,13 +104,16 @@
   }
   function setStyle() {
     if (!visible || !popoverEl || !triggerEl) return;
-    const rect = triggerEl.getBoundingClientRect();
-    if (rect.top < -rect.height || rect.top > window.innerHeight) {
-      close("overflow");
-      return;
-    }
-    popoverEl.style.top = getTopPosition(popoverEl.offsetHeight, rect) + "px";
-    popoverEl.style.left = getLeftPosition(popoverEl.offsetWidth, rect) + "px";
+
+    setTimeout(() => {
+      const rect = triggerEl.getBoundingClientRect();
+      if (rect.top < -rect.height || rect.top > window.innerHeight) {
+        close("overflow");
+        return;
+      }
+      popoverEl.style.top = getTopPosition(popoverEl.offsetHeight, rect) + "px";
+      popoverEl.style.left = getLeftPosition(popoverEl.offsetWidth, rect) + "px";
+    }, 0);
   }
 
   beforeUpdate(() => {
