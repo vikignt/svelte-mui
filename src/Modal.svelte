@@ -25,6 +25,8 @@
     /* eslint-disable no-unused-vars */
     const { style, visible, width, modal, closeByEsc, beforeClose, ...other } = $$props;
 
+    delete other.class;
+
     attrs = other;
   }
 
