@@ -1,9 +1,10 @@
 # svelte-mui changelog
 
-## unpublish
+## 0.5.4
 
 - Popover: refactor
 - Modal: fix error adding 'mui-modal' css class if custom class attr is used
+
 ## 0.5.3
 
 - Popover: fix get positions
