@@ -1,5 +1,5 @@
 <script>
-  import { beforeUpdate, createEventDispatcher } from "svelte";
+  import { createEventDispatcher } from "svelte";
   import { trapTabKey } from "./lib/focusableElm";
 
   const dispatch = createEventDispatcher();
@@ -20,6 +20,11 @@
   let listeners = [];
 
   const MARGIN = 8;
+
+  $: if (visible === true) {
+    triggerEl = popoverEl ? popoverEl.parentElement : null;
+    triggerEl && setStyle();
+  }
 
   function popoverIn(target) {
     target.style.transformOrigin = origin;
@@ -105,21 +110,14 @@
   function setStyle() {
     if (!visible || !popoverEl || !triggerEl) return;
 
-    setTimeout(() => {
-      const rect = triggerEl.getBoundingClientRect();
-      if (rect.top < -rect.height || rect.top > window.innerHeight) {
-        close("overflow");
-        return;
-      }
-      popoverEl.style.top = getTopPosition(popoverEl.offsetHeight, rect) + "px";
-      popoverEl.style.left = getLeftPosition(popoverEl.offsetWidth, rect) + "px";
-    }, 0);
+    const rect = triggerEl.getBoundingClientRect();
+    if (rect.top < -rect.height || rect.top > window.innerHeight) {
+      close("overflow");
+      return;
+    }
+    popoverEl.style.top = getTopPosition(popoverEl.offsetHeight, rect) + "px";
+    popoverEl.style.left = getLeftPosition(popoverEl.offsetWidth, rect) + "px";
   }
-
-  beforeUpdate(() => {
-    triggerEl = popoverEl ? popoverEl.parentElement : null;
-    triggerEl && setStyle();
-  });
 
   function close(params) {
     dispatch("close", params);
