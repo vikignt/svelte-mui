@@ -116,6 +116,17 @@
   {style}
   on:click={onclick}
   on:click
+  on:mousedown
+  on:mouseup
+  on:mouseover
+  on:mouseout
+  on:mousemove
+  on:dblclick
+  on:contextmenu
+  on:mouseenter
+  on:mouseleave
+  on:focus
+  on:blur
   {...attrs}
   bind:this={elm}
 >
