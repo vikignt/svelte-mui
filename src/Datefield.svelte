@@ -176,20 +176,20 @@
     display: flex;
     align-items: center;
   }
-  :global(.date-field) > .icon {
+  :global(.date-field > .icon) {
     margin-right: 12px;
     color: #777;
     color: var(--bg-app-bar, #777);
   }
-  :global(.date-field) > .icon:hover {
+  :global(.date-field > .icon:hover) {
     cursor: pointer;
   }
-  :global(.date-field).focus-visible > .icon,
-  :global(.date-field).focus-visible .label {
+  :global(.date-field.focus-visible > .icon),
+  :global(.date-field.focus-visible .label) {
     color: #1976d2;
     color: var(--primary, #1976d2);
   }
-  :global(.date-field).focus-visible .focus-line {
+  :global(.date-field.focus-visible .focus-line) {
     transform: scaleX(1);
     opacity: 1;
   }
