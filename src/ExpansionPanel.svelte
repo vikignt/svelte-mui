@@ -84,13 +84,13 @@
     display: none;
   }
   .panel.active:not(:first-child):not(.dense),
-  .panel.active:not(.dense) + .panel {
+  :global(.panel.active:not(.dense) + .panel) {
     margin-top: 16px;
   }
   .panel.active:not(.dense)::before {
     display: none;
   }
-  .panel.active:not(.dense) + .panel:before {
+  :global(.panel.active:not(.dense) + .panel:before) {
     display: none;
   }
 
