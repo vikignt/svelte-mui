@@ -234,7 +234,7 @@
       background-color: currentColor;
       opacity: 0.15;
     }
-    :global(.focus-visible).month-control:focus:not([disabled]):not(.disabled):before {
+    .month-control:focus-visible:not([disabled]):not(.disabled):before {
       background-color: currentColor;
       opacity: 0.3;
     }

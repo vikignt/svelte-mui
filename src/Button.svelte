@@ -253,11 +253,11 @@
       background-color: currentColor;
       opacity: 0.15;
     }
-    button.focus-visible:focus:not(.toggle):not([disabled]):not(.disabled):before {
+    button:focus-visible:not(.toggle):not([disabled]):not(.disabled):before {
       background-color: currentColor;
       opacity: 0.3;
     }
-    button.focus-visible.toggle:focus:not(.active):not([disabled]):not(.disabled):before {
+    button.toggle:focus-visible:not(.active):not([disabled]):not(.disabled):before {
       background-color: currentColor;
       opacity: 0.15;
     }

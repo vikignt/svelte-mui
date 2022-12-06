@@ -123,7 +123,7 @@
     .menu-item:hover:not([disabled]):not(.disabled):before {
       opacity: 0.15;
     }
-    :global(.focus-visible).menu-item:focus:not([disabled]):not(.disabled):before {
+    .menu-item:focus-visible:not([disabled]):not(.disabled):before {
       opacity: 0.3;
     }
   }

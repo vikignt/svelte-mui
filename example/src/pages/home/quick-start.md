@@ -16,12 +16,6 @@ Add components
 npm install --save-dev svelte-mui
 ```
 
-* *Optionally* add [focus-visible](https://github.com/WICG/focus-visible) polyfill to enable focus to be visible when using <kbd>TAB</kbd> key. This option can be applied to `Button`, `Checkbox`, `Radio` button, `Menuitem`
-
-```bash
-npm install --save-dev focus-visible
-```
-
 Modify file `src/App.svelte` in the following way
 
 ```html
@@ -42,8 +36,6 @@ Modify file `src/App.svelte` in the following way
 
 <script>
     export let name;
-    // optional import focus-visible polyfill only once
-    import 'focus-visible';
     // import any components
     import { Button, Checkbox } from 'svelte-mui';
 

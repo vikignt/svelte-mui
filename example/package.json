@@ -16,7 +16,6 @@
         "derver": "^0.5.3",
         "esbuild": "0.14.11",
         "esbuild-svelte": "0.6.1",
-        "focus-visible": "^5.0.2",
         "highlight.js": "^11.4.0",
         "marked": "^4.0.10",
         "page": "^1.11.5",

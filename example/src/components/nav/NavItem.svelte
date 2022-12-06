@@ -62,7 +62,7 @@
 		a:hover:not([disabled]):not(.disabled):before {
 			opacity: 0.15;
 		}
-		:global(.focus-visible).nav-item:focus:not([disabled]):not(.disabled):before {
+		.nav-item:focus-visible:not([disabled]):not(.disabled):before {
 			opacity: 0.3;
 		}
 	}

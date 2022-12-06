@@ -352,8 +352,7 @@
     /* postcss-custom-properties: ignore next */
     color: var(--primary, #1976d2);
   }
-  .outlined .input:focus ~ .focus-ring,
-  .outlined .input.focus-visible ~ .focus-ring {
+  .outlined .input:focus ~ .focus-ring {
     border-color: #1976d2;
     /* postcss-custom-properties: ignore next */
     border-color: var(--primary, #1976d2);

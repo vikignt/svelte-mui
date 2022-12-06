@@ -148,7 +148,7 @@
     label:hover:not([disabled]):not(.disabled) .mark:before {
       opacity: 0.15;
     }
-    :global(.focus-visible):focus:not([disabled]):not(.disabled) ~ .mark:before {
+    [type="checkbox"]:focus-visible:not([disabled]):not(.disabled) ~ .mark:before {
       opacity: 0.3;
     }
   }
