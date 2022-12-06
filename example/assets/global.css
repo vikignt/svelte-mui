@@ -104,7 +104,7 @@ input:focus {
 	a.icon:hover:not([disabled]):not(.disabled):before {
 		opacity: 0.15;
 	}
-	a.icon.focus-visible:focus:not([disabled]):not(.disabled):before {
+	a.icon:focus-visible:not([disabled]):not(.disabled):before {
 		opacity: 0.3;
 	}
 }

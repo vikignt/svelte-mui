@@ -30,7 +30,9 @@
 
   function onclick(e) {
     group = group === name ? "" : name;
-    e.target.classList.remove("focus-visible");
+    try {
+      e.target.blur();
+    } catch (error) {}
   }
 </script>
 
@@ -141,7 +143,7 @@
   }
 
   @media (hover: hover) {
-    .header.focus-visible:focus:not([disabled]):not(.disabled) {
+    .header:focus-visible:not([disabled]):not(.disabled) {
       outline: none;
       border: 2px solid var(--focus-color, rgba(25, 118, 210, 0.5));
     }

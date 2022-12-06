@@ -1,5 +1,4 @@
 import '../assets/global.css';
-import 'focus-visible';
 import page from 'page';
 
 import App from './App.svelte';

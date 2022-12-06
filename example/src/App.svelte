@@ -185,7 +185,7 @@
     .explore:hover:before {
       opacity: 0.15;
     }
-    :global(.focus-visible).explore:focus::before {
+    .explore:focus-visible::before {
       opacity: 0.3;
     }
   }
