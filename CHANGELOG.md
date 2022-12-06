@@ -1,5 +1,9 @@
 # svelte-mui changelog
 
+## 0.5.7
+
+- use :focus-visible pseudo class; remove focus-visible polyfill from example
+
 ## 0.5.6
 
 - Datefield, ExpansionPanel: fix css
