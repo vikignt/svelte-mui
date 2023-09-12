@@ -50,11 +50,15 @@
   }
 
   function onTouchStart(e) {
+    if ((e.changedTouches || []).length == 0) return;
+
     touchStart.x = e.changedTouches[0].clientX;
     touchStart.y = e.changedTouches[0].clientY;
   }
 
   function onTouchEnd(e) {
+    if ((e.changedTouches || []).length == 0) return;
+
     const dx = e.changedTouches[0].clientX - touchStart.x;
     const dy = e.changedTouches[0].clientY - touchStart.y;
     const absDx = Math.abs(dx);

@@ -1,5 +1,10 @@
 # svelte-mui changelog
 
+## 0.5.8
+
+- fixed a potential bug in `onTouchStart` and `onTouchEnd` methods of
+  `Sidepanel` occurring if another listener grabs touch events
+
 ## 0.5.7
 
 - use :focus-visible pseudo class; remove focus-visible polyfill from example
