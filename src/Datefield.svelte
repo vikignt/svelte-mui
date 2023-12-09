@@ -25,9 +25,14 @@
   let elm;
   let visible = false;
   let pickerVal; // Date type, can be isNaN(pickerVal)
-  let text = isDate(value) ? tostring(value, format) : value;
+  let text;
   let error = "";
-  let originalValue = clone(value);
+  let originalValue;
+
+  $: {
+    text = isDate(value) ? tostring(value, format) : value;
+    originalValue = clone(value);
+  }
 
   $: {
     /* eslint-disable no-unused-vars */
