@@ -21,9 +21,12 @@
     value = new Date(NaN);
   }
 
-  let d = isNaN(value) ? new Date() : new Date(value.getTime());
-  month = d.getMonth();
-  year = d.getFullYear();
+  let d = new Date();
+  $: {
+    d = isNaN(value) ? new Date() : new Date(value.getTime());
+    month = d.getMonth();
+    year = d.getFullYear();
+  }
 
   $: if (elm) {
     setTimeout(() => {

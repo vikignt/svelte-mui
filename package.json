@@ -18,12 +18,12 @@
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"peerDependencies": {
-		"svelte": "3.*"
+		"svelte": "^3.53.0 || ^4.0.0"
 	},
 	"devDependencies": {
-		"esbuild": "0.14.11",
-		"esbuild-svelte": "0.6.1",
-		"svelte": "3.46.1"
+		"esbuild": "0.19.8",
+		"esbuild-svelte": "0.8.0",
+		"svelte": "4.2.8"
 	},
 	"dependencies": {},
 	"keywords": [
