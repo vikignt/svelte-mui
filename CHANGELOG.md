@@ -1,5 +1,9 @@
 # svelte-mui changelog
 
+## 0.5.9
+
+- compatibility with svelte 4 and svelte-kit 2.0
+
 ## 0.5.8
 
 - fixed a potential bug in `onTouchStart` and `onTouchEnd` methods of
