@@ -8,34 +8,38 @@
 		"url": "https://github.com/vikignt/svelte-mui.git"
 	},
 	"license": "MIT",
-	"svelte": "src/index.js",
-	"module": "index.mjs",
-	"cdn": "index.js",
-	"unpkg": "index.js",
+	"type": "module",
+	"types": "dist/index.d.ts",
+	"svelte": "./dist/index.js",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js"
+		},
+		"./package.json": "./package.json"
+	},
+	"files": [
+		"dist",
+		"src"
+	],
 	"scripts": {
-		"build": "node esbuild",
-		"zip": "gzip -9k index.mjs index.js",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"build": "svelte-package --input ./src --output ./dist && publint --strict"
 	},
 	"peerDependencies": {
 		"svelte": "^3.53.0 || ^4.0.0"
 	},
 	"devDependencies": {
-		"esbuild": "0.19.8",
-		"esbuild-svelte": "0.8.0",
-		"svelte": "4.2.8"
+		"@sveltejs/package": "^2.2.4",
+		"@sveltejs/vite-plugin-svelte": "^3.0.1",
+		"publint": "^0.2.7",
+		"svelte": "^4.2.8",
+		"vite": "^5.0.10"
 	},
-	"dependencies": {},
 	"keywords": [
 		"svelte",
 		"svelte-ui",
 		"svelte-mui",
 		"material",
 		"ui"
-	],
-	"files": [
-		"src",
-		"index.mjs",
-		"index.js"
 	]
 }
