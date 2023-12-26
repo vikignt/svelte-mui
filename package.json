@@ -1,7 +1,7 @@
 {
 	"name": "svelte-mui",
-	"version": "0.5.9",
-	"description": "Set of Svelte 3 material ui components",
+	"version": "0.5.10",
+	"description": "Set of Svelte 3/4 material ui components",
 	"author": "viking <vikignt@gmail.com>",
 	"repository": {
 		"type": "git",
@@ -19,8 +19,7 @@
 		"./package.json": "./package.json"
 	},
 	"files": [
-		"dist",
-		"src"
+		"dist"
 	],
 	"scripts": {
 		"build": "svelte-package --input ./src --output ./dist && publint --strict"

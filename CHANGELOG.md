@@ -1,5 +1,10 @@
 # svelte-mui changelog
 
+## 0.5.10
+
+- update package build process
+- remove unneeded `src` from package, `dist` include all sources
+
 ## 0.5.9
 
 - compatibility with svelte 4 and svelte-kit 2.0
