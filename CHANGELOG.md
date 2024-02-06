@@ -1,5 +1,9 @@
 # svelte-mui changelog
 
+## 0.5.11
+
+- added an optional progress bar and `icon` slot to `Snackbar`
+
 ## 0.5.10
 
 - update package build process

@@ -1,6 +1,6 @@
 {
 	"name": "svelte-mui",
-	"version": "0.5.10",
+	"version": "0.5.11",
 	"description": "Set of Svelte 3/4 material ui components",
 	"author": "viking <vikignt@gmail.com>",
 	"repository": {

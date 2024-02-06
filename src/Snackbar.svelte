@@ -13,16 +13,22 @@
   export let bg = "rgba(0,0,0,.87)";
   export let color = "#fff";
   export let timeout = 5;
+  export let progress = false;
+  export let progressStyle = "";
 
   let timerId;
+  let progressWidth = 100;
 
   $: if (visible === true) {
     clearTimeout(timerId);
     timerId = undefined;
+
     if (timeout > 0) {
+      setTimeout(() => (progressWidth = 0), 0);
       timerId = setTimeout(() => {
         visible = false;
         timerId = undefined;
+        progressWidth = 100;
       }, timeout * 1000);
     }
   }
@@ -30,12 +36,14 @@
   onDestroy(() => {
     clearTimeout(timerId);
     timerId = undefined;
+    progressWidth = 100;
   });
 
   function iend({ target }) {
     dispatch("open");
   }
   function oend({ target }) {
+    progressWidth = 100;
     dispatch("close");
   }
 </script>
@@ -51,14 +59,19 @@
     class:bottom
     style={`color: ${color};background: ${bg};${style}`}
   >
-    <div>
-      <slot />
-    </div>
+    <div><slot name="icon" /></div>
+    <div><slot /></div>
     <div class="action">
       <slot name="action">
         <Button color="#f50057" on:click={() => (visible = false)}>Close</Button>
       </slot>
     </div>
+    {#if progress}
+      <div
+        id="progress"
+        style="{progressStyle}; transition: width {timeout}s linear; width: {progressWidth}%;"
+      ></div>
+    {/if}
   </div>
 {/if}
 
@@ -74,7 +87,10 @@
     position: fixed;
     flex-wrap: nowrap;
     z-index: 50;
-    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+    box-shadow:
+      0 3px 5px -1px rgba(0, 0, 0, 0.2),
+      0 6px 10px 0 rgba(0, 0, 0, 0.14),
+      0 1px 18px 0 rgba(0, 0, 0, 0.12);
   }
 
   .action {
@@ -102,5 +118,12 @@
       right: 0;
       transform: translate3d(0, 0, 0);
     }
+  }
+
+  #progress {
+    height: 4px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 </style>

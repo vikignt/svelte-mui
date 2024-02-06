@@ -36,6 +36,18 @@ export default [
 		desc: 'Sets the duration before hiding the snackbar (0 disables autohiding), sec',
 	},
 	{
+		name: 'progress',
+		def: 'false',
+		type: 'boolean',
+		desc: 'Enables progress bar at the bottom of a snackbar',
+	},
+	{
+		name: 'progressStyle',
+		def: 'background-color: red',
+		type: 'string',
+		desc: 'Progress bar styles (formatted as a string without a trailing semi-colon)',
+	},
+	{
 		name: 'visible',
 		def: 'false',
 		type: 'boolean',

@@ -1,6 +1,8 @@
 <script>
-  import { Snackbar, Button, Checkbox, Radio, Textfield } from "../../../../src";
   import { DemoPanel, Play, Description, Properties } from "../../components/demo";
+  import { Snackbar, Button, Checkbox, Radio, Textfield } from "../../../../src";
+  import Icon from "../../../../src/Icon.svelte";
+  import approval from "../../components/icons/svg/approval.svg";
 
   import code from "./code.md";
   import doc from "./doc.md";
@@ -10,6 +12,8 @@
   let timeout = 5;
   let message = "Snackbar message!";
   let color = "#fff";
+  let progress = false;
+  let icon = false;
 
   let bottom = false;
   let type = "0";
@@ -18,7 +22,23 @@
   let btcolors = ["#f50057", "#ff0", "#ff0", "#ff0"];
 </script>
 
-<Snackbar bind:visible bg={bgs[type]} {color} {bottom} {timeout} on:open={() => console.log("snackbar open")}>
+<Snackbar
+  bind:visible
+  bg={bgs[type]}
+  {progress}
+  progressStyle="background-color: red"
+  {color}
+  {bottom}
+  {timeout}
+  on:open={() => console.log("snackbar open")}
+>
+  <span slot="icon">
+    {#if icon}
+      <Icon style="padding-right: 8px">
+        <svelte:component this={approval} />
+      </Icon>
+    {/if}
+  </span>
   {message}
   <span slot="action">
     <Button color={btcolors[type]} on:click={() => (visible = false)}>Close</Button>
@@ -45,9 +65,22 @@
   <div>
     <Checkbox bind:checked={bottom}>bottom</Checkbox>
   </div>
-
+  <div>
+    <Radio bind:group={icon} value={false} title="default">without icon *</Radio>
+    <Radio bind:group={icon} value={true} title="show">with icon</Radio>
+  </div>
+  <div>
+    <Radio bind:group={progress} value={false} title="default">without progress bar *</Radio>
+    <Radio bind:group={progress} value={true} title="show">with progress bar</Radio>
+  </div>
   <div class="text-fields">
-    <Textfield class="layout-item" outlined bind:value={message} label="Message" style="max-width: 60%;" />
+    <Textfield
+      class="layout-item"
+      outlined
+      bind:value={message}
+      label="Message"
+      style="max-width: 60%;"
+    />
     <Textfield
       outlined
       type="number"
