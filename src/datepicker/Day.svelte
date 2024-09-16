@@ -52,7 +52,7 @@
 		weekdays.length = 0;
 		let date = new Date(0); // universal time zero (UTC: Thu, 01 Jan 1970 00:00:00 GMT)
 		date.setHours(0); // start of day, local time
-		let dayZero = date.getDate() - date.getDay(); // day zero of the week (Sunday)
+		let dayZero = date.getDate() - date.getDay() + 7; // day zero of the week (Sunday)
 		while (dayZero > 16) dayZero -= 7; // avoid overflow: (dayZero + 6 + 6) <= 28
 		for (let i = 0; i < 7; i++) {
 			date.setDate(dayZero + weekStart + i);
