@@ -1,5 +1,9 @@
 # svelte-mui changelog
 
+## 0.5.11
+
+- Calendar: fix weekdays
+
 ## 0.5.10
 
 - update package build process
