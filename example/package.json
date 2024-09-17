@@ -13,12 +13,12 @@
         "build": "node esbuild.js prod"
     },
     "devDependencies": {
-        "derver": "^0.5.3",
+        "derver": "0.5.3",
         "esbuild": "0.14.11",
         "esbuild-svelte": "0.6.1",
-        "highlight.js": "^11.4.0",
-        "marked": "^4.0.10",
-        "page": "^1.11.5",
+        "highlight.js": "11.4.0",
+        "marked": "4.0.10",
+        "page": "1.11.5",
         "svelte": "3.46.1"
     }
 }
