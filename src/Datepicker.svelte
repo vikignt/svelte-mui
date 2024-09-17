@@ -8,24 +8,17 @@
   export let locale;
   export let isAllowed = () => true;
   export let header = true;
-  export let value;
+  export let value = new Date();
 
   const dispatch = createEventDispatcher();
 
   let type = "days";
-  let month;
-  let year;
+  let month = value.getMonth();
+  let year = value.getFullYear();
   let elm;
 
   if (!isDate(value)) {
     value = new Date(NaN);
-  }
-
-  let d = new Date();
-  $: {
-    d = isNaN(value) ? new Date() : new Date(value.getTime());
-    month = d.getMonth();
-    year = d.getFullYear();
   }
 
   $: if (elm) {
