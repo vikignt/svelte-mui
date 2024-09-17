@@ -1,5 +1,9 @@
 # svelte-mui changelog
 
+## 0.5.12
+
+- Calendar: fix month, year reactive
+
 ## 0.5.11
 
 - Calendar: fix weekdays
